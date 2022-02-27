@@ -2,3 +2,8 @@
 *
 # Except this file
 !.gitignore
+
+# Don't ignore images
+!failure.png
+!warning.png
+!success.png
