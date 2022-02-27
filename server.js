@@ -18,6 +18,10 @@ const urls = [
     'https://riafan.ru/',
     'https://kremlin.ru/',
     'https://lenta.ru/',
+    'https://www.nornickel.com/',
+    'https://yandex.ua/',
+    'https://ya.ru/',
+    'https://tinkoff.ru/',
 ]
 
 app.listen(PORT, () => {
@@ -55,7 +59,7 @@ urls.forEach((value, index, array) => {
 })
 
 function writeSitesInfoToHtml() {
-    let str = '<table style="border: 1px solid black; border-collapse: collapse"><tbody>'
+    let str = '<h1>Russian sites availability dashboard</h1><table style="border: 1px solid black; border-collapse: collapse"><tbody>'
 
     sitesInfo.forEach((value, key, map) => {
         let info = value
@@ -70,19 +74,26 @@ function writeSitesInfoToHtml() {
             str += 'No info'
             str += '</td>'
         } else if (info.success) {
-            str += '<td style="border: 1px solid black; border-collapse: collapse; background-color: green">'
-            str += info.url
-            str += '</td>'
+            let color = ''
+            if (info.statusCode >= 200 && info.statusCode <= 299) {
+                color = 'green'
+            } else {
+                color = 'yellow'
+            }
 
-            str += '<td style="border: 1px solid black; border-collapse: collapse; background-color: green">'
-            str += 'Status code: '
-            str += info.statusCode
-            str += '</td>'
+            str += '<td style="border: 1px solid black; border-collapse: collapse; background-color: ' + color + '">'
+                str += info.url
+                str += '</td>'
 
-            str += '<td style="border: 1px solid black; border-collapse: collapse; background-color: green">'
-            str += 'Last update: '
-            str += info.updateTime.toISOString()
-            str += '</td>'
+                str += '<td style="border: 1px solid black; border-collapse: collapse; background-color: ' + color + '">'
+                str += 'Status code: '
+                str += info.statusCode
+                str += '</td>'
+
+                str += '<td style="border: 1px solid black; border-collapse: collapse; background-color: ' + color + '">'
+                str += 'Last update: '
+                str += info.updateTime.toISOString()
+                str += '</td>'
         } else {
             str += '<td style="border: 1px solid black; border-collapse: collapse; background-color: red">'
             str += info.url
