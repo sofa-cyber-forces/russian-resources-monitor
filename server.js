@@ -23,6 +23,21 @@ const URLS = [
     'https://ya.ru/',
     'https://tinkoff.ru/',
 ]
+class SiteAccessibilityInfo {
+    constructor(url) {
+        this.url = url
+        
+        this.success = null
+        this.statusCode = null
+        this.error = null
+        this.updateTime = null
+    }
+}
+let sitesInfo = new Map()
+URLS.forEach((value, index, array) => {
+    let url = value
+    sitesInfo.set(url, new SiteAccessibilityInfo(url))
+})
 
 app.listen(PORT, () => {
     console.log("listening on port " + PORT)
@@ -41,22 +56,6 @@ function updateRegularly(url) {
         }, MINUTES * 60 * 1000)
     })
 }
-
-class SiteAccessibilityInfo {
-    constructor(url) {
-        this.url = url
-        
-        this.success = null
-        this.statusCode = null
-        this.error = null
-        this.updateTime = null
-    }
-}
-let sitesInfo = new Map()
-URLS.forEach((value, index, array) => {
-    let url = value
-    sitesInfo.set(url, new SiteAccessibilityInfo(url))
-})
 
 function writeSitesInfoToHtml() {
     let str = '<h1>Russian sites availability dashboard</h1><table style="border: 1px solid black; border-collapse: collapse"><tbody>'
