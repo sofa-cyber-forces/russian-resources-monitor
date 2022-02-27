@@ -13,7 +13,7 @@ fs.writeFileSync('public/index.html', 'No information at the moment. Please upda
 
 app.use(express.static('public'));
 
-const urls = [
+const URLS = [
     'https://google.com/',
     'https://riafan.ru/',
     'https://kremlin.ru/',
@@ -27,7 +27,7 @@ const urls = [
 app.listen(PORT, () => {
     console.log("listening on port " + PORT)
 
-    urls.forEach((value, index, array) => {
+    URLS.forEach((value, index, array) => {
         let url = value
         updateRegularly(url)
     })
@@ -53,7 +53,7 @@ class SiteAccessibilityInfo {
     }
 }
 let sitesInfo = new Map()
-urls.forEach((value, index, array) => {
+URLS.forEach((value, index, array) => {
     let url = value
     sitesInfo.set(url, new SiteAccessibilityInfo(url))
 })
