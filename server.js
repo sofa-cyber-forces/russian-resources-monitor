@@ -198,7 +198,10 @@ function writeSitesInfoToHtml() {
         return 0
     })
 
-    let str = '<h1>Russian/Belarusian sites availability</h1>'
+    let str = '<h1>Russian/Belarusian websites availability</h1>'
+    str += '<h3>This table shows which Russian and Belarusian sites are available from United States. This list contains governmental websites, banks, pro-Russian media and corporations.</h3>'
+    str += '<h4>To see which of these websites are available from Russia follow this link: <a>the link will be here soon</a></h4>'
+
 
     str += '<table style="border: 1px solid black; border-collapse: collapse"><tbody>'
 
@@ -268,6 +271,9 @@ function writeSitesInfoToHtml() {
     })
 
     str += '</tbody></table>'
+
+    str += '<p>Source code: <a href="https://github.com/sofa-cyber-forces/russian-resources-monitor">https://github.com/sofa-cyber-forces/russian-resources-monitor</a></p>'
+    str += '<p>E-mail all your questions and proposals to sofa.cyber.forces@gmail.com</p>'
 
     fs.writeFile('public/index.html', str, function(err) {
         if (err) {
