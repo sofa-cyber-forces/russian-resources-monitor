@@ -9,7 +9,7 @@ const PORT = 80;
 app.disable('x-powered-by')
 app.use(express.json())
 
-fs.writeFileSync('public/index.html', 'No information at the moment. Please update the page in a minute.<br><br>')
+fs.writeFileSync('public/index.html', 'No information at the moment. Please update the page in a minute.')
 
 app.use(express.static('public'));
 
