@@ -34,11 +34,11 @@ app.listen(PORT, () => {
 })
 
 function updateRegularly(url) {
-    let minutes = 2
+    const MINUTES = 2
     checkSite(url, () => {
         setTimeout(() => {
             updateRegularly(url)
-        }, minutes * 60 * 1000)
+        }, MINUTES * 60 * 1000)
     })
 }
 
