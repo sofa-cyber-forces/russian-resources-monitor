@@ -65,45 +65,53 @@ function writeSitesInfoToHtml() {
 
         str += '<tr>'
         if (info.success == null) {
+            str += '<td>'
+            str += '</td>'
+
             str += '<td style="border: 1px solid black; border-collapse: collapse">'
             str += info.url
             str += '</td">'
-
+            
             str += '<td style="border: 1px solid black; border-collapse: collapse">'
             str += 'No info'
             str += '</td>'
         } else if (info.success) {
-            let color = ''
+            str += '<td style="border: 1px solid black; border-collapse: collapse">'
             if (info.statusCode >= 200 && info.statusCode <= 299) {
-                color = 'green'
+                str += '<img src="success.png" width="20" height="20">'
             } else {
-                color = 'yellow'
+                str += '<img src="warning.png" width="20" height="20">'
             }
+            str += '</td>'
 
-            str += '<td style="border: 1px solid black; border-collapse: collapse; background-color: ' + color + '">'
-                str += info.url
-                str += '</td>'
-
-                str += '<td style="border: 1px solid black; border-collapse: collapse; background-color: ' + color + '">'
-                str += 'Status code: '
-                str += info.statusCode
-                str += '</td>'
-
-                str += '<td style="border: 1px solid black; border-collapse: collapse; background-color: ' + color + '">'
-                str += 'Last update: '
-                str += info.updateTime.toISOString()
-                str += '</td>'
-        } else {
-            str += '<td style="border: 1px solid black; border-collapse: collapse; background-color: red">'
+            str += '<td style="border: 1px solid black; border-collapse: collapse">'
             str += info.url
             str += '</td>'
 
-            str += '<td style="border: 1px solid black; border-collapse: collapse; background-color: red">'
+            str += '<td style="border: 1px solid black; border-collapse: collapse">'
+            str += 'Status code: '
+            str += info.statusCode
+            str += '</td>'
+
+            str += '<td style="border: 1px solid black; border-collapse: collapse">'
+            str += 'Last update: '
+            str += info.updateTime.toISOString()
+            str += '</td>'
+        } else {
+            str += '<td style="border: 1px solid black; border-collapse: collapse">'
+            str += '<img src="failure.png" width="20" height="20">'
+            str += '</td>'
+
+            str += '<td style="border: 1px solid black; border-collapse: collapse">'
+            str += info.url
+            str += '</td>'
+
+            str += '<td style="border: 1px solid black; border-collapse: collapse">'
             str += 'Error: '
             str += info.error
             str += '</td>'
 
-            str += '<td style="border: 1px solid black; border-collapse: collapse; background-color: red">'
+            str += '<td style="border: 1px solid black; border-collapse: collapse">'
             str += 'Last update: '
             str += info.updateTime.toISOString()
             str += '</td>'
