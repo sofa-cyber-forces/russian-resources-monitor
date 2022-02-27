@@ -13,19 +13,21 @@ fs.writeFileSync('public/index.html', 'No information at the moment. Please upda
 
 app.use(express.static('public'));
 
-app.listen(PORT, () => {
-    console.log("listening on port " + PORT)
-
-    checkSite('https://google.com/')
-    checkSite('https://riafan.ru/')
-    checkSite('https://kremlin.ru/')
-})
-
 const urls = [
     'https://google.com/',
     'https://riafan.ru/',
-    'https://kremlin.ru/'
+    'https://kremlin.ru/',
+    'https://lenta.ru/',
 ]
+
+app.listen(PORT, () => {
+    console.log("listening on port " + PORT)
+
+    urls.forEach((value, index, array) => {
+        let url = value
+        checkSite(url)
+    })
+})
 
 class SiteAccessibilityInfo {
     constructor(url, success, statusCode, error) {
@@ -42,19 +44,44 @@ urls.forEach((value, index, array) => {
 })
 
 function writeSitesInfoToHtml() {
-    let str = ''
+    let str = '<table style="border: 1px solid black; border-collapse: collapse"><tbody>'
+
     sitesInfo.forEach((value, key, map) => {
         let info = value
         console.log(info)
 
+        str += '<tr>'
         if (info.success === undefined) {
-            str = str + info.url + ': no info<br>'
+            str += '<td style="border: 1px solid black; border-collapse: collapse">'
+            str += info.url
+            str += '</td">'
+
+            str += '<td style="border: 1px solid black; border-collapse: collapse">'
+            str += 'No info'
+            str += '</td>'
         } else if (info.success) {
-            str = str + info.url + ': success, code: ' + info.statusCode + '<br>'
+            str += '<td style="border: 1px solid black; border-collapse: collapse; background-color: green">'
+            str += info.url
+            str += '</td>'
+
+            str += '<td style="border: 1px solid black; border-collapse: collapse; background-color: green">'
+            str += 'Status code: '
+            str += info.statusCode
+            str += '</td>'
         } else {
-            str = str + info.url + ': error: ' + info.error + '<br>'
+            str += '<td style="border: 1px solid black; border-collapse: collapse; background-color: red">'
+            str += info.url
+            str += '</td>'
+
+            str += '<td style="border: 1px solid black; border-collapse: collapse; background-color: red">'
+            str += 'Error: '
+            str += info.error
+            str += '</td>'
         }
+        str += '</tr>'
     })
+
+    str += '</tbody></table>'
 
     console.log('index.html:')
     console.log(str)
