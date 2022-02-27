@@ -25,9 +25,18 @@ app.listen(PORT, () => {
 
     urls.forEach((value, index, array) => {
         let url = value
-        checkSite(url)
+        updateRegularly(url)
     })
 })
+
+function updateRegularly(url) {
+    let minutes = 2
+    checkSite(url, () => {
+        setTimeout(() => {
+            updateRegularly(url)
+        }, minutes * 60 * 1000)
+    })
+}
 
 class SiteAccessibilityInfo {
     constructor(url, success, statusCode, error) {
@@ -48,7 +57,6 @@ function writeSitesInfoToHtml() {
 
     sitesInfo.forEach((value, key, map) => {
         let info = value
-        console.log(info)
 
         str += '<tr>'
         if (info.success === undefined) {
@@ -83,19 +91,15 @@ function writeSitesInfoToHtml() {
 
     str += '</tbody></table>'
 
-    console.log('index.html:')
-    console.log(str)
-
     fs.writeFile('public/index.html', str, function(err) {
         if (err) {
             console.log('write file error: ' + err)
-        } else {
-            console.log('write file success')
         }
     })
 }
 
-function checkSite(url) {
+function checkSite(url, cb) {
+    console.log('checking ' + url)
     https.get(url, function (res) {
         let str = url + ': success, code: ' + res.statusCode
         console.log(str)
@@ -109,6 +113,8 @@ function checkSite(url) {
         info.error = null
 
         writeSitesInfoToHtml()
+
+        cb()
     }).on('error', function(e) {
         let str = url + ': error: ' + e
         console.log(str)
@@ -122,5 +128,7 @@ function checkSite(url) {
         info.error = e
 
         writeSitesInfoToHtml()
+
+        cb()
     })
 }
