@@ -1,0 +1,22 @@
+{
+  "name": "russian-resources-monitor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sofa-cyber-forces/russian-resources-monitor.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/sofa-cyber-forces/russian-resources-monitor/issues"
+  },
+  "homepage": "https://github.com/sofa-cyber-forces/russian-resources-monitor#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
