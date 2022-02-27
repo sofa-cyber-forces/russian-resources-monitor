@@ -160,6 +160,44 @@ function updateRegularly(url) {
 }
 
 function writeSitesInfoToHtml() {
+    let sitesInfoArr = Array.from(sitesInfo.values());
+    sitesInfoArr = sitesInfoArr.sort((a, b) => {
+        if (a.success != null && b.success == null) {
+            return -1
+        }
+        if (a.success == null && b.success != null) {
+            return 1
+        }
+        if (a.success && !b.success) {
+            return -1
+        }
+        if (!a.success && b.success) {
+            return 1
+        }
+        if (a.success && b.success) {
+            let status2xxA = a.statusCode >= 200 && a.statusCode <= 299
+            let status2xxB = b.statusCode >= 200 && b.statusCode <= 299
+            if (status2xxA && !status2xxB) {
+                return -1
+            } else if (!status2xxA && status2xxB) {
+                return 1
+            }
+        }
+        if (a.statusCode < b.statusCode) {
+            return -1
+        }
+        if (a.statusCode > b.statusCode) {
+            return 1
+        }
+        if (a.url < b.url) {
+            return -1
+        }
+        if (a.url > b.url) {
+            return 1
+        }
+        return 0
+    })
+
     let str = '<h1>Russian/Belarusian sites availability</h1>'
 
     str += '<table style="border: 1px solid black; border-collapse: collapse"><tbody>'
@@ -178,7 +216,7 @@ function writeSitesInfoToHtml() {
     str += '</th>'
     str += '</tr>'
 
-    sitesInfo.forEach((value, key, map) => {
+    sitesInfoArr.forEach((value, index, array) => {
         let info = value
 
         str += '<tr>'
