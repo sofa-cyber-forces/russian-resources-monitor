@@ -1,5 +1,6 @@
 const express = require('express')
-var https = require('https');
+const https = require('https');
+const fs = require('fs')
 
 const app = express()
 
@@ -8,9 +9,9 @@ const PORT = 80;
 app.disable('x-powered-by')
 app.use(express.json())
 
-app.get('/', (req, res) => {
-    res.status(200).send("hello world")
-})
+fs.writeFileSync('public/index.html', 'No information at the moment. Please update the page in a minute.<br><br>')
+
+app.use(express.static('public'));
 
 app.listen(PORT, () => {
     console.log("listening on port " + PORT)
@@ -22,8 +23,18 @@ app.listen(PORT, () => {
 
 function checkSite(url) {
     https.get(url, function (res) {
-        console.log(url + ': success, code: ' + res.statusCode)
+        let str = url + ': success, code: ' + res.statusCode
+        console.log(str)
+
+        fs.appendFile('public/index.html', str + '<br>', function (err) {
+            //
+        })
     }).on('error', function(e) {
-        console.log(url + ': error: ' + e)
+        let str = url + ': error: ' + e
+        console.log(str)
+
+        fs.appendFile('public/index.html', str + '<br>', function (err) {
+            //
+        })
     });
 }
