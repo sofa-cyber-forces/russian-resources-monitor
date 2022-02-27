@@ -39,11 +39,13 @@ function updateRegularly(url) {
 }
 
 class SiteAccessibilityInfo {
-    constructor(url, success, statusCode, error) {
+    constructor(url) {
         this.url = url
-        this.success = success
-        this.statusCode = statusCode
-        this.error = error
+        
+        this.success = null
+        this.statusCode = null
+        this.error = null
+        this.updateTime = null
     }
 }
 let sitesInfo = new Map()
@@ -59,7 +61,7 @@ function writeSitesInfoToHtml() {
         let info = value
 
         str += '<tr>'
-        if (info.success === undefined) {
+        if (info.success == null) {
             str += '<td style="border: 1px solid black; border-collapse: collapse">'
             str += info.url
             str += '</td">'
@@ -76,6 +78,11 @@ function writeSitesInfoToHtml() {
             str += 'Status code: '
             str += info.statusCode
             str += '</td>'
+
+            str += '<td style="border: 1px solid black; border-collapse: collapse; background-color: green">'
+            str += 'Last update: '
+            str += info.updateTime.toISOString()
+            str += '</td>'
         } else {
             str += '<td style="border: 1px solid black; border-collapse: collapse; background-color: red">'
             str += info.url
@@ -84,6 +91,11 @@ function writeSitesInfoToHtml() {
             str += '<td style="border: 1px solid black; border-collapse: collapse; background-color: red">'
             str += 'Error: '
             str += info.error
+            str += '</td>'
+
+            str += '<td style="border: 1px solid black; border-collapse: collapse; background-color: red">'
+            str += 'Last update: '
+            str += info.updateTime.toISOString()
             str += '</td>'
         }
         str += '</tr>'
@@ -111,6 +123,7 @@ function checkSite(url, cb) {
         info.success = true
         info.statusCode = res.statusCode
         info.error = null
+        info.updateTime = new Date()
 
         writeSitesInfoToHtml()
 
@@ -126,6 +139,7 @@ function checkSite(url, cb) {
         info.success = false
         info.statusCode = null
         info.error = e
+        info.updateTime = new Date()
 
         writeSitesInfoToHtml()
 
