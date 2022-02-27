@@ -201,10 +201,12 @@ function writeSitesInfoToHtml() {
     let str = '<h1>Russian/Belarusian websites availability</h1>'
     // Uncomment these lines before deployment on Russian server
     // str += '<h3>This table shows which Russian and Belarusian sites are available from Russian IP addresses. This list contains governmental websites, banks, pro-Russian media and corporations. The list will be increased in the future.</h3>'
-    // str += '<h4>To see which of these websites are available from American IP addresses follow this link: <a href="http://107.152.43.221">http://107.152.43.221</a></h4>'
+    // str += '<h3>To see which of these websites are available from American IP addresses follow this link: <a href="http://107.152.43.221">http://107.152.43.221</a></h3>'
     // Uncomment these lines before deployment on American server
     // str += '<h3>This table shows which Russian and Belarusian sites are available from American IP addresses. This list contains governmental websites, banks, pro-Russian media and corporations. The list will be increased in the future.</h3>'
-    // str += '<h4>To see which of these websites are available from Russian IP addresses follow this link: <a href="http://31.172.67.184">http://31.172.67.184</a></h4>'
+    // str += '<h3>To see which of these websites are available from Russian IP addresses follow this link: <a href="http://31.172.67.184">http://31.172.67.184</a></h3>'
+
+    str += '<h3>Glory to Ukraine!!! 🇺🇦</h3>'
 
     str += '<table style="border: 1px solid black; border-collapse: collapse"><tbody>'
 
