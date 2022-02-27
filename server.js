@@ -14,14 +14,116 @@ fs.writeFileSync('public/index.html', 'No information at the moment. Please upda
 app.use(express.static('public'));
 
 const URLS = [
-    'https://google.com/',
-    'https://riafan.ru/',
-    'https://kremlin.ru/',
-    'https://lenta.ru/',
+    // Russian resources
+    'https://www.gazprom.ru/',
+    'https://lukoil.ru',
+    'https://magnit.ru/',
     'https://www.nornickel.com/',
-    'https://yandex.ua/',
+    'https://www.surgutneftegas.ru/',
+    'https://www.tatneft.ru/',
+    'https://www.evraz.com/ru/',
+    'https://nlmk.com/',
+    'https://www.sibur.ru/',
+    'https://www.severstal.com/',
+    'https://www.metalloinvest.com/',
+    'https://nangs.org/',
+    'https://rmk-group.ru/ru/',
+    'https://www.tmk-group.ru/',
     'https://ya.ru/',
-    'https://tinkoff.ru/',
+    'https://www.polymetalinternational.com/ru/',
+    'https://www.uralkali.com/ru/',
+    'https://www.eurosib.ru/',
+    'https://omk.ru/',
+    'https://www.sberbank.ru',
+    'https://www.vtb.ru/',
+    'https://www.gazprombank.ru/',
+    'https://www.gosuslugi.ru/',
+    'https://www.mos.ru/uslugi/',
+    'https://kremlin.ru/',
+    'https://government.ru/',
+    'https://mil.ru/',
+    'https://www.nalog.gov.ru/',
+    'https://customs.gov.ru/',
+    'https://pfr.gov.ru/',
+    'https://rkn.gov.ru/',
+
+    'https://109.207.1.118/',
+    'https://109.207.1.97/',
+
+    'https://mail.rkn.gov.ru/',
+    'https://cloud.rkn.gov.ru',
+    'https://mvd.gov.ru',
+    'https://pwd.wto.economy.gov.ru/',
+    'https://stroi.gov.ru/',
+    'https://proverki.gov.ru/',
+
+    'https://ria.ru',
+    'https://gazeta.ru',
+    'https://kp.ru',
+    'https://riafan.ru',
+    'https://pikabu.ru',
+    'https://kommersant.ru',
+    'https://mk.ru',
+    'https://yaplakal.com',
+    'https://rbc.ru',
+    'https://bezformata.com',
+
+    'https://api.developer.sber.ru/product/SberbankID',
+
+    'https://api.sberbank.ru/prod/tokens/v2/oauth',
+    'https://api.sberbank.ru/prod/tokens/v2/oidc',
+
+    'https://shop-rt.com',
+
+
+
+
+    // Belarusian resources
+    'https://belta.by/',
+    'https://sputnik.by/',
+    'https://www.tvr.by/',
+    'https://www.sb.by/',
+    'https://belmarket.by/',
+    'https://www.belarus.by/',
+    'https://belarus24.by/',
+    'https://ont.by/',
+    'https://www.024.by/',
+    'https://www.belnovosti.by/',
+    'https://mogilevnews.by/',
+    'https://www.mil.by/',
+    'https://yandex.by/',
+    'https://www.slonves.by/',
+    'https://www.ctv.by/',
+    'https://radiobelarus.by/',
+    'https://radiusfm.by/',
+    'https://alfaradio.by/',
+    'https://radiomir.by/',
+    'https://radiostalica.by/',
+    'https://radiobrestfm.by/',
+    'https://www.tvrmogilev.by/',
+    'https://minsknews.by/',
+    'https://zarya.by/',
+    'https://grodnonews.by/',
+    'https://rec.gov.by/ru',
+    'https://www.mil.by',
+    'https://www.government.by',
+    'https://president.gov.by/ru',
+    'https://www.mvd.gov.by/ru',
+    'https://www.kgb.by/ru/',
+    'https://www.prokuratura.gov.by',
+    'https://www.nbrb.by',
+    'https://belarusbank.by/',
+    'https://brrb.by/',
+    'https://www.belapb.by/',
+    'https://bankdabrabyt.by/',
+    'https://belinvestbank.by/individual',
+    'https://bgp.by/ru/',
+    'https://www.belneftekhim.by',
+    'https://www.bellegprom.by',
+    'https://www.energo.by',
+    'https://belres.by/ru/',
+
+    'https://mininform.gov.by',
 ]
 class SiteAccessibilityInfo {
     constructor(url) {
@@ -58,7 +160,7 @@ function updateRegularly(url) {
 }
 
 function writeSitesInfoToHtml() {
-    let str = '<h1>Russian sites availability dashboard</h1>'
+    let str = '<h1>Russian/Belarusian sites availability</h1>'
 
     str += '<table style="border: 1px solid black; border-collapse: collapse"><tbody>'
 
