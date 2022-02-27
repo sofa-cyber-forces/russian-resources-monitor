@@ -14,6 +14,7 @@ fs.writeFileSync('public/index.html', 'No information at the moment. Please upda
 app.use(express.static('public'));
 
 const URLS = [
+    // Russian resources
     'https://www.gazprom.ru/',
     'https://lukoil.ru',
     'https://magnit.ru/',
@@ -73,6 +74,56 @@ const URLS = [
     'https://api.sberbank.ru/prod/tokens/v2/oidc',
 
     'https://shop-rt.com',
+
+
+
+
+    // Belarusian resources
+    'https://belta.by/',
+    'https://sputnik.by/',
+    'https://www.tvr.by/',
+    'https://www.sb.by/',
+    'https://belmarket.by/',
+    'https://www.belarus.by/',
+    'https://belarus24.by/',
+    'https://ont.by/',
+    'https://www.024.by/',
+    'https://www.belnovosti.by/',
+    'https://mogilevnews.by/',
+    'https://www.mil.by/',
+    'https://yandex.by/',
+    'https://www.slonves.by/',
+    'https://www.ctv.by/',
+    'https://radiobelarus.by/',
+    'https://radiusfm.by/',
+    'https://alfaradio.by/',
+    'https://radiomir.by/',
+    'https://radiostalica.by/',
+    'https://radiobrestfm.by/',
+    'https://www.tvrmogilev.by/',
+    'https://minsknews.by/',
+    'https://zarya.by/',
+    'https://grodnonews.by/',
+    'https://rec.gov.by/ru',
+    'https://www.mil.by',
+    'https://www.government.by',
+    'https://president.gov.by/ru',
+    'https://www.mvd.gov.by/ru',
+    'https://www.kgb.by/ru/',
+    'https://www.prokuratura.gov.by',
+    'https://www.nbrb.by',
+    'https://belarusbank.by/',
+    'https://brrb.by/',
+    'https://www.belapb.by/',
+    'https://bankdabrabyt.by/',
+    'https://belinvestbank.by/individual',
+    'https://bgp.by/ru/',
+    'https://www.belneftekhim.by',
+    'https://www.bellegprom.by',
+    'https://www.energo.by',
+    'https://belres.by/ru/',
+
+    'https://mininform.gov.by',
 ]
 class SiteAccessibilityInfo {
     constructor(url) {
@@ -109,7 +160,7 @@ function updateRegularly(url) {
 }
 
 function writeSitesInfoToHtml() {
-    let str = '<h1>Russian sites availability dashboard</h1>'
+    let str = '<h1>Monitor of Russian/Belarusian sites availability</h1>'
 
     str += '<table style="border: 1px solid black; border-collapse: collapse"><tbody>'
 
