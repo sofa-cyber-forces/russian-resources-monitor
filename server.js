@@ -160,7 +160,7 @@ function updateRegularly(url) {
 }
 
 function writeSitesInfoToHtml() {
-    let str = '<h1>Monitor of Russian/Belarusian sites availability</h1>'
+    let str = '<h1>Russian/Belarusian sites availability</h1>'
 
     str += '<table style="border: 1px solid black; border-collapse: collapse"><tbody>'
 
