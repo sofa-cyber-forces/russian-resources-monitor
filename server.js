@@ -59,7 +59,7 @@ function updateRegularly(url) {
 
 function writeSitesInfoToHtml() {
     let str = '<h1>Russian sites availability dashboard</h1>'
-    
+
     str += '<table style="border: 1px solid black; border-collapse: collapse"><tbody>'
 
     str += '<tr>'
@@ -105,7 +105,7 @@ function writeSitesInfoToHtml() {
             str += '</td>'
 
             str += '<td style="border: 1px solid black; border-collapse: collapse">'
-            str += info.updateTime.toISOString()
+            str += info.updateTime.toGMTString()
             str += '</td>'
         } else {
             str += '<td style="border: 1px solid black; border-collapse: collapse">'
@@ -121,7 +121,7 @@ function writeSitesInfoToHtml() {
             str += '</td>'
 
             str += '<td style="border: 1px solid black; border-collapse: collapse">'
-            str += info.updateTime.toISOString()
+            str += info.updateTime.toGMTString()
             str += '</td>'
         }
         str += '</tr>'
