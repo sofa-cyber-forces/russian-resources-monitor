@@ -20,7 +20,7 @@ fs.mkdirSync('public/downloaded_pages')
 app.use(express.static('public'));
 
 const URLS = [
-    // Russian resources
+    // Russian resources from source 1
     'https://www.gazprom.ru/',
     'https://lukoil.ru',
     'https://magnit.ru/',
@@ -81,6 +81,122 @@ const URLS = [
 
     'https://shop-rt.com',
 
+    'https://www.moex.com',
+
+    'https://www.bestchange.ru/',
+
+    'https://www.fsb.ru/',
+
+    'https://cleanbtc.ru/',
+    'https://bonkypay.com/',
+    'https://changer.club/',
+    'https://superchange.net',
+    'https://mine.exchange/',
+    'https://platov.co',
+    'https://ww-pay.net/',
+    'https://delets.cash/',
+    'https://betatransfer.org',
+    'https://ramon.money/',
+    'https://coinpaymaster.com/',
+    'https://bitokk.biz/',
+    'https://www.netex24.net',
+    'https://cashbank.pro/',
+    'https://flashobmen.com/',
+    'https://abcobmen.com/',
+    'https://ychanger.net/',
+    'https://multichange.net/',
+    'https://24paybank.ne',
+    'https://royal.cash/',
+    'https://prostocash.com/',
+    'https://baksman.org/',
+    'https://kupibit.me/',
+
+    'https://gosuslugi41.ru',
+    'https://uslugi27.ru',
+    'https://gosuslugi29.ru',
+    'https://gosuslugi.astrobl.ru',
+
+
+
+
+
+    // Russian resources from source 2
+    'https://epp.genproc.gov.ru',
+    'https://ach.gov.ru',
+    'https://www.scrf.gov.ru',
+
+    'https://www.government.ru',
+    'https://www.council.gov.ru',
+    'https://www.duma.gov.ru',
+    'https://www.gossluzhba.gov.ru',
+    'https://zakupki.gov.ru/epz/main/public/home.html',
+    'https://www.greenpressa.ru/',
+    'https://zakon.scli.ru/ru/regions/35/',
+    'https://www.stratgap.ru',
+    'https://www.vscc.ac.ru',
+
+    'https://www.moex.com',
+
+    'https://epp.genproc.gov.ru',
+    'https://ach.gov.ru',
+    'https://duma.gov.ru/',
+    'https://president-sovet.ru/',
+    'https://sovetnational.ru/',
+    'https://zakupki.gov.ru/epz/main/public/home.html',
+    'https://gossluzhba.gov.ru/',
+    'https://defence.council.gov.ru/',
+    'https://budget.council.gov.ru/',
+    'https://government.ru/',
+    'https://www.ksrf.ru/ru/Pages/default.aspx',
+    'https://www.vsrf.ru/',
+    'https://premier.gov.ru/events/',
+    'https://www.mchs.gov.ru/',
+    'https://minjust.gov.ru/ru/',
+    'https://www.fsb.ru/',
+    'https://rosguard.gov.ru/',
+    'https://customs.gov.ru/',
+    'https://udprf.ru/',
+    'https://favt.gov.ru/',
+
+    'https://lenta.ru/',
+    'https://ria.ru/lenta/', // maybe delete as duplicate of ria.ru???
+    'https://tvzvezda.ru/',
+    'https://smotrim.ru/',
+
+    'https://bitzlato.com',
+
+    'https://yandex.by/',
+
+    'https://onliner.by',
+
+    'https://sevstar.net/',
+
+    'https://krym-webcams.ru/',
+
+    'https://crimea-media.ru/',
+
+    'https://tinkoff.ru',
+    'https://178.248.236.218:77',
+
+    'https://194.54.14.186:53',
+
+    'https://194.54.14.187:53',
+
+    'https://194.67.2.109:53',
+
+    'https://bitzlato.com/api/p2p/public/exchange/dsa/?skip=0&limit=15&type=purchase&currency=UAH&cryptocurrency=BTC&isOwnerVerificated=true&isOwnerTrusted=false&isOwnerActive=false&lang=ru',
+
+    'https://172.67.74.48:53/udp',
+
+    'https://unchain.team/',
+
+    'https://104.21.13.183:21/',
+
+    'https://ds1.mirconnect.ru',
+
+    'https://ds2.mirconnect.ru',
+
+
 
 
 
@@ -111,7 +227,6 @@ const URLS = [
     'https://zarya.by/',
     'https://grodnonews.by/',
     'https://rec.gov.by/ru',
-    'https://www.mil.by',
     'https://www.government.by',
     'https://president.gov.by/ru',
     'https://www.mvd.gov.by/ru',
@@ -185,7 +300,16 @@ function writeSitesInfoToHtml() {
             let status2xxB = b.statusCode >= 200 && b.statusCode <= 299
             if (status2xxA && !status2xxB) {
                 return -1
-            } else if (!status2xxA && status2xxB) {
+            }
+            if (!status2xxA && status2xxB) {
+                return 1
+            }
+        }
+        if (!a.success && !b.success) {
+            if (a.error < b.error) {
+                return -1
+            }
+            if (a.error > b.error) {
                 return 1
             }
         }
@@ -206,10 +330,10 @@ function writeSitesInfoToHtml() {
 
     let str = '<h1>Russian/Belarusian websites availability</h1>'
     // Uncomment these lines before deployment on Russian server
-    // str += '<h3>This table shows which Russian and Belarusian sites are available from Russian IP addresses. This list contains governmental websites, banks, pro-Russian media and corporations. The list will be increased in the future.</h3>'
+    // str += '<h3>This table shows which Russian and Belarusian sites are available from Russian IP addresses. This list contains governmental websites, banks, pro-Russian media, corporations and other sites. The list will be increased in the future.</h3>'
     // str += '<h3>To see which of these websites are available from American IP addresses follow this link: <a href="http://107.152.43.221">http://107.152.43.221</a></h3>'
     // Uncomment these lines before deployment on American server
-    // str += '<h3>This table shows which Russian and Belarusian sites are available from American IP addresses. This list contains governmental websites, banks, pro-Russian media and corporations. The list will be increased in the future.</h3>'
+    // str += '<h3>This table shows which Russian and Belarusian sites are available from American IP addresses. This list contains governmental websites, banks, pro-Russian media, corporations and other sites. The list will be increased in the future.</h3>'
     // str += '<h3>To see which of these websites are available from Russian IP addresses follow this link: <a href="http://31.172.67.184">http://31.172.67.184</a></h3>'
 
     str += '<h3>Glory to Ukraine!!! 🇺🇦</h3>'
@@ -219,10 +343,10 @@ function writeSitesInfoToHtml() {
     str += '<tr>'
     str += '<th style="border: 1px solid black; border-collapse: collapse">'
     str += '</th>'
-    str += '<th style="border: 1px solid black; border-collapse: collapse">'
+    str += '<th style="border: 1px solid black; border-collapse: collapse; word-wrap: break-word; max-width: 300px">'
     str += 'URL'
     str += '</th>'
-    str += '<th style="border: 1px solid black; border-collapse: collapse">'
+    str += '<th style="border: 1px solid black; border-collapse: collapse; word-wrap: break-word; max-width: 200px">'
     str += 'Status code/Error'
     str += '</th>'
     str += '<th style="border: 1px solid black; border-collapse: collapse">'
@@ -241,7 +365,7 @@ function writeSitesInfoToHtml() {
             str += '<td>'
             str += '</td>'
 
-            str += '<td style="border: 1px solid black; border-collapse: collapse">'
+            str += '<td style="border: 1px solid black; border-collapse: collapse; word-wrap: break-word; max-width: 300px">'
             str += '<a href="' + info.url + '">' + info.url + '</a>'
             str += '</td">'
         } else if (info.success) {
@@ -253,11 +377,11 @@ function writeSitesInfoToHtml() {
             }
             str += '</td>'
 
-            str += '<td style="border: 1px solid black; border-collapse: collapse">'
+            str += '<td style="border: 1px solid black; border-collapse: collapse; word-wrap: break-word; max-width: 300px">'
             str += '<a href="' + info.url + '">' + info.url + '</a>'
             str += '</td>'
 
-            str += '<td style="border: 1px solid black; border-collapse: collapse">'
+            str += '<td style="border: 1px solid black; border-collapse: collapse; word-wrap: break-word; max-width: 200px">'
             str += info.statusCode
             str += '</td>'
 
@@ -273,11 +397,11 @@ function writeSitesInfoToHtml() {
             str += '<img src="failure.png" width="20" height="20">'
             str += '</td>'
 
-            str += '<td style="border: 1px solid black; border-collapse: collapse">'
+            str += '<td style="border: 1px solid black; border-collapse: collapse; word-wrap: break-word; max-width: 300px">'
             str += '<a href="' + info.url + '">' + info.url + '</a>'
             str += '</td>'
 
-            str += '<td style="border: 1px solid black; border-collapse: collapse">'
+            str += '<td style="border: 1px solid black; border-collapse: collapse; word-wrap: break-word; max-width: 200px">'
             str += info.error
             str += '</td>'
 
