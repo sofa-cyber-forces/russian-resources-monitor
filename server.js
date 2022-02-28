@@ -81,6 +81,44 @@ const URLS = [
 
     'https://shop-rt.com',
 
+    'https://www.moex.com',
+
+    'https://www.bestchange.ru/',
+
+    'https://www.fsb.ru/',
+
+    'https://cleanbtc.ru/',
+    'https://bonkypay.com/',
+    'https://changer.club/',
+    'https://superchange.net',
+    'https://mine.exchange/',
+    'https://platov.co',
+    'https://ww-pay.net/',
+    'https://delets.cash/',
+    'https://betatransfer.org',
+    'https://ramon.money/',
+    'https://coinpaymaster.com/',
+    'https://bitokk.biz/',
+    'https://www.netex24.net',
+    'https://cashbank.pro/',
+    'https://flashobmen.com/',
+    'https://abcobmen.com/',
+    'https://ychanger.net/',
+    'https://multichange.net/',
+    'https://24paybank.ne',
+    'https://royal.cash/',
+    'https://prostocash.com/',
+    'https://baksman.org/',
+    'https://kupibit.me/',
+    'https://abcobmen.com',
+
+    'https://www.gosuslugi.ru',
+    'https://gosuslugi41.ru',
+    'https://uslugi27.ru',
+    'https://gosuslugi29.ru',
+    'https://gosuslugi.astrobl.ru',
+
+
 
 
 
