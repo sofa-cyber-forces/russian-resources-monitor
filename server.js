@@ -20,7 +20,7 @@ fs.mkdirSync('public/downloaded_pages')
 app.use(express.static('public'));
 
 const URLS = [
-    // Russian resources
+    // Russian resources from source 1
     'https://www.gazprom.ru/',
     'https://lukoil.ru',
     'https://magnit.ru/',
@@ -117,6 +117,100 @@ const URLS = [
     'https://uslugi27.ru',
     'https://gosuslugi29.ru',
     'https://gosuslugi.astrobl.ru',
+
+
+
+
+
+    // Russian resources from source 2
+    'https://www.gosuslugi.ru',
+    'https://epp.genproc.gov.ru',
+    'https://ach.gov.ru',
+    'https://www.scrf.gov.ru',
+    'https://mil.ru',
+
+    'https://kremlin.ru',
+    'https://www.government.ru',
+    'https://www.council.gov.ru',
+    'https://www.duma.gov.ru',
+    'https://www.gossluzhba.gov.ru',
+    'https://zakupki.gov.ru/epz/main/public/home.html',
+    'https://www.gosuslugi.ru/',
+    'https://www.greenpressa.ru/',
+    'https://zakon.scli.ru/ru/regions/35/',
+    'https://www.stratgap.ru',
+    'https://www.vscc.ac.ru',
+
+    'https://www.moex.com',
+
+    'https://www.gosuslugi.ru',
+    'https://epp.genproc.gov.ru',
+    'https://ach.gov.ru',
+    'https://www.scrf.gov.ru',
+    'https://mil.ru',
+    'https://duma.gov.ru/',
+    'https://president-sovet.ru/',
+    'https://sovetnational.ru/',
+    'https://www.gosuslugi.ru/ru/',
+    'https://zakupki.gov.ru/epz/main/public/home.html',
+    'https://gossluzhba.gov.ru/',
+    'https://defence.council.gov.ru/',
+    'https://budget.council.gov.ru/',
+    'https://www.kremlin.ru/',
+    'https://government.ru/',
+    'https://www.scrf.gov.ru/',
+    'https://www.ksrf.ru/ru/Pages/default.aspx',
+    'https://www.vsrf.ru/',
+    'https://premier.gov.ru/events/',
+    'https://www.mchs.gov.ru/',
+    'https://minjust.gov.ru/ru/',
+    'https://www.fsb.ru/',
+    'https://rosguard.gov.ru/',
+    'https://customs.gov.ru/',
+    'https://udprf.ru/',
+    'https://favt.gov.ru/',
+
+    'https://lenta.ru/',
+    'https://ria.ru/',
+    'https://ria.ru/lenta/',
+    'https://tvzvezda.ru/',
+    'https://kremlin.ru/',
+    'https://smotrim.ru/',
+
+    'https://bitzlato.com',
+
+    'https://yandex.by/',
+
+    'https://onliner.by',
+
+    'https://sevstar.net/',
+
+    'https://krym-webcams.ru/',
+
+    'https://crimea-media.ru/',
+
+    'https://tinkoff.ru',
+    'https://178.248.236.218:77',
+
+    'https://194.54.14.186:53',
+
+    'https://194.54.14.187:53',
+
+    'https://194.67.2.109:53',
+
+    'https://bitzlato.com/api/p2p/public/exchange/dsa/?skip=0&limit=15&type=purchase&currency=UAH&cryptocurrency=BTC&isOwnerVerificated=true&isOwnerTrusted=false&isOwnerActive=false&lang=ru',
+
+    'https://172.67.74.48:53/udp',
+
+    'https://unchain.team/',
+
+    'https://104.21.13.183:21/',
+
+    'https://unchain.team',
+
+    'https://ds1.mirconnect.ru',
+
+    'https://ds2.mirconnect.ru',
 
 
 
@@ -223,7 +317,16 @@ function writeSitesInfoToHtml() {
             let status2xxB = b.statusCode >= 200 && b.statusCode <= 299
             if (status2xxA && !status2xxB) {
                 return -1
-            } else if (!status2xxA && status2xxB) {
+            }
+            if (!status2xxA && status2xxB) {
+                return 1
+            }
+        }
+        if (!a.success && !b.success) {
+            if (a.error < b.error) {
+                return -1
+            }
+            if (a.error > b.error) {
                 return 1
             }
         }
@@ -257,10 +360,10 @@ function writeSitesInfoToHtml() {
     str += '<tr>'
     str += '<th style="border: 1px solid black; border-collapse: collapse">'
     str += '</th>'
-    str += '<th style="border: 1px solid black; border-collapse: collapse">'
+    str += '<th style="border: 1px solid black; border-collapse: collapse; word-wrap: break-word; max-width: 300px">'
     str += 'URL'
     str += '</th>'
-    str += '<th style="border: 1px solid black; border-collapse: collapse">'
+    str += '<th style="border: 1px solid black; border-collapse: collapse; word-wrap: break-word; max-width: 200px">'
     str += 'Status code/Error'
     str += '</th>'
     str += '<th style="border: 1px solid black; border-collapse: collapse">'
@@ -279,7 +382,7 @@ function writeSitesInfoToHtml() {
             str += '<td>'
             str += '</td>'
 
-            str += '<td style="border: 1px solid black; border-collapse: collapse">'
+            str += '<td style="border: 1px solid black; border-collapse: collapse; word-wrap: break-word; max-width: 300px">'
             str += '<a href="' + info.url + '">' + info.url + '</a>'
             str += '</td">'
         } else if (info.success) {
@@ -291,11 +394,11 @@ function writeSitesInfoToHtml() {
             }
             str += '</td>'
 
-            str += '<td style="border: 1px solid black; border-collapse: collapse">'
+            str += '<td style="border: 1px solid black; border-collapse: collapse; word-wrap: break-word; max-width: 300px">'
             str += '<a href="' + info.url + '">' + info.url + '</a>'
             str += '</td>'
 
-            str += '<td style="border: 1px solid black; border-collapse: collapse">'
+            str += '<td style="border: 1px solid black; border-collapse: collapse; word-wrap: break-word; max-width: 200px">'
             str += info.statusCode
             str += '</td>'
 
@@ -311,11 +414,11 @@ function writeSitesInfoToHtml() {
             str += '<img src="failure.png" width="20" height="20">'
             str += '</td>'
 
-            str += '<td style="border: 1px solid black; border-collapse: collapse">'
+            str += '<td style="border: 1px solid black; border-collapse: collapse; word-wrap: break-word; max-width: 300px">'
             str += '<a href="' + info.url + '">' + info.url + '</a>'
             str += '</td>'
 
-            str += '<td style="border: 1px solid black; border-collapse: collapse">'
+            str += '<td style="border: 1px solid black; border-collapse: collapse; word-wrap: break-word; max-width: 200px">'
             str += info.error
             str += '</td>'
 
