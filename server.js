@@ -110,9 +110,7 @@ const URLS = [
     'https://prostocash.com/',
     'https://baksman.org/',
     'https://kupibit.me/',
-    'https://abcobmen.com',
 
-    'https://www.gosuslugi.ru',
     'https://gosuslugi41.ru',
     'https://uslugi27.ru',
     'https://gosuslugi29.ru',
@@ -123,19 +121,15 @@ const URLS = [
 
 
     // Russian resources from source 2
-    'https://www.gosuslugi.ru',
     'https://epp.genproc.gov.ru',
     'https://ach.gov.ru',
     'https://www.scrf.gov.ru',
-    'https://mil.ru',
 
-    'https://kremlin.ru',
     'https://www.government.ru',
     'https://www.council.gov.ru',
     'https://www.duma.gov.ru',
     'https://www.gossluzhba.gov.ru',
     'https://zakupki.gov.ru/epz/main/public/home.html',
-    'https://www.gosuslugi.ru/',
     'https://www.greenpressa.ru/',
     'https://zakon.scli.ru/ru/regions/35/',
     'https://www.stratgap.ru',
@@ -143,22 +137,16 @@ const URLS = [
 
     'https://www.moex.com',
 
-    'https://www.gosuslugi.ru',
     'https://epp.genproc.gov.ru',
     'https://ach.gov.ru',
-    'https://www.scrf.gov.ru',
-    'https://mil.ru',
     'https://duma.gov.ru/',
     'https://president-sovet.ru/',
     'https://sovetnational.ru/',
-    'https://www.gosuslugi.ru/ru/',
     'https://zakupki.gov.ru/epz/main/public/home.html',
     'https://gossluzhba.gov.ru/',
     'https://defence.council.gov.ru/',
     'https://budget.council.gov.ru/',
-    'https://www.kremlin.ru/',
     'https://government.ru/',
-    'https://www.scrf.gov.ru/',
     'https://www.ksrf.ru/ru/Pages/default.aspx',
     'https://www.vsrf.ru/',
     'https://premier.gov.ru/events/',
@@ -171,10 +159,8 @@ const URLS = [
     'https://favt.gov.ru/',
 
     'https://lenta.ru/',
-    'https://ria.ru/',
-    'https://ria.ru/lenta/',
+    'https://ria.ru/lenta/', // maybe delete as duplicate of ria.ru???
     'https://tvzvezda.ru/',
-    'https://kremlin.ru/',
     'https://smotrim.ru/',
 
     'https://bitzlato.com',
@@ -205,8 +191,6 @@ const URLS = [
     'https://unchain.team/',
 
     'https://104.21.13.183:21/',
-
-    'https://unchain.team',
 
     'https://ds1.mirconnect.ru',
 
@@ -243,7 +227,6 @@ const URLS = [
     'https://zarya.by/',
     'https://grodnonews.by/',
     'https://rec.gov.by/ru',
-    'https://www.mil.by',
     'https://www.government.by',
     'https://president.gov.by/ru',
     'https://www.mvd.gov.by/ru',
