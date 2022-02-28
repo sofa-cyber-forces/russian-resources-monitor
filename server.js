@@ -17,7 +17,19 @@ if (fs.existsSync('public/downloaded_pages')) {
 }
 fs.mkdirSync('public/downloaded_pages')
 
-app.use(express.static('public'));
+let requestsCount = 0
+app.use((req, res, next) => {
+    if (req.url == '/') {
+        requestsCount++
+        console.log('requests count: ' + requestsCount)
+    }
+
+    if (next) {
+        next()
+    }
+})
+
+app.use(express.static('public'))
 
 const URLS = [
     // Russian resources from source 1
