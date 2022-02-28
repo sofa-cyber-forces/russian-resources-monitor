@@ -340,7 +340,13 @@ function writeSitesInfoToHtml() {
         return 0
     })
 
-    let str = '<h1>Russian/Belarusian websites availability</h1>'
+    let str = '<!doctype html><html lang=en><head>'
+    str += '<meta charset=utf-8>'
+    str += '<title>Russian/Belarusian websites availability</title>'
+    str += '</head>'
+
+    str += '<body>'
+    str += '<h1>Russian/Belarusian websites availability</h1>'
     // Uncomment these lines before deployment on Russian server
     // str += '<h3>This table shows which Russian and Belarusian sites are available from Russian IP addresses. This list contains governmental websites, banks, pro-Russian media, corporations and other sites. The list will be increased in the future.</h3>'
     // str += '<h3>To see which of these websites are available from American IP addresses follow this link: <a href="http://107.152.43.221">http://107.152.43.221</a></h3>'
@@ -431,6 +437,8 @@ function writeSitesInfoToHtml() {
 
     str += '<p>Source code: <a href="https://github.com/sofa-cyber-forces/russian-resources-monitor">https://github.com/sofa-cyber-forces/russian-resources-monitor</a></p>'
     str += '<p>E-mail all your questions and proposals to sofa.cyber.forces@gmail.com</p>'
+
+    str += '</body></html>'
 
     fs.writeFile('public/index.html', str, function(err) {
         if (err) {
