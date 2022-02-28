@@ -11,6 +11,12 @@ app.use(express.json())
 
 fs.writeFileSync('public/index.html', 'No information at the moment. Please update the page in a minute.')
 
+// Clear downloaded pages
+if (fs.existsSync('public/downloaded_pages')) {
+    fs.rmdirSync('public/downloaded_pages', { recursive: true })
+}
+fs.mkdirSync('public/downloaded_pages')
+
 app.use(express.static('public'));
 
 const URLS = [
@@ -220,6 +226,9 @@ function writeSitesInfoToHtml() {
     str += 'Status code/Error'
     str += '</th>'
     str += '<th style="border: 1px solid black; border-collapse: collapse">'
+    str += 'Downloaded page'
+    str += '</th>'
+    str += '<th style="border: 1px solid black; border-collapse: collapse">'
     str += 'Last update'
     str += '</th>'
     str += '</tr>'
@@ -233,7 +242,7 @@ function writeSitesInfoToHtml() {
             str += '</td>'
 
             str += '<td style="border: 1px solid black; border-collapse: collapse">'
-            str += info.url
+            str += '<a href="' + info.url + '">' + info.url + '</a>'
             str += '</td">'
         } else if (info.success) {
             str += '<td style="border: 1px solid black; border-collapse: collapse">'
@@ -245,11 +254,15 @@ function writeSitesInfoToHtml() {
             str += '</td>'
 
             str += '<td style="border: 1px solid black; border-collapse: collapse">'
-            str += info.url
+            str += '<a href="' + info.url + '">' + info.url + '</a>'
             str += '</td>'
 
             str += '<td style="border: 1px solid black; border-collapse: collapse">'
             str += info.statusCode
+            str += '</td>'
+
+            str += '<td style="border: 1px solid black; border-collapse: collapse">'
+            str += '<a href="downloaded_pages/' + convertUrlToFileName(info.url) + '">Open</a>'
             str += '</td>'
 
             str += '<td style="border: 1px solid black; border-collapse: collapse">'
@@ -261,11 +274,14 @@ function writeSitesInfoToHtml() {
             str += '</td>'
 
             str += '<td style="border: 1px solid black; border-collapse: collapse">'
-            str += info.url
+            str += '<a href="' + info.url + '">' + info.url + '</a>'
             str += '</td>'
 
             str += '<td style="border: 1px solid black; border-collapse: collapse">'
             str += info.error
+            str += '</td>'
+
+            str += '<td style="border: 1px solid black; border-collapse: collapse">'
             str += '</td>'
 
             str += '<td style="border: 1px solid black; border-collapse: collapse">'
@@ -293,6 +309,11 @@ function checkSite(url, cb) {
         let str = url + ': success, code: ' + res.statusCode
         console.log(str)
 
+        let fileName = convertUrlToFileName(url)
+        let filePath = 'public/downloaded_pages/' + fileName
+        const file = fs.createWriteStream(filePath)
+        res.pipe(file)
+
         let info = sitesInfo.get(url)
         if (!info) {
             return
@@ -309,6 +330,12 @@ function checkSite(url, cb) {
         let str = url + ': error: ' + e
         console.log(str)
 
+        let fileName = convertUrlToFileName(url)
+        let filePath = 'public/downloaded_pages/' + fileName
+        if (fs.existsSync(filePath)) {
+            fs.rmSync(filePath)
+        }
+        
         let info = sitesInfo.get(url)
         if (!info) {
             return
@@ -322,4 +349,21 @@ function checkSite(url, cb) {
 
         cb()
     })
+}
+
+
+function convertUrlToFileName(url) {
+    let fileName = url
+    fileName = replaceAll(fileName, ':', '')
+    fileName = replaceAll(fileName, '.', '')
+    fileName = replaceAll(fileName, '/', '')
+    fileName += '.html'
+    return fileName
+}
+// Taken from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
+function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+}
+function replaceAll(str, match, replacement){
+    return str.replace(new RegExp(escapeRegExp(match), 'g'), ()=>replacement);
 }
