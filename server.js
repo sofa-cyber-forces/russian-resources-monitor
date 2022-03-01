@@ -108,6 +108,8 @@ const URLS = new Map([
 
 
             // Belarusian resources from source 1
+            'https://www.mil.by/',
+
             'https://rec.gov.by/ru',
             'https://www.government.by',
             'https://president.gov.by/ru',
@@ -159,8 +161,6 @@ const URLS = new Map([
             'https://www.024.by/',
             'https://www.belnovosti.by/',
             'https://mogilevnews.by/',
-            'https://www.mil.by/',
-            'https://yandex.by/',
             'https://www.slonves.by/',
             'https://www.ctv.by/',
             'https://radiobelarus.by/',
@@ -283,7 +283,6 @@ const URLS = new Map([
             'https://nangs.org/',
             'https://rmk-group.ru/ru/',
             'https://www.tmk-group.ru/',
-            'https://ya.ru/',
             'https://www.polymetalinternational.com/ru/',
             'https://www.uralkali.com/ru/',
             'https://www.eurosib.ru/',
@@ -294,7 +293,6 @@ const URLS = new Map([
 
 
             // Russian resources from source 2
-            //
 
 
 
@@ -312,6 +310,8 @@ const URLS = new Map([
         'Uncategorized',
         [
             // Russian resources from source 1
+            'https://ya.ru/',
+
             'https://shop-rt.com',
 
 
@@ -328,7 +328,7 @@ const URLS = new Map([
             'https://krym-webcams.ru/',
 
             'https://crimea-media.ru/', // maybe move to media?
-            
+
             'https://unchain.team/',
 
             'https://104.21.13.183:21/', // IP of unchain.team???
