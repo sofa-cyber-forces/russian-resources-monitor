@@ -33,31 +33,9 @@ app.use(express.static('public'))
 
 const URLS = new Map([
     [
-        'Uncategorized',
+        "Governmental websites",
         [
             // Russian resources from source 1
-            'https://www.gazprom.ru/',
-            'https://lukoil.ru',
-            'https://magnit.ru/',
-            'https://www.nornickel.com/',
-            'https://www.surgutneftegas.ru/',
-            'https://www.tatneft.ru/',
-            'https://www.evraz.com/ru/',
-            'https://nlmk.com/',
-            'https://www.sibur.ru/',
-            'https://www.severstal.com/',
-            'https://www.metalloinvest.com/',
-            'https://nangs.org/',
-            'https://rmk-group.ru/ru/',
-            'https://www.tmk-group.ru/',
-            'https://ya.ru/',
-            'https://www.polymetalinternational.com/ru/',
-            'https://www.uralkali.com/ru/',
-            'https://www.eurosib.ru/',
-            'https://omk.ru/',
-            'https://www.sberbank.ru',
-            'https://www.vtb.ru/',
-            'https://www.gazprombank.ru/',
             'https://www.gosuslugi.ru/',
             'https://www.mos.ru/uslugi/',
             'https://kremlin.ru/',
@@ -68,8 +46,8 @@ const URLS = new Map([
             'https://pfr.gov.ru/',
             'https://rkn.gov.ru/',
 
-            'https://109.207.1.118/',
-            'https://109.207.1.97/',
+            'https://109.207.1.118/', // IP of gosuslugi
+            'https://109.207.1.97/', // IP of gosuslugi
 
             'https://mail.rkn.gov.ru/',
             'https://cloud.rkn.gov.ru',
@@ -78,6 +56,32 @@ const URLS = new Map([
             'https://stroi.gov.ru/',
             'https://proverki.gov.ru/',
 
+            'https://www.fsb.ru/',
+
+            'https://gosuslugi41.ru',
+            'https://uslugi27.ru',
+            'https://gosuslugi29.ru',
+            'https://gosuslugi.astrobl.ru',
+
+
+
+
+
+            // Russian resources from source 2
+            //
+
+
+
+
+
+            // Belarusian resources
+            //
+        ]
+    ],
+    [
+        "Media",
+        [
+            // Russian resources from source 1
             'https://ria.ru',
             'https://gazeta.ru',
             'https://kp.ru',
@@ -89,18 +93,56 @@ const URLS = new Map([
             'https://rbc.ru',
             'https://bezformata.com',
 
+
+
+
+
+            // Russian resources from source 2
+            //
+
+
+
+
+
+            // Belarusian resources
+            //
+        ]
+    ],
+    [
+        "Banks",
+        [
+            // Russian resources from source 1
+            'https://www.sberbank.ru',
+            'https://www.vtb.ru/',
+            'https://www.gazprombank.ru/',
+
             'https://api.developer.sber.ru/product/SberbankID',
 
             'https://api.sberbank.ru/prod/tokens/v2/oauth',
             'https://api.sberbank.ru/prod/tokens/v2/oidc',
 
-            'https://shop-rt.com',
 
+
+
+
+            // Russian resources from source 2
+            //
+
+
+
+
+
+            // Belarusian resources
+            //
+        ]
+    ],
+    [
+        "Other financial institutions",
+        [
+            // Russian resources from source 1
             'https://www.moex.com',
 
             'https://www.bestchange.ru/',
-
-            'https://www.fsb.ru/',
 
             'https://cleanbtc.ru/',
             'https://bonkypay.com/',
@@ -126,15 +168,70 @@ const URLS = new Map([
             'https://baksman.org/',
             'https://kupibit.me/',
 
-            'https://gosuslugi41.ru',
-            'https://uslugi27.ru',
-            'https://gosuslugi29.ru',
-            'https://gosuslugi.astrobl.ru',
+
+
+
+
+            // Russian resources from source 2
+            //
 
 
 
 
 
+            // Belarusian resources
+            //
+        ]
+    ],
+    [
+        "Corporations",
+        [
+            // Russian resources from source 1
+            'https://www.gazprom.ru/',
+            'https://lukoil.ru',
+            'https://magnit.ru/',
+            'https://www.nornickel.com/',
+            'https://www.surgutneftegas.ru/',
+            'https://www.tatneft.ru/',
+            'https://www.evraz.com/ru/',
+            'https://nlmk.com/',
+            'https://www.sibur.ru/',
+            'https://www.severstal.com/',
+            'https://www.metalloinvest.com/',
+            'https://nangs.org/',
+            'https://rmk-group.ru/ru/',
+            'https://www.tmk-group.ru/',
+            'https://ya.ru/',
+            'https://www.polymetalinternational.com/ru/',
+            'https://www.uralkali.com/ru/',
+            'https://www.eurosib.ru/',
+            'https://omk.ru/',
+
+
+
+
+
+            // Russian resources from source 2
+            //
+
+
+
+
+
+            // Belarusian resources
+            //
+        ]
+    ],
+    [
+        'Uncategorized',
+        [
+            // Russian resources from source 1
+            'https://shop-rt.com',
+
+
+
+
+            
             // Russian resources from source 2
             'https://epp.genproc.gov.ru',
             'https://ach.gov.ru',
