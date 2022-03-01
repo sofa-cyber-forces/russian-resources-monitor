@@ -31,233 +31,320 @@ app.use((req, res, next) => {
 
 app.use(express.static('public'))
 
-const URLS = [
-    // Russian resources from source 1
-    'https://www.gazprom.ru/',
-    'https://lukoil.ru',
-    'https://magnit.ru/',
-    'https://www.nornickel.com/',
-    'https://www.surgutneftegas.ru/',
-    'https://www.tatneft.ru/',
-    'https://www.evraz.com/ru/',
-    'https://nlmk.com/',
-    'https://www.sibur.ru/',
-    'https://www.severstal.com/',
-    'https://www.metalloinvest.com/',
-    'https://nangs.org/',
-    'https://rmk-group.ru/ru/',
-    'https://www.tmk-group.ru/',
-    'https://ya.ru/',
-    'https://www.polymetalinternational.com/ru/',
-    'https://www.uralkali.com/ru/',
-    'https://www.eurosib.ru/',
-    'https://omk.ru/',
-    'https://www.sberbank.ru',
-    'https://www.vtb.ru/',
-    'https://www.gazprombank.ru/',
-    'https://www.gosuslugi.ru/',
-    'https://www.mos.ru/uslugi/',
-    'https://kremlin.ru/',
-    'https://government.ru/',
-    'https://mil.ru/',
-    'https://www.nalog.gov.ru/',
-    'https://customs.gov.ru/',
-    'https://pfr.gov.ru/',
-    'https://rkn.gov.ru/',
+const URLS = new Map([
+    [
+        "Governmental websites",
+        [
+            // Russian resources from source 1
+            'https://www.gosuslugi.ru/',
+            'https://www.mos.ru/uslugi/',
+            'https://kremlin.ru/',
+            'https://government.ru/',
+            'https://mil.ru/',
+            'https://www.nalog.gov.ru/',
+            'https://customs.gov.ru/',
+            'https://pfr.gov.ru/',
+            'https://rkn.gov.ru/',
 
-    'https://109.207.1.118/',
-    'https://109.207.1.97/',
+            'https://109.207.1.118/', // IP of gosuslugi
+            'https://109.207.1.97/', // IP of gosuslugi
 
-    'https://mail.rkn.gov.ru/',
-    'https://cloud.rkn.gov.ru',
-    'https://mvd.gov.ru',
-    'https://pwd.wto.economy.gov.ru/',
-    'https://stroi.gov.ru/',
-    'https://proverki.gov.ru/',
+            'https://mail.rkn.gov.ru/',
+            'https://cloud.rkn.gov.ru',
+            'https://mvd.gov.ru',
+            'https://pwd.wto.economy.gov.ru/',
+            'https://stroi.gov.ru/',
+            'https://proverki.gov.ru/',
 
-    'https://ria.ru',
-    'https://gazeta.ru',
-    'https://kp.ru',
-    'https://riafan.ru',
-    'https://pikabu.ru',
-    'https://kommersant.ru',
-    'https://mk.ru',
-    'https://yaplakal.com',
-    'https://rbc.ru',
-    'https://bezformata.com',
+            'https://www.fsb.ru/',
 
-    'https://api.developer.sber.ru/product/SberbankID',
-
-    'https://api.sberbank.ru/prod/tokens/v2/oauth',
-    'https://api.sberbank.ru/prod/tokens/v2/oidc',
-
-    'https://shop-rt.com',
-
-    'https://www.moex.com',
-
-    'https://www.bestchange.ru/',
-
-    'https://www.fsb.ru/',
-
-    'https://cleanbtc.ru/',
-    'https://bonkypay.com/',
-    'https://changer.club/',
-    'https://superchange.net',
-    'https://mine.exchange/',
-    'https://platov.co',
-    'https://ww-pay.net/',
-    'https://delets.cash/',
-    'https://betatransfer.org',
-    'https://ramon.money/',
-    'https://coinpaymaster.com/',
-    'https://bitokk.biz/',
-    'https://www.netex24.net',
-    'https://cashbank.pro/',
-    'https://flashobmen.com/',
-    'https://abcobmen.com/',
-    'https://ychanger.net/',
-    'https://multichange.net/',
-    'https://24paybank.ne',
-    'https://royal.cash/',
-    'https://prostocash.com/',
-    'https://baksman.org/',
-    'https://kupibit.me/',
-
-    'https://gosuslugi41.ru',
-    'https://uslugi27.ru',
-    'https://gosuslugi29.ru',
-    'https://gosuslugi.astrobl.ru',
+            'https://gosuslugi41.ru',
+            'https://uslugi27.ru',
+            'https://gosuslugi29.ru',
+            'https://gosuslugi.astrobl.ru',
 
 
 
 
 
-    // Russian resources from source 2
-    'https://epp.genproc.gov.ru',
-    'https://ach.gov.ru',
-    'https://www.scrf.gov.ru',
+            // Russian resources from source 2
+            'https://epp.genproc.gov.ru',
+            'https://ach.gov.ru',
+            'https://www.scrf.gov.ru',
 
-    'https://www.government.ru',
-    'https://www.council.gov.ru',
-    'https://www.duma.gov.ru',
-    'https://www.gossluzhba.gov.ru',
-    'https://zakupki.gov.ru/epz/main/public/home.html',
-    'https://www.greenpressa.ru/',
-    'https://zakon.scli.ru/ru/regions/35/',
-    'https://www.stratgap.ru',
-    'https://www.vscc.ac.ru',
+            'https://www.government.ru',
+            'https://www.council.gov.ru',
+            'https://www.duma.gov.ru',
+            'https://www.gossluzhba.gov.ru',
+            'https://zakupki.gov.ru/epz/main/public/home.html',
+            // 'https://www.greenpressa.ru/', commented as insignificant
+            'https://zakon.scli.ru/ru/regions/35/', // Регистр муниципальных нормативных правовых актов Вологодской области на сайте Министерства юстиции Российской Федерации
+            // 'https://www.stratgap.ru', commented as insignificant, Стратегия государственной антинаркотической политики Российской Федерации
+            'https://www.vscc.ac.ru',
 
-    'https://www.moex.com',
-
-    'https://epp.genproc.gov.ru',
-    'https://ach.gov.ru',
-    'https://duma.gov.ru/',
-    'https://president-sovet.ru/',
-    'https://sovetnational.ru/',
-    'https://zakupki.gov.ru/epz/main/public/home.html',
-    'https://gossluzhba.gov.ru/',
-    'https://defence.council.gov.ru/',
-    'https://budget.council.gov.ru/',
-    'https://government.ru/',
-    'https://www.ksrf.ru/ru/Pages/default.aspx',
-    'https://www.vsrf.ru/',
-    'https://premier.gov.ru/events/',
-    'https://www.mchs.gov.ru/',
-    'https://minjust.gov.ru/ru/',
-    'https://www.fsb.ru/',
-    'https://rosguard.gov.ru/',
-    'https://customs.gov.ru/',
-    'https://udprf.ru/',
-    'https://favt.gov.ru/',
-
-    'https://lenta.ru/',
-    'https://ria.ru/lenta/', // maybe delete as duplicate of ria.ru???
-    'https://tvzvezda.ru/',
-    'https://smotrim.ru/',
-
-    'https://bitzlato.com',
-
-    'https://yandex.by/',
-
-    'https://onliner.by',
-
-    'https://sevstar.net/',
-
-    'https://krym-webcams.ru/',
-
-    'https://crimea-media.ru/',
-
-    'https://tinkoff.ru',
-    'https://178.248.236.218:77',
-
-    'https://194.54.14.186:53',
-
-    'https://194.54.14.187:53',
-
-    'https://194.67.2.109:53',
-
-    'https://bitzlato.com/api/p2p/public/exchange/dsa/?skip=0&limit=15&type=purchase&currency=UAH&cryptocurrency=BTC&isOwnerVerificated=true&isOwnerTrusted=false&isOwnerActive=false&lang=ru',
-
-    'https://172.67.74.48:53/udp',
-
-    'https://unchain.team/',
-
-    'https://104.21.13.183:21/',
-
-    'https://ds1.mirconnect.ru',
-
-    'https://ds2.mirconnect.ru',
+            'https://epp.genproc.gov.ru',
+            'https://ach.gov.ru',
+            'https://duma.gov.ru/',
+            'https://president-sovet.ru/',
+            'https://sovetnational.ru/',
+            'https://zakupki.gov.ru/epz/main/public/home.html',
+            'https://gossluzhba.gov.ru/',
+            'https://defence.council.gov.ru/',
+            'https://budget.council.gov.ru/',
+            'https://government.ru/',
+            'https://www.ksrf.ru/ru/Pages/default.aspx',
+            'https://www.vsrf.ru/',
+            'https://premier.gov.ru/events/',
+            'https://www.mchs.gov.ru/',
+            'https://minjust.gov.ru/ru/',
+            'https://www.fsb.ru/',
+            'https://rosguard.gov.ru/',
+            'https://customs.gov.ru/',
+            'https://udprf.ru/',
+            'https://favt.gov.ru/',
 
 
 
 
 
-    // Belarusian resources
-    'https://belta.by/',
-    'https://sputnik.by/',
-    'https://www.tvr.by/',
-    'https://www.sb.by/',
-    'https://belmarket.by/',
-    'https://www.belarus.by/',
-    'https://belarus24.by/',
-    'https://ont.by/',
-    'https://www.024.by/',
-    'https://www.belnovosti.by/',
-    'https://mogilevnews.by/',
-    'https://www.mil.by/',
-    'https://yandex.by/',
-    'https://www.slonves.by/',
-    'https://www.ctv.by/',
-    'https://radiobelarus.by/',
-    'https://radiusfm.by/',
-    'https://alfaradio.by/',
-    'https://radiomir.by/',
-    'https://radiostalica.by/',
-    'https://radiobrestfm.by/',
-    'https://www.tvrmogilev.by/',
-    'https://minsknews.by/',
-    'https://zarya.by/',
-    'https://grodnonews.by/',
-    'https://rec.gov.by/ru',
-    'https://www.government.by',
-    'https://president.gov.by/ru',
-    'https://www.mvd.gov.by/ru',
-    'https://www.kgb.by/ru/',
-    'https://www.prokuratura.gov.by',
-    'https://www.nbrb.by',
-    'https://belarusbank.by/',
-    'https://brrb.by/',
-    'https://www.belapb.by/',
-    'https://bankdabrabyt.by/',
-    'https://belinvestbank.by/individual',
-    'https://bgp.by/ru/',
-    'https://www.belneftekhim.by',
-    'https://www.bellegprom.by',
-    'https://www.energo.by',
-    'https://belres.by/ru/',
+            // Belarusian resources from source 1
+            'https://www.mil.by/',
 
-    'https://mininform.gov.by',
-]
+            'https://rec.gov.by/ru',
+            'https://www.government.by',
+            'https://president.gov.by/ru',
+            'https://www.mvd.gov.by/ru',
+            'https://www.kgb.by/ru/',
+            'https://www.prokuratura.gov.by',
+
+            'https://mininform.gov.by',
+        ]
+    ],
+    [
+        "Media",
+        [
+            // Russian resources from source 1
+            'https://ria.ru',
+            'https://gazeta.ru',
+            'https://kp.ru',
+            'https://riafan.ru',
+            'https://pikabu.ru',
+            'https://kommersant.ru',
+            'https://mk.ru',
+            'https://yaplakal.com',
+            'https://rbc.ru',
+            'https://bezformata.com',
+
+
+
+
+
+            // Russian resources from source 2
+            'https://lenta.ru/',
+            'https://ria.ru/lenta/', // maybe delete as duplicate of ria.ru???
+            'https://tvzvezda.ru/',
+            'https://smotrim.ru/',
+
+
+
+
+
+            // Belarusian resources from source 1
+            'https://belta.by/',
+            'https://sputnik.by/',
+            'https://www.tvr.by/',
+            'https://www.sb.by/',
+            'https://belmarket.by/',
+            'https://www.belarus.by/',
+            'https://belarus24.by/',
+            'https://ont.by/',
+            'https://www.024.by/',
+            'https://www.belnovosti.by/',
+            'https://mogilevnews.by/',
+            'https://www.slonves.by/',
+            'https://www.ctv.by/',
+            'https://radiobelarus.by/',
+            'https://radiusfm.by/',
+            'https://alfaradio.by/',
+            'https://radiomir.by/',
+            'https://radiostalica.by/',
+            'https://radiobrestfm.by/',
+            'https://www.tvrmogilev.by/',
+            'https://minsknews.by/',
+            'https://zarya.by/',
+            'https://grodnonews.by/',
+        ]
+    ],
+    [
+        "Banks",
+        [
+            // Russian resources from source 1
+            'https://www.sberbank.ru',
+            'https://www.vtb.ru/',
+            'https://www.gazprombank.ru/',
+
+            'https://api.developer.sber.ru/product/SberbankID',
+
+            'https://api.sberbank.ru/prod/tokens/v2/oauth',
+            'https://api.sberbank.ru/prod/tokens/v2/oidc',
+
+
+
+
+
+            // Russian resources from source 2
+            'https://tinkoff.ru',
+            'https://178.248.236.218:77', // IP of tinkoff
+
+            'https://194.54.14.186:53', // IP of sberbank
+
+            'https://194.54.14.187:53', // IP of sberbank
+
+            'https://194.67.2.109:53', // IP of sberbank
+
+
+
+
+
+            // Belarusian resources from source 1
+            'https://www.nbrb.by',
+            'https://belarusbank.by/',
+            'https://brrb.by/',
+            'https://www.belapb.by/',
+            'https://bankdabrabyt.by/',
+            'https://belinvestbank.by/individual',
+        ]
+    ],
+    [
+        "Other financial institutions",
+        [
+            // Russian resources from source 1
+            'https://www.moex.com',
+
+            'https://www.bestchange.ru/',
+
+            'https://cleanbtc.ru/',
+            'https://bonkypay.com/',
+            'https://changer.club/',
+            'https://superchange.net',
+            'https://mine.exchange/',
+            'https://platov.co',
+            'https://ww-pay.net/',
+            'https://delets.cash/',
+            'https://betatransfer.org',
+            'https://ramon.money/',
+            'https://coinpaymaster.com/',
+            'https://bitokk.biz/',
+            'https://www.netex24.net',
+            'https://cashbank.pro/',
+            'https://flashobmen.com/',
+            'https://abcobmen.com/',
+            'https://ychanger.net/',
+            'https://multichange.net/',
+            'https://24paybank.ne',
+            'https://royal.cash/',
+            'https://prostocash.com/',
+            'https://baksman.org/',
+            'https://kupibit.me/',
+
+
+
+
+
+            // Russian resources from source 2
+            'https://bitzlato.com',
+
+            'https://bitzlato.com/api/p2p/public/exchange/dsa/?skip=0&limit=15&type=purchase&currency=UAH&cryptocurrency=BTC&isOwnerVerificated=true&isOwnerTrusted=false&isOwnerActive=false&lang=ru',
+
+            'https://172.67.74.48:53/udp', // IP of bitzlato.com
+
+
+
+
+
+            // Belarusian resources from source 1
+        ]
+    ],
+    [
+        "Corporations",
+        [
+            // Russian resources from source 1
+            'https://www.gazprom.ru/',
+            'https://lukoil.ru',
+            'https://magnit.ru/',
+            'https://www.nornickel.com/',
+            'https://www.surgutneftegas.ru/',
+            'https://www.tatneft.ru/',
+            'https://www.evraz.com/ru/',
+            'https://nlmk.com/',
+            'https://www.sibur.ru/',
+            'https://www.severstal.com/',
+            'https://www.metalloinvest.com/',
+            'https://nangs.org/',
+            'https://rmk-group.ru/ru/',
+            'https://www.tmk-group.ru/',
+            'https://www.polymetalinternational.com/ru/',
+            'https://www.uralkali.com/ru/',
+            'https://www.eurosib.ru/',
+            'https://omk.ru/',
+
+
+
+
+
+            // Russian resources from source 2
+
+
+
+
+
+            // Belarusian resources from source 1
+            'https://bgp.by/ru/',
+            'https://www.belneftekhim.by',
+            'https://www.bellegprom.by',
+            'https://www.energo.by',
+            'https://belres.by/ru/',
+        ]
+    ],
+    [
+        'Uncategorized',
+        [
+            // Russian resources from source 1
+            'https://ya.ru/',
+
+            'https://shop-rt.com',
+
+
+
+
+            
+            // Russian resources from source 2
+            'https://yandex.by/',
+
+            'https://onliner.by',
+
+            'https://sevstar.net/',
+
+            'https://krym-webcams.ru/',
+
+            'https://crimea-media.ru/', // maybe move to media?
+
+            'https://unchain.team/',
+
+            'https://104.21.13.183:21/', // IP of unchain.team???
+
+            'https://ds1.mirconnect.ru',
+
+            'https://ds2.mirconnect.ru',
+
+
+
+
+
+            // Belarusian resources from source 1
+        ]
+    ]
+])
 class SiteAccessibilityInfo {
     constructor(url) {
         this.url = url
@@ -269,31 +356,75 @@ class SiteAccessibilityInfo {
     }
 }
 let sitesInfo = new Map()
-URLS.forEach((value, index, array) => {
-    let url = value
-    sitesInfo.set(url, new SiteAccessibilityInfo(url))
+URLS.forEach((value, key, array) => {
+    let category = key
+    let categorySitesInfo = new Map()
+    let urls = value
+    urls.forEach((value, index, array) => {
+        let url = value
+        categorySitesInfo.set(url, new SiteAccessibilityInfo(url))
+    })
+    sitesInfo.set(category, categorySitesInfo)
 })
 
 app.listen(PORT, () => {
     console.log("listening on port " + PORT)
 
-    URLS.forEach((value, index, array) => {
-        let url = value
-        updateRegularly(url)
+    URLS.forEach((value, key, array) => {
+        let category = key
+        let urls = value
+        urls.forEach((value, index, array) => {
+            let url = value
+            updateRegularly(category, url)
+        })
     })
 })
 
-function updateRegularly(url) {
+function updateRegularly(category, url) {
     const MINUTES = 2
-    checkSite(url, () => {
+    checkSite(category, url, () => {
         setTimeout(() => {
-            updateRegularly(url)
+            updateRegularly(category, url)
         }, MINUTES * 60 * 1000)
     })
 }
 
-function writeSitesInfoToHtml() {
-    let sitesInfoArr = Array.from(sitesInfo.values());
+function generateHtmlPage() {
+    let str = '<!doctype html><html lang=en><head>'
+    str += '<meta charset=utf-8>'
+    str += '<title>Russian/Belarusian websites availability</title>'
+    str += '</head>'
+
+    str += '<body>'
+    str += '<h1>Russian/Belarusian websites availability</h1>'
+    // Uncomment these lines before deployment on Russian server
+    // str += '<h4>This table shows which Russian and Belarusian sites are available from Russian IP addresses. This list contains governmental websites, banks, pro-Russian media, corporations and other sites. The list will be increased in the future.</h4>'
+    // str += '<h4>To see which of these websites are available from American IP addresses follow this link: <a href="http://107.152.43.221">http://107.152.43.221</a></h4>'
+    // Uncomment these lines before deployment on American server
+    // str += '<h4>This table shows which Russian and Belarusian sites are available from American IP addresses. This list contains governmental websites, banks, pro-Russian media, corporations and other sites. The list will be increased in the future.</h4>'
+    // str += '<h4>To see which of these websites are available from Russian IP addresses follow this link: <a href="http://31.172.67.184">http://31.172.67.184</a></h4>'
+
+    str += '<h4>Glory to Ukraine!!! 🇺🇦</h4>'
+
+    sitesInfo.forEach((value, key, map) => {
+        let category = key
+        let categorySitesInfo = value
+        str += generateCategoryHtml(category, categorySitesInfo)
+    })
+
+    str += '<p>Source code: <a href="https://github.com/sofa-cyber-forces/russian-resources-monitor">https://github.com/sofa-cyber-forces/russian-resources-monitor</a></p>'
+    str += '<p>E-mail all your questions and proposals to sofa.cyber.forces@gmail.com</p>'
+
+    str += '</body></html>'
+
+    fs.writeFile('public/index.html', str, function(err) {
+        if (err) {
+            console.log('write file error: ' + err)
+        }
+    })
+}
+function generateCategoryHtml(category, categorySitesInfo) {
+    let sitesInfoArr = Array.from(categorySitesInfo.values());
     sitesInfoArr = sitesInfoArr.sort((a, b) => {
         if (a.success != null && b.success == null) {
             return -1
@@ -340,21 +471,7 @@ function writeSitesInfoToHtml() {
         return 0
     })
 
-    let str = '<!doctype html><html lang=en><head>'
-    str += '<meta charset=utf-8>'
-    str += '<title>Russian/Belarusian websites availability</title>'
-    str += '</head>'
-
-    str += '<body>'
-    str += '<h1>Russian/Belarusian websites availability</h1>'
-    // Uncomment these lines before deployment on Russian server
-    // str += '<h3>This table shows which Russian and Belarusian sites are available from Russian IP addresses. This list contains governmental websites, banks, pro-Russian media, corporations and other sites. The list will be increased in the future.</h3>'
-    // str += '<h3>To see which of these websites are available from American IP addresses follow this link: <a href="http://107.152.43.221">http://107.152.43.221</a></h3>'
-    // Uncomment these lines before deployment on American server
-    // str += '<h3>This table shows which Russian and Belarusian sites are available from American IP addresses. This list contains governmental websites, banks, pro-Russian media, corporations and other sites. The list will be increased in the future.</h3>'
-    // str += '<h3>To see which of these websites are available from Russian IP addresses follow this link: <a href="http://31.172.67.184">http://31.172.67.184</a></h3>'
-
-    str += '<h3>Glory to Ukraine!!! 🇺🇦</h3>'
+    let str = '<h2>' + category + '</h2>'
 
     str += '<table style="border: 1px solid black; border-collapse: collapse"><tbody>'
 
@@ -435,19 +552,10 @@ function writeSitesInfoToHtml() {
 
     str += '</tbody></table>'
 
-    str += '<p>Source code: <a href="https://github.com/sofa-cyber-forces/russian-resources-monitor">https://github.com/sofa-cyber-forces/russian-resources-monitor</a></p>'
-    str += '<p>E-mail all your questions and proposals to sofa.cyber.forces@gmail.com</p>'
-
-    str += '</body></html>'
-
-    fs.writeFile('public/index.html', str, function(err) {
-        if (err) {
-            console.log('write file error: ' + err)
-        }
-    })
+    return str
 }
 
-function checkSite(url, cb) {
+function checkSite(category, url, cb) {
     console.log('checking ' + url)
     https.get(url, function (res) {
         let str = url + ': success, code: ' + res.statusCode
@@ -458,16 +566,22 @@ function checkSite(url, cb) {
         const file = fs.createWriteStream(filePath)
         res.pipe(file)
 
-        let info = sitesInfo.get(url)
-        if (!info) {
+        let categoryInfo = sitesInfo.get(category)
+        if (!categoryInfo) {
+            cb()
             return
         }
-        info.success = true
-        info.statusCode = res.statusCode
-        info.error = null
-        info.updateTime = new Date()
+        let siteInfo = categoryInfo.get(url)
+        if (!siteInfo) {
+            cb()
+            return
+        }
+        siteInfo.success = true
+        siteInfo.statusCode = res.statusCode
+        siteInfo.error = null
+        siteInfo.updateTime = new Date()
 
-        writeSitesInfoToHtml()
+        generateHtmlPage()
 
         cb()
     }).on('error', function(e) {
@@ -480,16 +594,22 @@ function checkSite(url, cb) {
             fs.rmSync(filePath)
         }
         
-        let info = sitesInfo.get(url)
-        if (!info) {
+        let categoryInfo = sitesInfo.get(category)
+        if (!categoryInfo) {
+            cb()
             return
         }
-        info.success = false
-        info.statusCode = null
-        info.error = e
-        info.updateTime = new Date()
+        let siteInfo = categoryInfo.get(url)
+        if (!siteInfo) {
+            cb()
+            return
+        }
+        siteInfo.success = false
+        siteInfo.statusCode = null
+        siteInfo.error = e
+        siteInfo.updateTime = new Date()
 
-        writeSitesInfoToHtml()
+        generateHtmlPage()
 
         cb()
     })
