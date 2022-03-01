@@ -406,6 +406,13 @@ function generateHtmlPage() {
 
     str += '<h4>Glory to Ukraine!!! 🇺🇦</h4>'
 
+    str += '<h4>Categories: '
+    sitesInfo.forEach((value, key, map) => {
+        let category = key
+        str += '<a href="#' + category + '">' + category + '</a> '
+    })
+    str += '</h4>'
+
     sitesInfo.forEach((value, key, map) => {
         let category = key
         let categorySitesInfo = value
@@ -471,7 +478,7 @@ function generateCategoryHtml(category, categorySitesInfo) {
         return 0
     })
 
-    let str = '<h2>' + category + '</h2>'
+    let str = '<h2 id="' + category + '">' + category + '</h2>'
 
     str += '<table style="border: 1px solid black; border-collapse: collapse"><tbody>'
 
@@ -485,7 +492,7 @@ function generateCategoryHtml(category, categorySitesInfo) {
     str += 'Status code/Error'
     str += '</th>'
     str += '<th style="border: 1px solid black; border-collapse: collapse">'
-    str += 'Downloaded page'
+    str += 'Server response'
     str += '</th>'
     str += '<th style="border: 1px solid black; border-collapse: collapse">'
     str += 'Last update'
@@ -521,7 +528,7 @@ function generateCategoryHtml(category, categorySitesInfo) {
             str += '</td>'
 
             str += '<td style="border: 1px solid black; border-collapse: collapse">'
-            str += '<a href="downloaded_pages/' + convertUrlToFileName(info.url) + '">Open</a>'
+            str += '<a href="downloaded_pages/' + convertUrlToFileName(info.url) + '">Show</a>'
             str += '</td>'
 
             str += '<td style="border: 1px solid black; border-collapse: collapse">'
