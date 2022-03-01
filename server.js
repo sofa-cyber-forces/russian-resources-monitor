@@ -68,7 +68,40 @@ const URLS = new Map([
 
 
             // Russian resources from source 2
-            //
+            'https://epp.genproc.gov.ru',
+            'https://ach.gov.ru',
+            'https://www.scrf.gov.ru',
+
+            'https://www.government.ru',
+            'https://www.council.gov.ru',
+            'https://www.duma.gov.ru',
+            'https://www.gossluzhba.gov.ru',
+            'https://zakupki.gov.ru/epz/main/public/home.html',
+            // 'https://www.greenpressa.ru/', commented as insignificant
+            'https://zakon.scli.ru/ru/regions/35/', // Регистр муниципальных нормативных правовых актов Вологодской области на сайте Министерства юстиции Российской Федерации
+            // 'https://www.stratgap.ru', commented as insignificant, Стратегия государственной антинаркотической политики Российской Федерации
+            'https://www.vscc.ac.ru',
+
+            'https://epp.genproc.gov.ru',
+            'https://ach.gov.ru',
+            'https://duma.gov.ru/',
+            'https://president-sovet.ru/',
+            'https://sovetnational.ru/',
+            'https://zakupki.gov.ru/epz/main/public/home.html',
+            'https://gossluzhba.gov.ru/',
+            'https://defence.council.gov.ru/',
+            'https://budget.council.gov.ru/',
+            'https://government.ru/',
+            'https://www.ksrf.ru/ru/Pages/default.aspx',
+            'https://www.vsrf.ru/',
+            'https://premier.gov.ru/events/',
+            'https://www.mchs.gov.ru/',
+            'https://minjust.gov.ru/ru/',
+            'https://www.fsb.ru/',
+            'https://rosguard.gov.ru/',
+            'https://customs.gov.ru/',
+            'https://udprf.ru/',
+            'https://favt.gov.ru/',
 
 
 
@@ -105,7 +138,10 @@ const URLS = new Map([
 
 
             // Russian resources from source 2
-            //
+            'https://lenta.ru/',
+            'https://ria.ru/lenta/', // maybe delete as duplicate of ria.ru???
+            'https://tvzvezda.ru/',
+            'https://smotrim.ru/',
 
 
 
@@ -157,7 +193,14 @@ const URLS = new Map([
 
 
             // Russian resources from source 2
-            //
+            'https://tinkoff.ru',
+            'https://178.248.236.218:77', // IP of tinkoff
+
+            'https://194.54.14.186:53', // IP of sberbank
+
+            'https://194.54.14.187:53', // IP of sberbank
+
+            'https://194.67.2.109:53', // IP of sberbank
 
 
 
@@ -209,7 +252,11 @@ const URLS = new Map([
 
 
             // Russian resources from source 2
-            //
+            'https://bitzlato.com',
+
+            'https://bitzlato.com/api/p2p/public/exchange/dsa/?skip=0&limit=15&type=purchase&currency=UAH&cryptocurrency=BTC&isOwnerVerificated=true&isOwnerTrusted=false&isOwnerActive=false&lang=ru',
+
+            'https://172.67.74.48:53/udp', // IP of bitzlato.com
 
 
 
@@ -272,50 +319,6 @@ const URLS = new Map([
 
             
             // Russian resources from source 2
-            'https://epp.genproc.gov.ru',
-            'https://ach.gov.ru',
-            'https://www.scrf.gov.ru',
-
-            'https://www.government.ru',
-            'https://www.council.gov.ru',
-            'https://www.duma.gov.ru',
-            'https://www.gossluzhba.gov.ru',
-            'https://zakupki.gov.ru/epz/main/public/home.html',
-            'https://www.greenpressa.ru/',
-            'https://zakon.scli.ru/ru/regions/35/',
-            'https://www.stratgap.ru',
-            'https://www.vscc.ac.ru',
-
-            'https://www.moex.com',
-
-            'https://epp.genproc.gov.ru',
-            'https://ach.gov.ru',
-            'https://duma.gov.ru/',
-            'https://president-sovet.ru/',
-            'https://sovetnational.ru/',
-            'https://zakupki.gov.ru/epz/main/public/home.html',
-            'https://gossluzhba.gov.ru/',
-            'https://defence.council.gov.ru/',
-            'https://budget.council.gov.ru/',
-            'https://government.ru/',
-            'https://www.ksrf.ru/ru/Pages/default.aspx',
-            'https://www.vsrf.ru/',
-            'https://premier.gov.ru/events/',
-            'https://www.mchs.gov.ru/',
-            'https://minjust.gov.ru/ru/',
-            'https://www.fsb.ru/',
-            'https://rosguard.gov.ru/',
-            'https://customs.gov.ru/',
-            'https://udprf.ru/',
-            'https://favt.gov.ru/',
-
-            'https://lenta.ru/',
-            'https://ria.ru/lenta/', // maybe delete as duplicate of ria.ru???
-            'https://tvzvezda.ru/',
-            'https://smotrim.ru/',
-
-            'https://bitzlato.com',
-
             'https://yandex.by/',
 
             'https://onliner.by',
@@ -324,24 +327,11 @@ const URLS = new Map([
 
             'https://krym-webcams.ru/',
 
-            'https://crimea-media.ru/',
-
-            'https://tinkoff.ru',
-            'https://178.248.236.218:77',
-
-            'https://194.54.14.186:53',
-
-            'https://194.54.14.187:53',
-
-            'https://194.67.2.109:53',
-
-            'https://bitzlato.com/api/p2p/public/exchange/dsa/?skip=0&limit=15&type=purchase&currency=UAH&cryptocurrency=BTC&isOwnerVerificated=true&isOwnerTrusted=false&isOwnerActive=false&lang=ru',
-
-            'https://172.67.74.48:53/udp',
-
+            'https://crimea-media.ru/', // maybe move to media?
+            
             'https://unchain.team/',
 
-            'https://104.21.13.183:21/',
+            'https://104.21.13.183:21/', // IP of unchain.team???
 
             'https://ds1.mirconnect.ru',
 
