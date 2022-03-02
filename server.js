@@ -3,6 +3,7 @@ const https = require('https');
 const fs = require('fs')
 
 const urls = require('./urls')
+const categoryTranslations = require('./category-translations')
 
 const app = express()
 
@@ -84,22 +85,56 @@ function generateHtmlPage() {
     str += '</head>'
 
     str += '<body>'
+
+    str += '<table><tbody>'
+    str += '<tr>'
+    str += '<td>'
+    str += '<h1>Доступність російських/білоруських веб-сайтів</h1>'
+    str += '</td>'
+    str += '<td>'
     str += '<h1>Russian/Belarusian websites availability</h1>'
+    str += '</td>'
+    str += '</tr>'
+    str += '<tr>'
+    str += '<td>'
+    // Uncomment these lines before deployment on Russian server
+    // str += '<h4>Ця таблиця показує, які російські та булоруські сайти доступні з російських IP-адрес. Цей список містить державні, банківські сайти, проросійські медіа-ресурси, корпорації та інші сайти. Цей список буде доповнюватись у майбутньому'
+    // str += '<h4>Щоб побачити, які з цих веб-сайтів доступні з американських IP-адрес, перейдіть за цим посиланням: <a href="http://107.152.43.221">http://107.152.43.221</a>'
+    // Uncomment these lines before deployment on American server
+    // str += '<h4>Ця таблиця показує, які російські та булоруські сайти доступні з американських IP-адрес. Цей список містить державні, банківські сайти, проросійські медіа-ресурси, корпорації та інші сайти. Цей список буде доповнюватись у майбутньому'
+    // str += '<h4>Щоб побачити, які з цих веб-сайтів доступні з російських IP-адрес, перейдіть за цим посиланням: <a href="http://107.152.43.221">http://107.152.43.221</a>'
+    str += '<h4>Слава Україні!!! 🇺🇦</h4>'
+    str += '</td>'
+    str += '<td>'
     // Uncomment these lines before deployment on Russian server
     // str += '<h4>This table shows which Russian and Belarusian sites are available from Russian IP addresses. This list contains governmental websites, banks, pro-Russian media, corporations and other sites. The list will be increased in the future.</h4>'
     // str += '<h4>To see which of these websites are available from American IP addresses follow this link: <a href="http://107.152.43.221">http://107.152.43.221</a></h4>'
     // Uncomment these lines before deployment on American server
     // str += '<h4>This table shows which Russian and Belarusian sites are available from American IP addresses. This list contains governmental websites, banks, pro-Russian media, corporations and other sites. The list will be increased in the future.</h4>'
     // str += '<h4>To see which of these websites are available from Russian IP addresses follow this link: <a href="http://31.172.67.184">http://31.172.67.184</a></h4>'
-
     str += '<h4>Glory to Ukraine!!! 🇺🇦</h4>'
-
-    str += '<h4>Categories: '
+    str += '</td>'
+    str += '</tr>'
+    str += '<tr>'
+    str += '<td>'
+    str += '<h4>Категорії:</h4>'
+    str += '<ul>'
     sitesInfo.forEach((value, key, map) => {
         let category = key
-        str += '<a href="#' + category + '">' + category + '</a> '
+        str += '<li><a href="#' + category + '">' + category + '</a></li>'
     })
-    str += '</h4>'
+    str += '</ul>'
+    str += '</td>'
+    str += '<td>'
+    str += '<h4>Categories:</h4>'
+    sitesInfo.forEach((value, key, map) => {
+        let category = key
+        category = categoryTranslations.get(category)
+        str += '<li><a href="#' + category + '">' + category + '</a></li>'
+    })
+    str += '</td>'
+    str += '</tr>'
+    str += '</tbody></table>'
 
     sitesInfo.forEach((value, key, map) => {
         let category = key
@@ -166,7 +201,9 @@ function generateCategoryHtml(category, categorySitesInfo) {
         return 0
     })
 
-    let str = '<h2 id="' + category + '">' + category + '</h2>'
+    let categoryTranslation = categoryTranslations.get(category)
+    let categoryStr = category + ' / ' + categoryTranslation
+    let str = '<h2 id="' + categoryStr + '">' + categoryStr + '</h2>'
 
     str += '<table style="border: 1px solid black; border-collapse: collapse"><tbody>'
 
