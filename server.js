@@ -67,7 +67,7 @@ app.listen(PORT, () => {
     } else if (ip == '107.152.43.221') {
         serverLocation = 'us'
     }
-    
+
     urls.forEach((value, key, array) => {
         let category = key
         let urls = value
@@ -98,30 +98,35 @@ function generateHtmlPage() {
     str += '<table><tbody>'
     str += '<tr>'
     str += '<td>'
-    str += '<h1>Доступність російських/білоруських веб-сайтів</h1>'
-    str += '</td>'
-    str += '<td>'
-    str += '<h1>Russian/Belarusian websites availability</h1>'
-    str += '</td>'
-    str += '</tr>'
-    str += '<tr>'
-    str += '<td>'
-    if (serverLocation == 'ru') {
-        str += '<h4>Ця таблиця показує, які російські та булоруські сайти доступні з російських IP-адрес. Цей список містить державні, банківські сайти, проросійські медіа-ресурси, корпорації та інші сайти. Цей список буде доповнюватись у майбутньому'
-        str += '<h4>Щоб побачити, які з цих веб-сайтів доступні з американських IP-адрес, перейдіть за цим посиланням: <a href="http://107.152.43.221">http://107.152.43.221</a>'
-    } else if (serverLocation == 'us') {
-        str += '<h4>Ця таблиця показує, які російські та булоруські сайти доступні з американських IP-адрес. Цей список містить державні, банківські сайти, проросійські медіа-ресурси, корпорації та інші сайти. Цей список буде доповнюватись у майбутньому'
-        str += '<h4>Щоб побачити, які з цих веб-сайтів доступні з російських IP-адрес, перейдіть за цим посиланням: <a href="http://107.152.43.221">http://107.152.43.221</a>'
+    if (serverLocation == 'ru' || serverLocation == '') {
+        str += '<h2>Відслідковуйте доступність російських та білоруських сайтів з російської IP-адреси (31.172.67.184).</h2>'
+        str += '<p>Щоб подивитись доступність цих ресурсів з американського IP, перейдіть за посиланням: <a href="http://107.152.43.221">http://107.152.43.221</a>.</p>'
+    }
+    if (serverLocation == 'us' || serverLocation == '') {
+        str += '<h2>Відслідковуйте доступність російських та білоруських сайтів з американської IP-адреси (107.152.43.221).</h2>'
+        str += '<p>Щоб подивитись доступність цих ресурсів з російського IP, перейдіть за посиланням: <a href="http://31.172.67.184">http://31.172.67.184</a>.</p>'
     }
     str += '<h4>Слава Україні!!! 🇺🇦</h4>'
     str += '</td>'
     str += '<td>'
-    if (serverLocation == 'ru') {
-        str += '<h4>This table shows which Russian and Belarusian sites are available from Russian IP addresses. This list contains governmental websites, banks, pro-Russian media, corporations and other sites. The list will be increased in the future.</h4>'
-        str += '<h4>To see which of these websites are available from American IP addresses follow this link: <a href="http://107.152.43.221">http://107.152.43.221</a></h4>'
-    } else if (serverLocation == 'us') {
-        str += '<h4>This table shows which Russian and Belarusian sites are available from American IP addresses. This list contains governmental websites, banks, pro-Russian media, corporations and other sites. The list will be increased in the future.</h4>'
-        str += '<h4>To see which of these websites are available from Russian IP addresses follow this link: <a href="http://31.172.67.184">http://31.172.67.184</a></h4>'
+    if (serverLocation == 'ru' || serverLocation == '') {
+        str += '<h2>Отслеживайте доступность русских и белорусских сайтов с российского IP-адреса (31.172.67.184).</h2>'
+        str += '<p>Чтобы посмотреть доступность этих ресурсов с американского IP, перейдите по ссылке: <a href="http://107.152.43.221">http://107.152.43.221</a>.</p>'
+    }
+    if (serverLocation == 'us' || serverLocation == '') {
+        str += '<h2>Отслеживайте доступность русских и белорусских сайтов с американского IP-адреса (107.152.43.221).</h2>'
+        str += '<p>Чтобы посмотреть доступность этих ресурсов с российского IP, перейдите по ссылке: <a href="http://31.172.67.184">http://31.172.67.184</a>.</p>'
+    }
+    str += '<h4>Слава Украине!!! 🇺🇦</h4>'
+    str += '</td>'
+    str += '<td>'
+    if (serverLocation == 'ru' || serverLocation == '') {
+        str += '<h2>Monitor availability of Russian and Belarusian websites from Russian IP-address (31.172.67.184).</h2>'
+        str += '<p>To monitor availability of these resources from American IP, follow the link: <a href="http://107.152.43.221">http://107.152.43.221</a>.</p>'
+    }
+    if (serverLocation == 'us' || serverLocation == '') {
+        str += '<h2>Monitor availability of Russian and Belarusian websites from American IP-address (107.152.43.221).</h2>'
+        str += '<p>To monitor availability of these resources from Russian IP, follow the link: <a href="http://31.172.67.184">http://31.172.67.184</a>.</p>'
     }
     str += '<h4>Glory to Ukraine!!! 🇺🇦</h4>'
     str += '</td>'
@@ -137,11 +142,19 @@ function generateHtmlPage() {
     str += '</ul>'
     str += '</td>'
     str += '<td>'
+    str += '<h4>Категории:</h4>'
+    sitesInfo.forEach((value, key, map) => {
+        let category = key
+        let translation = categoryTranslations.ru.get(category)
+        str += '<li><a href="#' + category + '">' + translation + '</a></li>'
+    })
+    str += '</td>'
+    str += '<td>'
     str += '<h4>Categories:</h4>'
     sitesInfo.forEach((value, key, map) => {
         let category = key
-        category = categoryTranslations.get(category)
-        str += '<li><a href="#' + category + '">' + category + '</a></li>'
+        let translation = categoryTranslations.en.get(category)
+        str += '<li><a href="#' + category + '">' + translation + '</a></li>'
     })
     str += '</td>'
     str += '</tr>'
@@ -212,9 +225,10 @@ function generateCategoryHtml(category, categorySitesInfo) {
         return 0
     })
 
-    let categoryTranslation = categoryTranslations.get(category)
-    let categoryStr = category + ' / ' + categoryTranslation
-    let str = '<h2 id="' + categoryStr + '">' + categoryStr + '</h2>'
+    let categoryTranslationRu = categoryTranslations.ru.get(category)
+    let categoryTranslationEn = categoryTranslations.en.get(category)
+    let categoryStr = category + ' / ' + categoryTranslationRu + ' / ' + categoryTranslationEn
+    let str = '<h2 id="' + category + '">' + categoryStr + '</h2>'
 
     str += '<table style="border: 1px solid black; border-collapse: collapse"><tbody>'
 
