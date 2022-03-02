@@ -1,8 +1,10 @@
 const express = require('express')
 const https = require('https');
 const fs = require('fs')
+const { networkInterfaces } = require('os')
 
 const urls = require('./urls')
+const categoryTranslations = require('./category-translations')
 
 const app = express()
 
@@ -55,8 +57,16 @@ urls.forEach((value, key, array) => {
     sitesInfo.set(category, categorySitesInfo)
 })
 
+let serverLocation = ''
 app.listen(PORT, () => {
     console.log("listening on port " + PORT)
+
+    let ip = getIp()
+    if (ip == '31.172.67.184') {
+        serverLocation = 'ru'
+    } else if (ip == '107.152.43.221') {
+        serverLocation = 'us'
+    }
 
     urls.forEach((value, key, array) => {
         let category = key
@@ -84,22 +94,71 @@ function generateHtmlPage() {
     str += '</head>'
 
     str += '<body>'
-    str += '<h1>Russian/Belarusian websites availability</h1>'
-    // Uncomment these lines before deployment on Russian server
-    // str += '<h4>This table shows which Russian and Belarusian sites are available from Russian IP addresses. This list contains governmental websites, banks, pro-Russian media, corporations and other sites. The list will be increased in the future.</h4>'
-    // str += '<h4>To see which of these websites are available from American IP addresses follow this link: <a href="http://107.152.43.221">http://107.152.43.221</a></h4>'
-    // Uncomment these lines before deployment on American server
-    // str += '<h4>This table shows which Russian and Belarusian sites are available from American IP addresses. This list contains governmental websites, banks, pro-Russian media, corporations and other sites. The list will be increased in the future.</h4>'
-    // str += '<h4>To see which of these websites are available from Russian IP addresses follow this link: <a href="http://31.172.67.184">http://31.172.67.184</a></h4>'
 
+    str += '<table><tbody>'
+    str += '<tr>'
+    str += '<td>'
+    if (serverLocation == 'ru' || serverLocation == '') {
+        str += '<h2>Відслідковуйте доступність російських та білоруських сайтів з російської IP-адреси (31.172.67.184).</h2>'
+        str += '<p>Щоб подивитись доступність цих ресурсів з американського IP, перейдіть за посиланням: <a href="http://107.152.43.221">http://107.152.43.221</a>.</p>'
+    }
+    if (serverLocation == 'us' || serverLocation == '') {
+        str += '<h2>Відслідковуйте доступність російських та білоруських сайтів з американської IP-адреси (107.152.43.221).</h2>'
+        str += '<p>Щоб подивитись доступність цих ресурсів з російського IP, перейдіть за посиланням: <a href="http://31.172.67.184">http://31.172.67.184</a>.</p>'
+    }
+    str += '<h4>Слава Україні!!! 🇺🇦</h4>'
+    str += '</td>'
+    str += '<td>'
+    if (serverLocation == 'ru' || serverLocation == '') {
+        str += '<h2>Отслеживайте доступность русских и белорусских сайтов с российского IP-адреса (31.172.67.184).</h2>'
+        str += '<p>Чтобы посмотреть доступность этих ресурсов с американского IP, перейдите по ссылке: <a href="http://107.152.43.221">http://107.152.43.221</a>.</p>'
+    }
+    if (serverLocation == 'us' || serverLocation == '') {
+        str += '<h2>Отслеживайте доступность русских и белорусских сайтов с американского IP-адреса (107.152.43.221).</h2>'
+        str += '<p>Чтобы посмотреть доступность этих ресурсов с российского IP, перейдите по ссылке: <a href="http://31.172.67.184">http://31.172.67.184</a>.</p>'
+    }
+    str += '<h4>Слава Украине!!! 🇺🇦</h4>'
+    str += '</td>'
+    str += '<td>'
+    if (serverLocation == 'ru' || serverLocation == '') {
+        str += '<h2>Monitor availability of Russian and Belarusian websites from Russian IP-address (31.172.67.184).</h2>'
+        str += '<p>To monitor availability of these resources from American IP, follow the link: <a href="http://107.152.43.221">http://107.152.43.221</a>.</p>'
+    }
+    if (serverLocation == 'us' || serverLocation == '') {
+        str += '<h2>Monitor availability of Russian and Belarusian websites from American IP-address (107.152.43.221).</h2>'
+        str += '<p>To monitor availability of these resources from Russian IP, follow the link: <a href="http://31.172.67.184">http://31.172.67.184</a>.</p>'
+    }
     str += '<h4>Glory to Ukraine!!! 🇺🇦</h4>'
-
-    str += '<h4>Categories: '
+    str += '</td>'
+    str += '</tr>'
+    str += '<tr>'
+    str += '<td>'
+    str += '<h4>Категорії:</h4>'
+    str += '<ul>'
     sitesInfo.forEach((value, key, map) => {
         let category = key
-        str += '<a href="#' + category + '">' + category + '</a> '
+        str += '<li><a href="#' + category + '">' + category + '</a></li>'
     })
-    str += '</h4>'
+    str += '</ul>'
+    str += '</td>'
+    str += '<td>'
+    str += '<h4>Категории:</h4>'
+    sitesInfo.forEach((value, key, map) => {
+        let category = key
+        let translation = categoryTranslations.ru.get(category)
+        str += '<li><a href="#' + category + '">' + translation + '</a></li>'
+    })
+    str += '</td>'
+    str += '<td>'
+    str += '<h4>Categories:</h4>'
+    sitesInfo.forEach((value, key, map) => {
+        let category = key
+        let translation = categoryTranslations.en.get(category)
+        str += '<li><a href="#' + category + '">' + translation + '</a></li>'
+    })
+    str += '</td>'
+    str += '</tr>'
+    str += '</tbody></table>'
 
     sitesInfo.forEach((value, key, map) => {
         let category = key
@@ -166,7 +225,10 @@ function generateCategoryHtml(category, categorySitesInfo) {
         return 0
     })
 
-    let str = '<h2 id="' + category + '">' + category + '</h2>'
+    let categoryTranslationRu = categoryTranslations.ru.get(category)
+    let categoryTranslationEn = categoryTranslations.en.get(category)
+    let categoryStr = category + ' / ' + categoryTranslationRu + ' / ' + categoryTranslationEn
+    let str = '<h2 id="' + category + '">' + categoryStr + '</h2>'
 
     str += '<table style="border: 1px solid black; border-collapse: collapse"><tbody>'
 
@@ -325,4 +387,16 @@ function escapeRegExp(string) {
 }
 function replaceAll(str, match, replacement){
     return str.replace(new RegExp(escapeRegExp(match), 'g'), ()=>replacement);
+}
+
+function getIp() {
+    const nets = networkInterfaces()
+    for (const name of Object.keys(nets)) {
+        for (const net of nets[name]) {
+            if (net.family == 'IPv4' && !net.internal) {
+                return net.address
+            }
+        }
+    }
+    return null
 }

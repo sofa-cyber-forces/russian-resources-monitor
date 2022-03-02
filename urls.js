@@ -1,6 +1,6 @@
 module.exports = new Map([
     [
-        "Governmental websites",
+        "Державні сайти",
         [
             // Russian resources from source 1
             'https://www.gosuslugi.ru/',
@@ -88,7 +88,7 @@ module.exports = new Map([
         ]
     ],
     [
-        "Media",
+        "Медіа-ресурси",
         [
             // Russian resources from source 1
             'https://ria.ru',
@@ -143,7 +143,7 @@ module.exports = new Map([
         ]
     ],
     [
-        "Banks",
+        "Банки",
         [
             // Russian resources from source 1
             'https://www.sberbank.ru',
@@ -183,7 +183,7 @@ module.exports = new Map([
         ]
     ],
     [
-        "Other financial institutions",
+        "Інші фінансові установи",
         [
             // Russian resources from source 1
             'https://www.moex.com',
@@ -233,7 +233,7 @@ module.exports = new Map([
         ]
     ],
     [
-        "Corporations",
+        "Корпорації",
         [
             // Russian resources from source 1
             'https://www.gazprom.ru/',
@@ -274,7 +274,7 @@ module.exports = new Map([
         ]
     ],
     [
-        'Uncategorized',
+        'Інше',
         [
             // Russian resources from source 1
             'https://ya.ru/',
