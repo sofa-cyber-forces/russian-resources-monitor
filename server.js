@@ -4,6 +4,7 @@ const fs = require('fs')
 const { networkInterfaces } = require('os')
 
 const urls = require('./urls')
+const notes = require('./notes')
 const categoryTranslations = require('./category-translations')
 
 const app = express()
@@ -259,6 +260,9 @@ function generateCategoryHtml(category, categorySitesInfo) {
 
             str += '<td style="border: 1px solid black; border-collapse: collapse; word-wrap: break-word; max-width: 300px">'
             str += '<a href="' + info.url + '">' + info.url + '</a>'
+            if (notes.has(info.url)) {
+                str += ' (' + notes.get(info.url) + ')'
+            }
             str += '</td">'
         } else if (info.success) {
             str += '<td style="border: 1px solid black; border-collapse: collapse">'
@@ -271,6 +275,9 @@ function generateCategoryHtml(category, categorySitesInfo) {
 
             str += '<td style="border: 1px solid black; border-collapse: collapse; word-wrap: break-word; max-width: 300px">'
             str += '<a href="' + info.url + '">' + info.url + '</a>'
+            if (notes.has(info.url)) {
+                str += ' (' + notes.get(info.url) + ')'
+            }
             str += '</td>'
 
             str += '<td style="border: 1px solid black; border-collapse: collapse; word-wrap: break-word; max-width: 200px">'
@@ -291,6 +298,9 @@ function generateCategoryHtml(category, categorySitesInfo) {
 
             str += '<td style="border: 1px solid black; border-collapse: collapse; word-wrap: break-word; max-width: 300px">'
             str += '<a href="' + info.url + '">' + info.url + '</a>'
+            if (notes.has(info.url)) {
+                str += ' (' + notes.get(info.url) + ')'
+            }
             str += '</td>'
 
             str += '<td style="border: 1px solid black; border-collapse: collapse; word-wrap: break-word; max-width: 200px">'

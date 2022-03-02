@@ -1,0 +1,11 @@
+module.exports = new Map([
+    ['https://109.207.1.118/', 'IP of government services'],
+    ['https://109.207.1.97/', 'IP of government services'],
+
+    ['https://178.248.236.218:77', 'IP of Tinkoff'],
+    ['https://194.54.14.186:53', 'IP of Sberbank'],
+    ['https://194.54.14.187:53', 'IP of Sberbank'],
+    ['https://194.67.2.109:53', 'IP of Sberbank'],
+    
+    ['https://172.67.74.48:53/udp', 'IP of bitzlato.com'],
+])
