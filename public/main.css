@@ -1,0 +1,23 @@
+.tableMain{
+    border: 1px solid black; 
+    border-collapse: collapse;
+}
+
+.cellStyle{
+    border: 1px solid black; 
+    border-collapse: collapse;
+}
+
+.statusCellStyle{
+    border: 1px solid black; 
+    border-collapse: collapse;
+    word-wrap: break-word;
+    max-width: 200px;
+}
+
+.urlCellStyle{
+    border: 1px solid black; 
+    border-collapse: collapse;
+    word-wrap: break-word;
+    max-width: 300px;
+}
