@@ -426,5 +426,14 @@ function printSortedUrls() {
     })
     urlStrs = urlStrs.sort()
     console.log('sorted urls (www. removed):')
-    console.log(urlStrs)
+    urlStrs.forEach((value, index, array) => {
+        if (index > 0) {
+            let previousVal = array[index - 1]
+            if (previousVal.substring(0, 10) != value.substring(0, 10)) {
+                console.log('')
+            }
+        }
+        console.log(value)
+    })
+    console.log('')
 }
