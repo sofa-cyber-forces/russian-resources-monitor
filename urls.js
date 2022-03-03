@@ -39,34 +39,25 @@ module.exports = new Map([
             'https://ach.gov.ru',
             'https://www.scrf.gov.ru',
 
-            'https://www.government.ru',
             'https://www.council.gov.ru',
-            'https://www.duma.gov.ru',
-            'https://www.gossluzhba.gov.ru',
+            'https://duma.gov.ru',
+            'https://gossluzhba.gov.ru',
             'https://zakupki.gov.ru/epz/main/public/home.html',
             // 'https://www.greenpressa.ru/', commented as insignificant
             'https://zakon.scli.ru/ru/regions/35/', // Регистр муниципальных нормативных правовых актов Вологодской области на сайте Министерства юстиции Российской Федерации
             // 'https://www.stratgap.ru', commented as insignificant, Стратегия государственной антинаркотической политики Российской Федерации
             'https://www.vscc.ac.ru',
 
-            'https://epp.genproc.gov.ru',
-            'https://ach.gov.ru',
-            'https://duma.gov.ru/',
             'https://president-sovet.ru/',
             'https://sovetnational.ru/',
-            'https://zakupki.gov.ru/epz/main/public/home.html',
-            'https://gossluzhba.gov.ru/',
             'https://defence.council.gov.ru/',
             'https://budget.council.gov.ru/',
-            'https://government.ru/',
             'https://www.ksrf.ru/ru/Pages/default.aspx',
             'https://www.vsrf.ru/',
             'https://premier.gov.ru/events/',
             'https://www.mchs.gov.ru/',
             'https://minjust.gov.ru/ru/',
-            'https://www.fsb.ru/',
             'https://rosguard.gov.ru/',
-            'https://customs.gov.ru/',
             'https://udprf.ru/',
             'https://favt.gov.ru/',
 
@@ -108,7 +99,6 @@ module.exports = new Map([
 
             // Russian resources from source 2
             'https://lenta.ru/',
-            'https://ria.ru/lenta/', // maybe delete as duplicate of ria.ru???
             'https://tvzvezda.ru/',
             'https://smotrim.ru/',
 
