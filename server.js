@@ -92,6 +92,7 @@ function generateHtmlPage() {
     let str = '<!doctype html><html lang=en><head>'
     str += '<meta charset=utf-8>'
     str += '<title>Russian/Belarusian websites availability</title>'
+    str += '<link href="../main.css" rel="stylesheet">'
     str += '</head>'
 
     str += '<body>'
@@ -231,21 +232,21 @@ function generateCategoryHtml(category, categorySitesInfo) {
     let categoryStr = category + ' / ' + categoryTranslationRu + ' / ' + categoryTranslationEn
     let str = '<h2 id="' + category + '">' + categoryStr + '</h2>'
 
-    str += '<table style="border: 1px solid black; border-collapse: collapse"><tbody>'
+    str += '<table class="tableMain"><tbody>'
 
     str += '<tr>'
-    str += '<th style="border: 1px solid black; border-collapse: collapse">'
+    str += '<th class="cellStyle">'
     str += '</th>'
-    str += '<th style="border: 1px solid black; border-collapse: collapse; word-wrap: break-word; max-width: 300px">'
+    str += '<th class="urlCellStyle">'
     str += 'URL'
     str += '</th>'
-    str += '<th style="border: 1px solid black; border-collapse: collapse; word-wrap: break-word; max-width: 200px">'
+    str += '<th class="statusCellStyle">'
     str += 'Status code/Error'
     str += '</th>'
-    str += '<th style="border: 1px solid black; border-collapse: collapse">'
+    str += '<th class="cellStyle">'
     str += 'Server response'
     str += '</th>'
-    str += '<th style="border: 1px solid black; border-collapse: collapse">'
+    str += '<th class="cellStyle">'
     str += 'Last update'
     str += '</th>'
     str += '</tr>'
@@ -258,59 +259,59 @@ function generateCategoryHtml(category, categorySitesInfo) {
             str += '<td>'
             str += '</td>'
 
-            str += '<td style="border: 1px solid black; border-collapse: collapse; word-wrap: break-word; max-width: 300px">'
+            str += '<td class="urlCellStyle">'
             str += '<a href="' + info.url + '">' + info.url + '</a>'
             if (notes.has(info.url)) {
                 str += ' (' + notes.get(info.url) + ')'
             }
             str += '</td">'
         } else if (info.success) {
-            str += '<td style="border: 1px solid black; border-collapse: collapse">'
+            str += '<td class="cellStyle">'
             if (info.statusCode >= 200 && info.statusCode <= 299) {
-                str += '<img src="success.png" width="20" height="20">'
+                str += '<img src="success.png" width="20" heigth="20">'
             } else {
-                str += '<img src="warning.png" width="20" height="20">'
+                str += '<img src="warning.png" width="20" heigth="20">'
             }
             str += '</td>'
 
-            str += '<td style="border: 1px solid black; border-collapse: collapse; word-wrap: break-word; max-width: 300px">'
+            str += '<td class="urlCellStyle">'
             str += '<a href="' + info.url + '">' + info.url + '</a>'
             if (notes.has(info.url)) {
                 str += ' (' + notes.get(info.url) + ')'
             }
             str += '</td>'
 
-            str += '<td style="border: 1px solid black; border-collapse: collapse; word-wrap: break-word; max-width: 200px">'
+            str += '<td class="statusCellStyle">'
             str += info.statusCode
             str += '</td>'
 
-            str += '<td style="border: 1px solid black; border-collapse: collapse">'
+            str += '<td class="cellStyle">'
             str += '<a href="downloaded_pages/' + convertUrlToFileName(info.url) + '">Show</a>'
             str += '</td>'
 
-            str += '<td style="border: 1px solid black; border-collapse: collapse">'
+            str += '<td class="cellStyle">'
             str += info.updateTime.toGMTString()
             str += '</td>'
         } else {
-            str += '<td style="border: 1px solid black; border-collapse: collapse">'
-            str += '<img src="failure.png" width="20" height="20">'
+            str += '<td class="cellStyle">'
+            str += '<img src="failure.png" width="20" heigth="20">'
             str += '</td>'
 
-            str += '<td style="border: 1px solid black; border-collapse: collapse; word-wrap: break-word; max-width: 300px">'
+            str += '<td class="urlCellStyle">'
             str += '<a href="' + info.url + '">' + info.url + '</a>'
             if (notes.has(info.url)) {
                 str += ' (' + notes.get(info.url) + ')'
             }
             str += '</td>'
 
-            str += '<td style="border: 1px solid black; border-collapse: collapse; word-wrap: break-word; max-width: 200px">'
+            str += '<td class="statusCellStyle">'
             str += info.error
             str += '</td>'
 
-            str += '<td style="border: 1px solid black; border-collapse: collapse">'
+            str += '<td class="cellStyle">'
             str += '</td>'
 
-            str += '<td style="border: 1px solid black; border-collapse: collapse">'
+            str += '<td class="cellStyle">'
             str += info.updateTime.toGMTString()
             str += '</td>'
         }
