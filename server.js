@@ -92,7 +92,7 @@ function generateHtmlPage() {
     let str = '<!doctype html><html lang=en><head>'
     str += '<meta charset=utf-8>'
     str += '<title>Russian/Belarusian websites availability</title>'
-    str += '<link href="../main.css" rel="stylesheet">'
+    str += '<link href="main.css" rel="stylesheet">'
     str += '</head>'
 
     str += '<body>'

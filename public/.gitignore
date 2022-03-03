@@ -3,7 +3,8 @@
 # Except this file
 !.gitignore
 
-# Don't ignore images
+# Don't ignore CSS and images
+!main.css
 !failure.png
 !warning.png
 !success.png
