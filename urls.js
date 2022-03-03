@@ -39,34 +39,25 @@ module.exports = new Map([
             'https://ach.gov.ru',
             'https://www.scrf.gov.ru',
 
-            'https://www.government.ru',
             'https://www.council.gov.ru',
-            'https://www.duma.gov.ru',
-            'https://www.gossluzhba.gov.ru',
+            'https://duma.gov.ru',
+            'https://gossluzhba.gov.ru',
             'https://zakupki.gov.ru/epz/main/public/home.html',
             // 'https://www.greenpressa.ru/', commented as insignificant
             'https://zakon.scli.ru/ru/regions/35/', // Регистр муниципальных нормативных правовых актов Вологодской области на сайте Министерства юстиции Российской Федерации
             // 'https://www.stratgap.ru', commented as insignificant, Стратегия государственной антинаркотической политики Российской Федерации
             'https://www.vscc.ac.ru',
 
-            'https://epp.genproc.gov.ru',
-            'https://ach.gov.ru',
-            'https://duma.gov.ru/',
             'https://president-sovet.ru/',
             'https://sovetnational.ru/',
-            'https://zakupki.gov.ru/epz/main/public/home.html',
-            'https://gossluzhba.gov.ru/',
             'https://defence.council.gov.ru/',
             'https://budget.council.gov.ru/',
-            'https://government.ru/',
             'https://www.ksrf.ru/ru/Pages/default.aspx',
             'https://www.vsrf.ru/',
             'https://premier.gov.ru/events/',
             'https://www.mchs.gov.ru/',
             'https://minjust.gov.ru/ru/',
-            'https://www.fsb.ru/',
             'https://rosguard.gov.ru/',
-            'https://customs.gov.ru/',
             'https://udprf.ru/',
             'https://favt.gov.ru/',
 
@@ -102,15 +93,22 @@ module.exports = new Map([
             'https://rbc.ru',
             'https://bezformata.com',
 
+            'https://объясняем.рф',
+
 
 
 
 
             // Russian resources from source 2
             'https://lenta.ru/',
-            'https://ria.ru/lenta/', // maybe delete as duplicate of ria.ru???
             'https://tvzvezda.ru/',
             'https://smotrim.ru/',
+
+            'https://interfax.ru',
+
+            'https://tass.ru',
+
+            'https://lifehacker.ru',
 
 
 
@@ -154,6 +152,22 @@ module.exports = new Map([
 
             'https://api.sberbank.ru/prod/tokens/v2/oauth',
             'https://api.sberbank.ru/prod/tokens/v2/oidc',
+
+            'https://sber.ru',
+            'https://185.157.96.130',
+            'https://profile.sber.ru',
+            'https://84.252.144.102',
+
+            'https://scr.online.sberbank.ru/api/fl/idgib-w-3ds',
+            'https://3dsec.sberbank.ru/mportal3/auth/login',
+            'https://acs1.sbrf.ru',
+            'https://acs2.sbrf.ru',
+            'https://acs3.sbrf.ru',
+            'https://acs4.sbrf.ru',
+            'https://acs5.sbrf.ru',
+            'https://acs6.sbrf.ru',
+            'https://acs7.sbrf.ru',
+            'https://acs8.sbrf.ru',
 
 
 
@@ -274,12 +288,74 @@ module.exports = new Map([
         ]
     ],
     [
+        "Електронні цифрові підписи",
+        [
+            // Russian resources from source 1
+            'https://iecp.ru/ep/ep-verification',
+            'https://iecp.ru/ep/uc-list',
+            'https://uc-osnovanie.ru/',
+            'https://www.nucrf.ru',
+            'https://www.belinfonalog.ru',
+            'https://www.roseltorg.ru',
+            'https://www.astralnalog.ru',
+            'https://www.nwudc.ru',
+            'https://www.center-inform.ru',
+            'https://kk.bank/UdTs',
+            'https://structure.mil.ru/structure/uc/info.htm',
+            'https://www.ucpir.ru',
+            'https://dreamkas.ru',
+            'https://www.e-portal.ru',
+            'https://izhtender.ru',
+            'https://imctax.parus-s.ru',
+            'https://www.icentr.ru',
+            'https://www.kartoteka.ru',
+            'https://rsbis.ru/elektronnaya-podpis',
+            'https://www.stv-it.ru',
+            'https://www.crypset.ru',
+            'https://www.kt-69.ru',
+            'https://www.24ecp.ru',
+            'https://kraskript.com',
+            'https://ca.ntssoft.ru',
+            'https://www.y-center.ru',
+            'https://www.rcarus.ru',
+            'https://rk72.ru',
+            'https://squaretrade.ru',
+            'https://ca.gisca.ru',
+            'https://www.otchet-online.ru',
+            'https://udcs.ru',
+            'https://www.cit-ufa.ru',
+            'https://elkursk.ru',
+            'https://www.icvibor.ru',
+            'https://ucestp.ru',
+            'https://mcspro.ru',
+            'https://www.infotrust.ru',
+            'https://epnow.ru',
+            'https://ca.kamgov.ru',
+            'https://mascom-it.ru',
+            'https://cfmc.ru',
+
+
+
+
+
+            // Russian resources from source 2
+
+
+
+
+
+            // Belarusian resources from source 1
+        ]
+    ],
+    [
         'Інше',
         [
             // Russian resources from source 1
             'https://ya.ru/',
 
             'https://shop-rt.com',
+
+            'https://wikimapia.org',
 
 
 
@@ -303,6 +379,10 @@ module.exports = new Map([
             'https://ds1.mirconnect.ru',
 
             'https://ds2.mirconnect.ru',
+
+            'https://www.saveukraine.org.ua/',
+
+            'https://185.104.45.162:443',
 
 
 

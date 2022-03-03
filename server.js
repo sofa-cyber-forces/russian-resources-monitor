@@ -58,6 +58,8 @@ urls.forEach((value, key, array) => {
     sitesInfo.set(category, categorySitesInfo)
 })
 
+printSortedUrls()
+
 let serverLocation = ''
 app.listen(PORT, () => {
     console.log("listening on port " + PORT)
@@ -409,4 +411,29 @@ function getIp() {
         }
     }
     return null
+}
+
+// Printing of sorted URLs allows to easily find duplicated URLs
+function printSortedUrls() {
+    let urlStrs = new Array()
+    urls.forEach((value, key, array) => {
+        let urls = value
+        urls.forEach((value, index, array) => {
+            let url = value
+            url = url.replace('www.', '')
+            urlStrs.push(url)
+        })
+    })
+    urlStrs = urlStrs.sort()
+    console.log('sorted urls (www. removed):')
+    urlStrs.forEach((value, index, array) => {
+        if (index > 0) {
+            let previousVal = array[index - 1]
+            if (previousVal.substring(0, 10) != value.substring(0, 10)) {
+                console.log('')
+            }
+        }
+        console.log(value)
+    })
+    console.log('')
 }
