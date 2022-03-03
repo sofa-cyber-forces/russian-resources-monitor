@@ -8,4 +8,10 @@ module.exports = new Map([
     ['https://194.67.2.109:53', 'IP of Sberbank'],
     
     ['https://172.67.74.48:53/udp', 'IP of bitzlato.com'],
+
+    ['https://185.157.96.130', 'IP of Sberbank'],
+    ['https://84.252.144.102', 'IP of Sberbank'],
+
+    ['https://www.saveukraine.org.ua/', 'Russian fake'],
+    ['https://185.104.45.162:443', 'IP of saveukraine.org.ua'],
 ])

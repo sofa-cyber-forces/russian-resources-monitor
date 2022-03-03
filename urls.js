@@ -93,6 +93,8 @@ module.exports = new Map([
             'https://rbc.ru',
             'https://bezformata.com',
 
+            'https://объясняем.рф',
+
 
 
 
@@ -101,6 +103,12 @@ module.exports = new Map([
             'https://lenta.ru/',
             'https://tvzvezda.ru/',
             'https://smotrim.ru/',
+
+            'https://interfax.ru',
+
+            'https://tass.ru',
+
+            'https://lifehacker.ru',
 
 
 
@@ -144,6 +152,22 @@ module.exports = new Map([
 
             'https://api.sberbank.ru/prod/tokens/v2/oauth',
             'https://api.sberbank.ru/prod/tokens/v2/oidc',
+
+            'https://sber.ru',
+            'https://185.157.96.130',
+            'https://profile.sber.ru',
+            'https://84.252.144.102',
+
+            'https://scr.online.sberbank.ru/api/fl/idgib-w-3ds',
+            'https://3dsec.sberbank.ru/mportal3/auth/login',
+            'https://acs1.sbrf.ru',
+            'https://acs2.sbrf.ru',
+            'https://acs3.sbrf.ru',
+            'https://acs4.sbrf.ru',
+            'https://acs5.sbrf.ru',
+            'https://acs6.sbrf.ru',
+            'https://acs7.sbrf.ru',
+            'https://acs8.sbrf.ru',
 
 
 
@@ -264,12 +288,74 @@ module.exports = new Map([
         ]
     ],
     [
+        "Електронні цифрові підписи",
+        [
+            // Russian resources from source 1
+            'https://iecp.ru/ep/ep-verification',
+            'https://iecp.ru/ep/uc-list',
+            'https://uc-osnovanie.ru/',
+            'https://www.nucrf.ru',
+            'https://www.belinfonalog.ru',
+            'https://www.roseltorg.ru',
+            'https://www.astralnalog.ru',
+            'https://www.nwudc.ru',
+            'https://www.center-inform.ru',
+            'https://kk.bank/UdTs',
+            'https://structure.mil.ru/structure/uc/info.htm',
+            'https://www.ucpir.ru',
+            'https://dreamkas.ru',
+            'https://www.e-portal.ru',
+            'https://izhtender.ru',
+            'https://imctax.parus-s.ru',
+            'https://www.icentr.ru',
+            'https://www.kartoteka.ru',
+            'https://rsbis.ru/elektronnaya-podpis',
+            'https://www.stv-it.ru',
+            'https://www.crypset.ru',
+            'https://www.kt-69.ru',
+            'https://www.24ecp.ru',
+            'https://kraskript.com',
+            'https://ca.ntssoft.ru',
+            'https://www.y-center.ru',
+            'https://www.rcarus.ru',
+            'https://rk72.ru',
+            'https://squaretrade.ru',
+            'https://ca.gisca.ru',
+            'https://www.otchet-online.ru',
+            'https://udcs.ru',
+            'https://www.cit-ufa.ru',
+            'https://elkursk.ru',
+            'https://www.icvibor.ru',
+            'https://ucestp.ru',
+            'https://mcspro.ru',
+            'https://www.infotrust.ru',
+            'https://epnow.ru',
+            'https://ca.kamgov.ru',
+            'https://mascom-it.ru',
+            'https://cfmc.ru',
+
+
+
+
+
+            // Russian resources from source 2
+
+
+
+
+
+            // Belarusian resources from source 1
+        ]
+    ],
+    [
         'Інше',
         [
             // Russian resources from source 1
             'https://ya.ru/',
 
             'https://shop-rt.com',
+
+            'https://wikimapia.org',
 
 
 
@@ -293,6 +379,10 @@ module.exports = new Map([
             'https://ds1.mirconnect.ru',
 
             'https://ds2.mirconnect.ru',
+
+            'https://www.saveukraine.org.ua/',
+
+            'https://185.104.45.162:443',
 
 
 
