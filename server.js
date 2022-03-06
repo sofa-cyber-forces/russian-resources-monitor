@@ -51,6 +51,7 @@ class SiteAccessibilityInfo {
         this.success = null
         this.statusCode = null
         this.error = null
+        this.duration = null
         this.updateTime = null
     }
 }
@@ -214,19 +215,13 @@ function generateCategoryHtml(category, categorySitesInfo) {
                 return 1
             }
         }
-        if (!a.success && !b.success) {
-            if (a.error < b.error) {
+        if (a.duration != null && b.duration != null) {
+            if (a.duration < b.duration) {
                 return -1
             }
-            if (a.error > b.error) {
+            if (a.duration > b.duration) {
                 return 1
             }
-        }
-        if (a.statusCode < b.statusCode) {
-            return -1
-        }
-        if (a.statusCode > b.statusCode) {
-            return 1
         }
         if (a.url < b.url) {
             return -1
@@ -252,6 +247,9 @@ function generateCategoryHtml(category, categorySitesInfo) {
     str += '</th>'
     str += '<th class="statusCellStyle">'
     str += 'Status code/Error'
+    str += '</th>'
+    str += '<th class="cellStyle">'
+    str += 'Duration (ms)'
     str += '</th>'
     str += '<th class="cellStyle">'
     str += 'Server response'
@@ -296,6 +294,10 @@ function generateCategoryHtml(category, categorySitesInfo) {
             str += '</td>'
 
             str += '<td class="cellStyle">'
+            str += numberWithSpacesGrouping(info.duration)
+            str += '</td>'
+
+            str += '<td class="cellStyle">'
             str += '<a href="downloaded_pages/' + convertUrlToFileName(info.url) + '">Show</a>'
             str += '</td>'
 
@@ -319,6 +321,10 @@ function generateCategoryHtml(category, categorySitesInfo) {
             str += '</td>'
 
             str += '<td class="cellStyle">'
+            str += numberWithSpacesGrouping(info.duration)
+            str += '</td>'
+
+            str += '<td class="cellStyle">'
             str += '</td>'
 
             str += '<td class="cellStyle">'
@@ -335,7 +341,11 @@ function generateCategoryHtml(category, categorySitesInfo) {
 
 function checkSite(category, url, cb) {
     console.log('checking ' + url)
+    let startTime = new Date()
     https.get(url, function (res) {
+        let endTime = new Date()
+        let duration = endTime - startTime
+
         let str = url + ': success, code: ' + res.statusCode
         console.log(str)
 
@@ -357,12 +367,16 @@ function checkSite(category, url, cb) {
         siteInfo.success = true
         siteInfo.statusCode = res.statusCode
         siteInfo.error = null
+        siteInfo.duration = duration
         siteInfo.updateTime = new Date()
 
         generateHtmlPage()
 
         cb()
     }).on('error', function(e) {
+        let endTime = new Date()
+        let duration = endTime - startTime
+
         let str = url + ': error: ' + e
         console.log(str)
 
@@ -385,6 +399,7 @@ function checkSite(category, url, cb) {
         siteInfo.success = false
         siteInfo.statusCode = null
         siteInfo.error = e
+        siteInfo.duration = duration
         siteInfo.updateTime = new Date()
 
         generateHtmlPage()
@@ -448,4 +463,9 @@ function printSortedUrls() {
         console.log(value)
     })
     console.log('')
+}
+
+// Source: https://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript
+function numberWithSpacesGrouping(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 }
