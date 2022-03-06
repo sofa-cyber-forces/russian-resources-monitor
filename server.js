@@ -33,6 +33,14 @@ app.use((req, res, next) => {
         next()
     }
 })
+setInterval(() => {
+    let str = new Date().toGMTString() + ': ' + requestsCount + '\n'
+    fs.appendFile('./requests_count', str, err => {
+    if (err) {
+            console.log('requests count file writing error: ' + err)
+        }
+    })
+}, 60 * 1000)
 
 app.use(express.static('public'))
 
