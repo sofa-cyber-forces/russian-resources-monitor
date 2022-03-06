@@ -399,6 +399,9 @@ function convertUrlToFileName(url) {
     fileName = replaceAll(fileName, ':', '')
     fileName = replaceAll(fileName, '.', '')
     fileName = replaceAll(fileName, '/', '')
+    fileName = replaceAll(fileName, '?', '')
+    fileName = replaceAll(fileName, '&', '')
+    fileName = replaceAll(fileName, '=', '')
     fileName += '.html'
     return fileName
 }
