@@ -128,7 +128,7 @@ module.exports = new Map([
             'https://tass.ru',
 
             'https://lifehacker.ru',
-            
+
             'https://rambler.ru/',
 
 
@@ -278,7 +278,7 @@ module.exports = new Map([
         "Корпорації",
         [
             // Russian resources from source 1
-            'https://www.gazprom.ru/',
+            'https://gazprom.ru/',
             'https://lukoil.ru',
             'https://magnit.ru/',
             'https://www.nornickel.com/',
@@ -301,20 +301,13 @@ module.exports = new Map([
             'https://tektorg.ru',
             'https://rosneft.com',
             'https://lukoil.com',
-            'https://gazprom.ru',
             'https://b2b.sibur.ru',
             'https://onlinecontract.ru',
             'https://eurochemgroup.com',
             'https://uralchem.com',
             'https://tatneft.ru',
-            'https://nlmk.com',
             'https://acron.ru',
             'https://aaa-srt-apps.lukoil.com',
-
-            'https://lukoil.com',
-            'https://www.gazprom.ru',
-            'https://nlmk.com',
-            'https://tektorg.ru',
 
 
 
