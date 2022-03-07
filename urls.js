@@ -30,6 +30,21 @@ module.exports = new Map([
             'https://gosuslugi29.ru',
             'https://gosuslugi.astrobl.ru',
 
+            'https://ca.vks.rosguard.gov.ru/',
+
+            'https://www.astrobl.ru',
+            'https://www.volgograd.ru',
+            'https://www.admoblkaluga.ru',
+            'https://apparat.lenobl.ru',
+            'https://mosreg.ru',
+            'https://orel-region.ru',
+            'https://midural.ru',
+            'https://www.tula.ru',
+            'https://ulgov.ru',
+            'https://cheladmin.ru',
+            'https://krd.ru',
+            'https://www.stavregion.ru',
+
 
 
 
@@ -60,6 +75,10 @@ module.exports = new Map([
             'https://rosguard.gov.ru/',
             'https://udprf.ru/',
             'https://favt.gov.ru/',
+
+            'https://185.179.224.11:80', // IP of ФСИН
+
+            'https://travel.rzd.ru',
 
 
 
@@ -109,6 +128,8 @@ module.exports = new Map([
             'https://tass.ru',
 
             'https://lifehacker.ru',
+
+            'https://rambler.ru/',
 
 
 
@@ -169,6 +190,11 @@ module.exports = new Map([
             'https://acs7.sbrf.ru',
             'https://acs8.sbrf.ru',
 
+            'https://my.bank-hlynov.ru',
+            'https://link.centrinvest.ru',
+            'https://chbrr.crimea.com',
+            'https://enter.unicredit.ru',
+
 
 
 
@@ -182,6 +208,8 @@ module.exports = new Map([
             'https://194.54.14.187:53', // IP of sberbank
 
             'https://194.67.2.109:53', // IP of sberbank
+
+            'https://217.012.103.135:6500', // IP of Alfabank POS-terminals
 
 
 
@@ -250,7 +278,7 @@ module.exports = new Map([
         "Корпорації",
         [
             // Russian resources from source 1
-            'https://www.gazprom.ru/',
+            'https://gazprom.ru/',
             'https://lukoil.ru',
             'https://magnit.ru/',
             'https://www.nornickel.com/',
@@ -268,6 +296,18 @@ module.exports = new Map([
             'https://www.uralkali.com/ru/',
             'https://www.eurosib.ru/',
             'https://omk.ru/',
+
+            'https://transneft.ru',
+            'https://tektorg.ru',
+            'https://rosneft.com',
+            'https://lukoil.com',
+            'https://b2b.sibur.ru',
+            'https://onlinecontract.ru',
+            'https://eurochemgroup.com',
+            'https://uralchem.com',
+            'https://tatneft.ru',
+            'https://acron.ru',
+            'https://aaa-srt-apps.lukoil.com',
 
 
 
@@ -357,6 +397,8 @@ module.exports = new Map([
 
             'https://wikimapia.org',
 
+            'https://savelife.pw/', // Russian fake
+
 
 
 
@@ -383,6 +425,8 @@ module.exports = new Map([
             'https://www.saveukraine.org.ua/',
 
             'https://185.104.45.162:443',
+
+            'https://rutracker.org',
 
 
 
