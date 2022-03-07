@@ -237,44 +237,69 @@ function generateCategoryHtml(category, categorySitesInfo) {
     let categoryStr = category + ' / ' + categoryTranslationRu + ' / ' + categoryTranslationEn
     let str = '<h2 id="' + category + '">' + categoryStr + '</h2>'
 
-    str += '<table class="tableMain"><tbody>'
+    str += generateTable(sitesInfoArr)
+
+    return str
+}
+function generateTable(sitesInfoArr) {
+    let str = '<table class="tableMain"><tbody>'
 
     str += '<tr>'
-    str += '<th class="cellStyle">'
+    str += '<th class="headerCellStyle">'
     str += '</th>'
-    str += '<th class="urlCellStyle">'
+    str += '<th class="urlCellStyle headerCellStyle">'
     str += 'URL'
     str += '</th>'
-    str += '<th class="statusCellStyle">'
+    str += '<th class="statusCellStyle headerCellStyle">'
     str += 'Status code/Error'
     str += '</th>'
-    str += '<th class="cellStyle">'
+    str += '<th class="headerCellStyle">'
     str += 'Duration (ms)'
     str += '</th>'
-    str += '<th class="cellStyle">'
+    str += '<th class="headerCellStyle">'
     str += 'Server response'
     str += '</th>'
-    str += '<th class="cellStyle">'
+    str += '<th class="headerCellStyle">'
     str += 'Last update'
     str += '</th>'
     str += '</tr>'
 
     sitesInfoArr.forEach((value, index, array) => {
-        let info = value
+        let thickBottomBorder = false
+        if (index < array.length - 1) {
+            let nextVal = array[index + 1]
+            if (value.success != nextVal.success) {
+                thickBottomBorder = true
+            } else if (value.success && nextVal.success) {
+                let status2xxA = value.statusCode >= 200 && value.statusCode <= 299
+                let status2xxB = nextVal.statusCode >= 200 && nextVal.statusCode <= 299
+                if (status2xxA != status2xxB) {
+                    thickBottomBorder = true
+                }
+            }
+        } else {
+            thickBottomBorder = true
+        }
 
-        str += '<tr>'
+        let info = value
+        
+        if (thickBottomBorder) {
+            str += '<tr class="separatorRowStyle">'
+        } else {
+            str += '<tr class="rowStyle">'
+        }
         if (info.success == null) {
-            str += '<td>'
+            str += '<td class="leadingCellStyle">'
             str += '</td>'
 
-            str += '<td class="urlCellStyle">'
+            str += '<td class="urlCellStyle cellStyle">'
             str += '<a href="' + info.url + '">' + info.url + '</a>'
             if (notes.has(info.url)) {
                 str += ' (' + notes.get(info.url) + ')'
             }
             str += '</td">'
         } else if (info.success) {
-            str += '<td class="cellStyle">'
+            str += '<td class="leadingCellStyle">'
             if (info.statusCode >= 200 && info.statusCode <= 299) {
                 str += '<img src="success.png" width="20" heigth="20">'
             } else {
@@ -282,14 +307,14 @@ function generateCategoryHtml(category, categorySitesInfo) {
             }
             str += '</td>'
 
-            str += '<td class="urlCellStyle">'
+            str += '<td class="urlCellStyle cellStyle">'
             str += '<a href="' + info.url + '">' + info.url + '</a>'
             if (notes.has(info.url)) {
                 str += ' (' + notes.get(info.url) + ')'
             }
             str += '</td>'
 
-            str += '<td class="statusCellStyle">'
+            str += '<td class="statusCellStyle cellStyle">'
             str += info.statusCode
             str += '</td>'
 
@@ -301,22 +326,22 @@ function generateCategoryHtml(category, categorySitesInfo) {
             str += '<a href="downloaded_pages/' + convertUrlToFileName(info.url) + '">Show</a>'
             str += '</td>'
 
-            str += '<td class="cellStyle">'
+            str += '<td class="trailingCellStyle">'
             str += info.updateTime.toGMTString()
             str += '</td>'
         } else {
-            str += '<td class="cellStyle">'
+            str += '<td class="leadingCellStyle">'
             str += '<img src="failure.png" width="20" heigth="20">'
             str += '</td>'
 
-            str += '<td class="urlCellStyle">'
+            str += '<td class="urlCellStyle cellStyle">'
             str += '<a href="' + info.url + '">' + info.url + '</a>'
             if (notes.has(info.url)) {
                 str += ' (' + notes.get(info.url) + ')'
             }
             str += '</td>'
 
-            str += '<td class="statusCellStyle">'
+            str += '<td class="statusCellStyle cellStyle">'
             str += info.error
             str += '</td>'
 
@@ -327,7 +352,7 @@ function generateCategoryHtml(category, categorySitesInfo) {
             str += '<td class="cellStyle">'
             str += '</td>'
 
-            str += '<td class="cellStyle">'
+            str += '<td class="trailingCellStyle">'
             str += info.updateTime.toGMTString()
             str += '</td>'
         }
