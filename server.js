@@ -298,6 +298,10 @@ function generateTable(sitesInfoArr) {
                 str += ' (' + notes.get(info.url) + ')'
             }
             str += '</td">'
+
+            str += '<td colspan="4">'
+            str += 'Refresh the page in a few minutes to get info about this URL'
+            str += '</td>'
         } else if (info.success) {
             str += '<td class="leadingCellStyle">'
             if (info.statusCode >= 200 && info.statusCode <= 299) {

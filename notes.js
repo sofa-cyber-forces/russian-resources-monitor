@@ -14,4 +14,15 @@ module.exports = new Map([
 
     ['https://www.saveukraine.org.ua/', 'Russian fake'],
     ['https://185.104.45.162:443', 'IP of saveukraine.org.ua'],
+    
+    ['https://185.170.2.232', 'IP of НСПК'],
+    ['https://185.170.2.231', 'IP of НСПК'],
+    
+    ['https://savelife.pw/', 'Russian fake'],
+
+    ['https://185.179.224.11:80', 'IP of ФСИН'],
+
+    ['https://217.012.103.135:6500', 'IP of Alfa-Bank POS-terminals'],
+
+    ['https://185.170.2.232', 'IP of объясняем.рф'],
 ])
