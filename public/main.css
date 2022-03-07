@@ -1,23 +1,35 @@
-.tableMain{
-    border: 1px solid black; 
+.tableMain {
+    border: 1px solid black;
     border-collapse: collapse;
 }
 
-.cellStyle{
-    border: 1px solid black; 
-    border-collapse: collapse;
+.rowStyle {
+    border-bottom: 1px solid lightgrey;
+}
+.separatorRowStyle {
+    border-bottom: 1px solid black;
 }
 
-.statusCellStyle{
-    border: 1px solid black; 
-    border-collapse: collapse;
-    word-wrap: break-word;
-    max-width: 200px;
+.cellStyle {
+    border-left: 1px solid lightgrey;
+    border-right: 1px solid lightgrey;
 }
-
-.urlCellStyle{
-    border: 1px solid black; 
-    border-collapse: collapse;
+.leadingCellStyle {
+    border-left: 1px solid black;
+    border-right: 1px solid lightgrey;
+}
+.trailingCellStyle {
+    border-left: 1px solid lightgrey;
+    border-right: 1px solid black;
+}
+.headerCellStyle {
+    border: 1px solid black;
+}
+.urlCellStyle {
     word-wrap: break-word;
     max-width: 300px;
+}
+.statusCellStyle {
+    word-wrap: break-word;
+    max-width: 200px;
 }
