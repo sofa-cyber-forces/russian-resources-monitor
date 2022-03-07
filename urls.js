@@ -128,9 +128,7 @@ module.exports = new Map([
             'https://tass.ru',
 
             'https://lifehacker.ru',
-
-            'https://185.170.2.232', // IP of объясняем.рф
-
+            
             'https://rambler.ru/',
 
 
@@ -191,9 +189,6 @@ module.exports = new Map([
             'https://acs6.sbrf.ru',
             'https://acs7.sbrf.ru',
             'https://acs8.sbrf.ru',
-
-            'https://185.170.2.232', // IP of НСПК
-            'https://185.170.2.231', // IP of НСПК
 
             'https://my.bank-hlynov.ru',
             'https://link.centrinvest.ru',
