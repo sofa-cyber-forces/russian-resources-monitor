@@ -84,6 +84,21 @@ module.exports = new Map([
 
 
 
+            // Russian resources from source 3
+            'https://glava-lnr.info/',
+
+            'https://msk.rt.ru/',
+
+            'https://dnronline.su/',
+
+            'https://www.dme.ru',
+
+            'https://gtrklnr.com',
+
+
+
+
+
             // Belarusian resources from source 1
             'https://www.mil.by/',
 
@@ -114,6 +129,11 @@ module.exports = new Map([
 
             'https://объясняем.рф',
 
+            'https://tvzvezda.ru',
+            'https://sputniknews.com',
+
+            'https://rt.com',
+
 
 
 
@@ -130,6 +150,21 @@ module.exports = new Map([
             'https://lifehacker.ru',
 
             'https://rambler.ru/',
+
+            'https://gazeta.ru',
+
+
+
+
+
+            // Russian resources from source 3
+            'https://www.1tv.ru/',
+            
+            'https://ntv.ru',
+            'https://ns6.ntv.ru',
+            'https://ns5.ntv.ru',
+
+            'https://трансляции.институтвоспитания.рф',
 
 
 
@@ -215,6 +250,44 @@ module.exports = new Map([
 
 
 
+            // Russian resources from source 3
+            'https://cbr.ru',
+
+            'https://admin.gazprombank.ru',
+
+            'https://stories-stat.online.sberbank.ru',
+            'https://clickstream.online.sberbank.ru',
+            'https://stat.online.sberbank.ru',
+
+            'https://tinkoff.ru',
+            'https://сdn-tinkoff.ru',
+            'https://dp.tinkoff.ru',
+            'https://acdn.tinkoff.ru',
+            'https://id.tinkoff.ru',
+
+            'https://homecredit.ru',
+            'https://admin.homecredit.ru',
+            'https://intranet.homecredit.ru',
+
+            'https://vtb.ru',
+            'https://admin.vtb.ru',
+            'https://id.vtb.ru',
+
+            'https://tinkoff.ru',
+            'https://id.tinkoff.ru',
+            'https://s3.tinkoff.ru',
+            'https://tinkoff.ru/invest/account',
+            'https://mobile.tinkoff.ru',
+
+            'https://admin.gazprombank.ru',
+            'https://gazprombank.ru',
+
+            'https://nspk.ru',
+
+
+
+
+
             // Belarusian resources from source 1
             'https://www.nbrb.by',
             'https://belarusbank.by/',
@@ -271,11 +344,17 @@ module.exports = new Map([
 
 
 
+            // Russian resources from source 3
+
+
+
+
+
             // Belarusian resources from source 1
         ]
     ],
     [
-        "Корпорації",
+        "Компанії",
         [
             // Russian resources from source 1
             'https://gazprom.ru/',
@@ -309,11 +388,31 @@ module.exports = new Map([
             'https://acron.ru',
             'https://aaa-srt-apps.lukoil.com',
 
+            'https://sberfn.ru/',
+            'https://sber-am.ru/',
+            'https://www.vtbcapital-pr.ru/',
+            'https://region-am.ru/',
+            'https://www.ingosinvest.ru/',
+            'https://goszakaz.ru/',
+            'https://star-pro.ru/',
+            'https://ati.su',
+            'https://region.ru/',
+            'https://monopoly.ru/',
+            'https://ul.su/',
+            'https://gruzovozkin.pro',
+
 
 
 
 
             // Russian resources from source 2
+
+
+
+
+
+            // Russian resources from source 3
+            'https://broker.ru/',
 
 
 
@@ -384,6 +483,12 @@ module.exports = new Map([
 
 
 
+            // Russian resources from source 3
+
+
+
+
+
             // Belarusian resources from source 1
         ]
     ],
@@ -398,6 +503,9 @@ module.exports = new Map([
             'https://wikimapia.org',
 
             'https://savelife.pw/', // Russian fake
+
+            'https://advego.com',
+            'https://kwork.ru',
 
 
 
@@ -427,6 +535,17 @@ module.exports = new Map([
             'https://185.104.45.162:443',
 
             'https://rutracker.org',
+
+
+
+
+
+            // Russian resources from source 3
+            'https://ukraine-war.pw', // fake
+            'https://saveli.fe.pw', // fake
+            'https://savelife.pw', // fake
+
+            'https://ok.ru',
 
 
 
