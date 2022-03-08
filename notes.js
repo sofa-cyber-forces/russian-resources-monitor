@@ -20,4 +20,7 @@ module.exports = new Map([
     ['https://185.179.224.11:80', 'IP of ФСИН'],
 
     ['https://217.012.103.135:6500', 'IP of Alfa-Bank POS-terminals'],
+
+    ['https://ukraine-war.pw', 'Russian fake'],
+    ['https://saveli.fe.pw', 'Russian fake'],
 ])
