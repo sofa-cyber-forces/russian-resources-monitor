@@ -424,7 +424,6 @@ function checkSite(category, url, cb) {
 
                 cb()
             })
-
         })
     }).on('error', function(e) {
         let endTime = new Date()
