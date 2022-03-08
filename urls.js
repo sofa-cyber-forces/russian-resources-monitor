@@ -140,7 +140,6 @@ module.exports = new Map([
 
             // Russian resources from source 2
             'https://lenta.ru/',
-            'https://tvzvezda.ru/',
             'https://smotrim.ru/',
 
             'https://interfax.ru',
@@ -150,8 +149,6 @@ module.exports = new Map([
             'https://lifehacker.ru',
 
             'https://rambler.ru/',
-
-            'https://gazeta.ru',
 
 
 
@@ -201,8 +198,8 @@ module.exports = new Map([
         [
             // Russian resources from source 1
             'https://www.sberbank.ru',
-            'https://www.vtb.ru/',
-            'https://www.gazprombank.ru/',
+            'https://vtb.ru/',
+            'https://gazprombank.ru/',
 
             'https://api.developer.sber.ru/product/SberbankID',
 
@@ -259,7 +256,6 @@ module.exports = new Map([
             'https://clickstream.online.sberbank.ru',
             'https://stat.online.sberbank.ru',
 
-            'https://tinkoff.ru',
             'https://сdn-tinkoff.ru',
             'https://dp.tinkoff.ru',
             'https://acdn.tinkoff.ru',
@@ -269,18 +265,12 @@ module.exports = new Map([
             'https://admin.homecredit.ru',
             'https://intranet.homecredit.ru',
 
-            'https://vtb.ru',
             'https://admin.vtb.ru',
             'https://id.vtb.ru',
 
-            'https://tinkoff.ru',
-            'https://id.tinkoff.ru',
             'https://s3.tinkoff.ru',
             'https://tinkoff.ru/invest/account',
             'https://mobile.tinkoff.ru',
-
-            'https://admin.gazprombank.ru',
-            'https://gazprombank.ru',
 
             'https://nspk.ru',
 
@@ -362,7 +352,7 @@ module.exports = new Map([
             'https://magnit.ru/',
             'https://www.nornickel.com/',
             'https://www.surgutneftegas.ru/',
-            'https://www.tatneft.ru/',
+            'https://tatneft.ru/',
             'https://www.evraz.com/ru/',
             'https://nlmk.com/',
             'https://www.sibur.ru/',
@@ -384,7 +374,6 @@ module.exports = new Map([
             'https://onlinecontract.ru',
             'https://eurochemgroup.com',
             'https://uralchem.com',
-            'https://tatneft.ru',
             'https://acron.ru',
             'https://aaa-srt-apps.lukoil.com',
 
@@ -543,7 +532,6 @@ module.exports = new Map([
             // Russian resources from source 3
             'https://ukraine-war.pw', // fake
             'https://saveli.fe.pw', // fake
-            'https://savelife.pw', // fake
 
             'https://ok.ru',
 

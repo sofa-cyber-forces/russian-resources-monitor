@@ -23,5 +23,4 @@ module.exports = new Map([
 
     ['https://ukraine-war.pw', 'Russian fake'],
     ['https://saveli.fe.pw', 'Russian fake'],
-    ['https://savelife.pw', 'Russian fake'],
 ])
