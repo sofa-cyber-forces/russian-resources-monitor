@@ -33,14 +33,17 @@ app.use((req, res, next) => {
         next()
     }
 })
-setInterval(() => {
-    let str = new Date().toGMTString() + ': ' + requestsCount + '\n'
+function writeRequestsCount() {
+    console.log('write requests count to file')
+    let str = new Date().toGMTString() + ': ' + requestsCount + ' requests\n'
     fs.appendFile('./requests_count', str, err => {
     if (err) {
             console.log('requests count file writing error: ' + err)
         }
     })
-}, 60 * 1000)
+}
+writeRequestsCount()
+setInterval(writeRequestsCount, 60 * 1000)
 
 app.use(express.static('public'))
 
@@ -52,6 +55,7 @@ class SiteAccessibilityInfo {
         this.statusCode = null
         this.error = null
         this.duration = null
+        this.size = null
         this.updateTime = null
     }
 }
@@ -300,7 +304,7 @@ function generateTable(sitesInfoArr) {
             str += '</td">'
 
             str += '<td colspan="4">'
-            str += 'Refresh the page in a few minutes to get info about this URL'
+            str += 'Please refresh the page later to get info about this URL'
             str += '</td>'
         } else if (info.success) {
             str += '<td class="leadingCellStyle">'
@@ -327,7 +331,11 @@ function generateTable(sitesInfoArr) {
             str += '</td>'
 
             str += '<td class="cellStyle">'
-            str += '<a href="downloaded_pages/' + convertUrlToFileName(info.url) + '">Show</a>'
+            str += '<a href="downloaded_pages/' + convertUrlToFileName(info.url) + '">Show'
+            if (info.size != null) {
+                str += ' (' + formatFileSize(info.size) + ')'
+            }
+            str +='</a>'
             str += '</td>'
 
             str += '<td class="trailingCellStyle">'
@@ -397,11 +405,26 @@ function checkSite(category, url, cb) {
         siteInfo.statusCode = res.statusCode
         siteInfo.error = null
         siteInfo.duration = duration
+        siteInfo.size = null
         siteInfo.updateTime = new Date()
 
         generateHtmlPage()
 
-        cb()
+        file.on('close', () => {
+            fs.stat(filePath, (err, stats) => {
+                if (err) {
+                    console.log('getting file stats error: ' + err)
+                    cb()
+                    return
+                }
+
+                siteInfo.size = stats.size
+
+                generateHtmlPage()
+
+                cb()
+            })
+        })
     }).on('error', function(e) {
         let endTime = new Date()
         let duration = endTime - startTime
@@ -429,6 +452,7 @@ function checkSite(category, url, cb) {
         siteInfo.statusCode = null
         siteInfo.error = e
         siteInfo.duration = duration
+        siteInfo.size = null
         siteInfo.updateTime = new Date()
 
         generateHtmlPage()
@@ -497,4 +521,18 @@ function printSortedUrls() {
 // Source: https://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript
 function numberWithSpacesGrouping(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+}
+
+function formatFileSize(nBytes) {
+    if (nBytes > 1024 * 1024) {
+        let nMBytes = nBytes / 1024 / 1024
+        nMBytes = Math.round(nMBytes * 10) / 10
+        return nMBytes + ' MB'
+    } else if (nBytes > 1024) {
+        let nKBytes = nBytes / 1024
+        nKBytes = Math.round(nKBytes * 10) / 10
+        return nKBytes + ' KB'
+    } else {
+        return nBytes + ' bytes'
+    }
 }
