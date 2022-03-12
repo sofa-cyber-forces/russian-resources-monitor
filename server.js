@@ -3,6 +3,7 @@ const https = require('https');
 const fs = require('fs')
 const { networkInterfaces } = require('os')
 
+const AccessibilityInfo = require('./accessibility-info')
 const urls = require('./urls')
 const notes = require('./notes')
 const categoryTranslations = require('./category-translations')
@@ -13,6 +14,8 @@ const PORT = 80;
 
 app.disable('x-powered-by')
 app.use(express.json())
+
+let sitesInfo = new AccessibilityInfo(urls)
 
 fs.writeFileSync('public/index.html', 'No information at the moment. Please update the page in a minute.')
 
@@ -46,29 +49,8 @@ writeRequestsCount()
 setInterval(writeRequestsCount, 60 * 1000)
 
 app.use(express.static('public'))
-
-class SiteAccessibilityInfo {
-    constructor(url) {
-        this.url = url
-        
-        this.success = null
-        this.statusCode = null
-        this.error = null
-        this.duration = null
-        this.size = null
-        this.updateTime = null
-    }
-}
-let sitesInfo = new Map()
-urls.forEach((value, key, array) => {
-    let category = key
-    let categorySitesInfo = new Map()
-    let urls = value
-    urls.forEach((value, index, array) => {
-        let url = value
-        categorySitesInfo.set(url, new SiteAccessibilityInfo(url))
-    })
-    sitesInfo.set(category, categorySitesInfo)
+app.get('/data', (req, res) => {
+    res.status(200).send(sitesInfo)
 })
 
 printSortedUrls()
@@ -152,35 +134,37 @@ function generateHtmlPage() {
     str += '<td>'
     str += '<h4>Категорії:</h4>'
     str += '<ul>'
-    sitesInfo.forEach((value, key, map) => {
-        let category = key
-        str += '<li><a href="#' + category + '">' + category + '</a></li>'
+    sitesInfo.categories.forEach((value, index, array) => {
+        let categoryInfo = value
+        let categoryName = categoryInfo.categoryName
+        str += '<li><a href="#' + categoryName + '">' + categoryName + '</a></li>'
     })
     str += '</ul>'
     str += '</td>'
     str += '<td>'
     str += '<h4>Категории:</h4>'
-    sitesInfo.forEach((value, key, map) => {
-        let category = key
-        let translation = categoryTranslations.ru.get(category)
-        str += '<li><a href="#' + category + '">' + translation + '</a></li>'
+    sitesInfo.categories.forEach((value, index, array) => {
+        let categoryInfo = value
+        let categoryName = categoryInfo.categoryName
+        let translation = categoryTranslations.ru.get(categoryName)
+        str += '<li><a href="#' + categoryName + '">' + translation + '</a></li>'
     })
     str += '</td>'
     str += '<td>'
     str += '<h4>Categories:</h4>'
-    sitesInfo.forEach((value, key, map) => {
-        let category = key
-        let translation = categoryTranslations.en.get(category)
-        str += '<li><a href="#' + category + '">' + translation + '</a></li>'
+    sitesInfo.categories.forEach((value, index, array) => {
+        let categoryInfo = value
+        let categoryName = categoryInfo.categoryName
+        let translation = categoryTranslations.en.get(categoryName)
+        str += '<li><a href="#' + categoryName + '">' + translation + '</a></li>'
     })
     str += '</td>'
     str += '</tr>'
     str += '</tbody></table>'
 
-    sitesInfo.forEach((value, key, map) => {
-        let category = key
-        let categorySitesInfo = value
-        str += generateCategoryHtml(category, categorySitesInfo)
+    sitesInfo.categories.forEach((value, index, array) => {
+        let categoryInfo = value
+        str += generateCategoryHtml(categoryInfo)
     })
 
     str += '<p>Source code: <a href="https://github.com/sofa-cyber-forces/russian-resources-monitor">https://github.com/sofa-cyber-forces/russian-resources-monitor</a></p>'
@@ -194,9 +178,9 @@ function generateHtmlPage() {
         }
     })
 }
-function generateCategoryHtml(category, categorySitesInfo) {
-    let sitesInfoArr = Array.from(categorySitesInfo.values());
-    sitesInfoArr = sitesInfoArr.sort((a, b) => {
+function generateCategoryHtml(categoryInfo) {
+    let sortedSitesInfo = categoryInfo.sites.slice()
+    sortedSitesInfo = sortedSitesInfo.sort((a, b) => {
         if (a.success != null && b.success == null) {
             return -1
         }
@@ -236,12 +220,13 @@ function generateCategoryHtml(category, categorySitesInfo) {
         return 0
     })
 
-    let categoryTranslationRu = categoryTranslations.ru.get(category)
-    let categoryTranslationEn = categoryTranslations.en.get(category)
-    let categoryStr = category + ' / ' + categoryTranslationRu + ' / ' + categoryTranslationEn
-    let str = '<h2 id="' + category + '">' + categoryStr + '</h2>'
+    let categoryName = categoryInfo.categoryName
+    let categoryNameRu = categoryTranslations.ru.get(categoryName)
+    let categoryNameEn = categoryTranslations.en.get(categoryName)
+    let categoryNameStr = categoryName + ' / ' + categoryNameRu + ' / ' + categoryNameEn
+    let str = '<h2 id="' + categoryName + '">' + categoryNameStr + '</h2>'
 
-    str += generateTable(sitesInfoArr)
+    str += generateTable(sortedSitesInfo)
 
     return str
 }
@@ -391,12 +376,7 @@ function checkSite(category, url, cb) {
         const file = fs.createWriteStream(filePath)
         res.pipe(file)
 
-        let categoryInfo = sitesInfo.get(category)
-        if (!categoryInfo) {
-            cb()
-            return
-        }
-        let siteInfo = categoryInfo.get(url)
+        let siteInfo = sitesInfo.getSiteInfo(category, url)
         if (!siteInfo) {
             cb()
             return
@@ -438,19 +418,14 @@ function checkSite(category, url, cb) {
             fs.rmSync(filePath)
         }
         
-        let categoryInfo = sitesInfo.get(category)
-        if (!categoryInfo) {
-            cb()
-            return
-        }
-        let siteInfo = categoryInfo.get(url)
+        let siteInfo = sitesInfo.getSiteInfo(category, url)
         if (!siteInfo) {
             cb()
             return
         }
         siteInfo.success = false
         siteInfo.statusCode = null
-        siteInfo.error = e
+        siteInfo.error = e.message
         siteInfo.duration = duration
         siteInfo.size = null
         siteInfo.updateTime = new Date()
