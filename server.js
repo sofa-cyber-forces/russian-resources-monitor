@@ -3,6 +3,7 @@ const https = require('https');
 const fs = require('fs')
 const { networkInterfaces } = require('os')
 
+const AccessibilityInfo = require('./accessibility-info')
 const urls = require('./urls')
 const notes = require('./notes')
 const categoryTranslations = require('./category-translations')
@@ -13,6 +14,8 @@ const PORT = 80;
 
 app.disable('x-powered-by')
 app.use(express.json())
+
+let sitesInfo = new AccessibilityInfo(urls)
 
 fs.writeFileSync('public/index.html', 'No information at the moment. Please update the page in a minute.')
 
@@ -49,63 +52,6 @@ app.use(express.static('public'))
 app.get('/data', (req, res) => {
     res.status(200).send(sitesInfo)
 })
-
-class SiteAccessibilityInfo {
-    constructor(url) {
-        this.url = url
-        
-        this.success = null
-        this.statusCode = null
-        this.error = null
-        this.duration = null
-        this.size = null
-        this.updateTime = null
-    }
-}
-class CategoryAccessibilityInfo {
-    constructor(categoryName, categoryUrls) {
-        this.categoryName = categoryName
-        this.sites = []
-        categoryUrls.forEach((value, index, array) => {
-            let url = value
-
-            let info = new SiteAccessibilityInfo(url)
-            this.sites.push(info)
-        })
-    }
-
-    getSiteInfo(url) {
-        let siteInfo = this.sites.find((value, index, array) => {
-            let siteInfo = value
-            return siteInfo.url == url
-        })
-        return siteInfo
-    }
-}
-class AccessibilityInfo {
-    constructor(urls) {
-        this.categories = []
-        urls.forEach((value, key, map) => {
-            let category = key
-            let urls = value
-
-            let categoryInfo = new CategoryAccessibilityInfo(category, urls)
-            this.categories.push(categoryInfo)
-        })
-    }
-
-    getSiteInfo(category, url) {
-        let categoryInfo = this.categories.find((value, index, array) => {
-            let categoryInfo = value
-            return categoryInfo.categoryName == category
-        })
-        if (!categoryInfo) {
-            return null
-        }
-        return categoryInfo.getSiteInfo(url)
-    }
-}
-let sitesInfo = new AccessibilityInfo(urls)
 
 printSortedUrls()
 
