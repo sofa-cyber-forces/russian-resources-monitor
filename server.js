@@ -73,6 +73,14 @@ class CategoryAccessibilityInfo {
             this.sites.push(info)
         })
     }
+
+    getSiteInfo(url) {
+        let siteInfo = this.sites.find((value, index, array) => {
+            let siteInfo = value
+            return siteInfo.url == url
+        })
+        return siteInfo
+    }
 }
 class AccessibilityInfo {
     constructor(urls) {
@@ -84,6 +92,17 @@ class AccessibilityInfo {
             let categoryInfo = new CategoryAccessibilityInfo(category, urls)
             this.categories.push(categoryInfo)
         })
+    }
+
+    getSiteInfo(category, url) {
+        let categoryInfo = this.categories.find((value, index, array) => {
+            let categoryInfo = value
+            return categoryInfo.categoryName == category
+        })
+        if (!categoryInfo) {
+            return null
+        }
+        return categoryInfo.getSiteInfo(url)
     }
 }
 let sitesInfo = new AccessibilityInfo(urls)
@@ -199,8 +218,7 @@ function generateHtmlPage() {
 
     sitesInfo.categories.forEach((value, index, array) => {
         let categoryInfo = value
-        let categoryName = categoryInfo.categoryName
-        str += generateCategoryHtml(categoryName, categoryInfo)
+        str += generateCategoryHtml(categoryInfo)
     })
 
     str += '<p>Source code: <a href="https://github.com/sofa-cyber-forces/russian-resources-monitor">https://github.com/sofa-cyber-forces/russian-resources-monitor</a></p>'
@@ -214,7 +232,7 @@ function generateHtmlPage() {
         }
     })
 }
-function generateCategoryHtml(category, categoryInfo) {
+function generateCategoryHtml(categoryInfo) {
     let sortedSitesInfo = categoryInfo.sites.slice()
     sortedSitesInfo = sortedSitesInfo.sort((a, b) => {
         if (a.success != null && b.success == null) {
@@ -256,10 +274,11 @@ function generateCategoryHtml(category, categoryInfo) {
         return 0
     })
 
-    let categoryTranslationRu = categoryTranslations.ru.get(category)
-    let categoryTranslationEn = categoryTranslations.en.get(category)
-    let categoryStr = category + ' / ' + categoryTranslationRu + ' / ' + categoryTranslationEn
-    let str = '<h2 id="' + category + '">' + categoryStr + '</h2>'
+    let categoryName = categoryInfo.categoryName
+    let categoryNameRu = categoryTranslations.ru.get(categoryName)
+    let categoryNameEn = categoryTranslations.en.get(categoryName)
+    let categoryNameStr = categoryName + ' / ' + categoryNameRu + ' / ' + categoryNameEn
+    let str = '<h2 id="' + categoryName + '">' + categoryNameStr + '</h2>'
 
     str += generateTable(sortedSitesInfo)
 
@@ -411,18 +430,7 @@ function checkSite(category, url, cb) {
         const file = fs.createWriteStream(filePath)
         res.pipe(file)
 
-        let categoryInfo = sitesInfo.categories.find((value, index, array) => {
-            let categoryInfo = value
-            return categoryInfo.categoryName == category
-        })
-        if (!categoryInfo) {
-            cb()
-            return
-        }
-        let siteInfo = categoryInfo.sites.find((value, index, array) => {
-            let siteInfo = value
-            return siteInfo.url == url
-        })
+        let siteInfo = sitesInfo.getSiteInfo(category, url)
         if (!siteInfo) {
             cb()
             return
@@ -464,18 +472,7 @@ function checkSite(category, url, cb) {
             fs.rmSync(filePath)
         }
         
-        let categoryInfo = sitesInfo.categories.find((value, index, array) => {
-            let categoryInfo = value
-            return categoryInfo.categoryName == category
-        })
-        if (!categoryInfo) {
-            cb()
-            return
-        }
-        let siteInfo = categoryInfo.sites.find((value, index, array) => {
-            let siteInfo = value
-            return siteInfo.url == url
-        })
+        let siteInfo = sitesInfo.getSiteInfo(category, url)
         if (!siteInfo) {
             cb()
             return
