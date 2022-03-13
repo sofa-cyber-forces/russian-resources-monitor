@@ -2,6 +2,7 @@ const express = require('express')
 const https = require('https');
 const fs = require('fs')
 const { networkInterfaces } = require('os')
+const request = require('request')
 
 const AccessibilityInfo = require('./accessibility-info')
 const urls = require('./urls')
@@ -10,7 +11,7 @@ const categoryTranslations = require('./category-translations')
 
 const app = express()
 
-const PORT = 80;
+const PORT = 80
 
 app.disable('x-powered-by')
 app.use(express.json())
@@ -312,7 +313,9 @@ function generateTable(sitesInfoArr) {
             str += '</td>'
 
             str += '<td class="cellStyle">'
-            str += numberWithSpacesGrouping(info.duration)
+            if (info.duration != null) {
+                str += numberWithSpacesGrouping(info.duration)
+            }
             str += '</td>'
 
             str += '<td class="cellStyle">'
@@ -343,7 +346,9 @@ function generateTable(sitesInfoArr) {
             str += '</td>'
 
             str += '<td class="cellStyle">'
-            str += numberWithSpacesGrouping(info.duration)
+            if (info.duration != null) {
+                str += numberWithSpacesGrouping(info.duration)
+            }
             str += '</td>'
 
             str += '<td class="cellStyle">'
@@ -362,80 +367,47 @@ function generateTable(sitesInfoArr) {
 }
 
 function checkSite(category, url, cb) {
-    console.log('checking ' + url)
-    let startTime = new Date()
-    https.get(url, function (res) {
-        let endTime = new Date()
-        let duration = endTime - startTime
-
-        let str = url + ': success, code: ' + res.statusCode
-        console.log(str)
-
-        let fileName = convertUrlToFileName(url)
-        let filePath = 'public/downloaded_pages/' + fileName
-        const file = fs.createWriteStream(filePath)
-        res.pipe(file)
+    request.get(url, {
+        time: true,
+        rejectUnauthorized: false,
+        strictSSL: false
+    }, (err, response, body) => {
+        let success = !err
+        let status = response ? response.statusCode : null
+        let errMessage = err ? err.message : null
+        let duration = response && response.timingPhases && response.timingPhases.firstByte ? response.timingPhases.firstByte : null
+        if (duration != null) {
+            duration = Math.round(duration)
+        }
+        let size = body ? body.length : null
 
         let siteInfo = sitesInfo.getSiteInfo(category, url)
         if (!siteInfo) {
             cb()
             return
         }
-        siteInfo.success = true
-        siteInfo.statusCode = res.statusCode
-        siteInfo.error = null
+        siteInfo.success = success
+        siteInfo.statusCode = status
+        siteInfo.error = errMessage
         siteInfo.duration = duration
-        siteInfo.size = null
+        siteInfo.size = size
         siteInfo.updateTime = new Date()
+        console.log(siteInfo)
 
-        generateHtmlPage()
-
-        file.on('close', () => {
-            fs.stat(filePath, (err, stats) => {
+        if (body) {
+            let fileName = convertUrlToFileName(url)
+            let filePath = 'public/downloaded_pages/' + fileName
+            fs.writeFile(filePath, body, err => {
                 if (err) {
-                    console.log('getting file stats error: ' + err)
-                    cb()
-                    return
+                    console.log('response file writing error: ' + err)
                 }
-
-                siteInfo.size = stats.size
-
-                generateHtmlPage()
-
-                cb()
             })
-        })
-    }).on('error', function(e) {
-        let endTime = new Date()
-        let duration = endTime - startTime
-
-        let str = url + ': error: ' + e
-        console.log(str)
-
-        let fileName = convertUrlToFileName(url)
-        let filePath = 'public/downloaded_pages/' + fileName
-        if (fs.existsSync(filePath)) {
-            fs.rmSync(filePath)
         }
-        
-        let siteInfo = sitesInfo.getSiteInfo(category, url)
-        if (!siteInfo) {
-            cb()
-            return
-        }
-        siteInfo.success = false
-        siteInfo.statusCode = null
-        siteInfo.error = e.message
-        siteInfo.duration = duration
-        siteInfo.size = null
-        siteInfo.updateTime = new Date()
 
         generateHtmlPage()
-
         cb()
     })
 }
-
 
 function convertUrlToFileName(url) {
     let fileName = url
