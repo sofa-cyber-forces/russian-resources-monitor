@@ -1,0 +1,12 @@
+{
+    "/ruData": {
+        "target": "http://runet-status-rus.v6.army/data",
+        "secure": false,
+        "changeOrigin": true
+    },
+    "/usData": {
+        "target": "http://runet-status-usa.v6.army/data",
+        "secure": false,
+        "changeOrigin": true
+    }
+}
