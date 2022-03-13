@@ -7,7 +7,7 @@ const request = require('request')
 const AccessibilityInfo = require('./accessibility-info')
 const urls = require('./urls')
 const notes = require('./notes')
-const categoryTranslations = require('./category-translations');
+const categoryTranslations = require('./category-translations')
 
 const app = express()
 
