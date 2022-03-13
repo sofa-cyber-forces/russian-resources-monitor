@@ -1,29 +1,32 @@
 .tableMain {
-    border: 1px solid black;
+    border: 1px solid #584f7b;
     border-collapse: collapse;
+    width: 100%;
 }
 
 .rowStyle {
-    border-bottom: 1px solid lightgrey;
+    border-bottom: 1px solid #bcb9ca;
 }
 .separatorRowStyle {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #584f7b;
 }
 
 .cellStyle {
-    border-left: 1px solid lightgrey;
-    border-right: 1px solid lightgrey;
+    border-left: 1px solid #bcb9ca;
+    border-right: 1px solid #bcb9ca;
+    padding: 4px;
 }
-.leadingCellStyle {
-    border-left: 1px solid black;
-    border-right: 1px solid lightgrey;
+.cellStyle:first-child {
+    border-left: 1px solid #584f7b;
+    border-right: 1px solid #bcb9ca;
 }
-.trailingCellStyle {
-    border-left: 1px solid lightgrey;
-    border-right: 1px solid black;
+.cellStyle:last-child {
+    border-left: 1px solid #bcb9ca;
+    border-right: 1px solid #584f7b;
 }
 .headerCellStyle {
-    border: 1px solid black;
+    border: 1px solid #584f7b;
+    padding: 6px;
 }
 .urlCellStyle {
     word-wrap: break-word;
@@ -32,4 +35,28 @@
 .statusCellStyle {
     word-wrap: break-word;
     max-width: 200px;
+}
+
+.infoPanel {
+    border-radius: 12px;
+    background-color: white;
+}
+.centeredBlock {
+    margin: auto;
+    width: 80%;
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+.tableHeader {
+    margin: 0px;
+    padding-bottom: 10px;
+}
+
+.violet, .violet:link, .violet:visited, .violet:hover, .violet:active {
+    color: #584f7b;
+}
+
+html {
+    background-color: #eeeeee
 }

@@ -95,81 +95,84 @@ function generateHtmlPage() {
 
     str += '<body>'
 
+    str += '<div class="centeredBlock">'
+
+    if (serverLocation == 'ru' || serverLocation == '') {
+        str += '<h2 class="violet">Відслідковуйте доступність російських та білоруських сайтів з російської IP-адреси.</h2>'
+        str += '<p class="violet">Щоб подивитись доступність цих ресурсів з американського IP, перейдіть за посиланням: <a href="http://runet-status-usa.v6.army">http://runet-status-usa.v6.army</a>.</p>'
+    }
+    if (serverLocation == 'us' || serverLocation == '') {
+        str += '<h2 class="violet">Відслідковуйте доступність російських та білоруських сайтів з американської IP-адреси.</h2>'
+        str += '<p class="violet">Щоб подивитись доступність цих ресурсів з російського IP, перейдіть за посиланням: <a href="http://runet-status-rus.v6.army">http://runet-status-rus.v6.army</a>.</p>'
+    }
+    str += '<h4 class="violet">Слава Україні!!! 🇺🇦</h4>'
+    if (serverLocation == 'ru' || serverLocation == '') {
+        str += '<h2 class="violet">Отслеживайте доступность русских и белорусских сайтов с российского IP-адреса.</h2>'
+        str += '<p class="violet">Чтобы посмотреть доступность этих ресурсов с американского IP, перейдите по ссылке: <a href="http://runet-status-usa.v6.army">http://runet-status-usa.v6.army</a>.</p>'
+    }
+    if (serverLocation == 'us' || serverLocation == '') {
+        str += '<h2 class="violet">Отслеживайте доступность русских и белорусских сайтов с американского IP-адреса.</h2>'
+        str += '<p class="violet">Чтобы посмотреть доступность этих ресурсов с российского IP, перейдите по ссылке: <a href="http://runet-status-rus.v6.army">http://runet-status-rus.v6.army</a>.</p>'
+    }
+    str += '<h4 class="violet">Слава Украине!!! 🇺🇦</h4>'
+    if (serverLocation == 'ru' || serverLocation == '') {
+        str += '<h2 class="violet">Monitor availability of Russian and Belarusian websites from Russian IP-address.</h2>'
+        str += '<p class="violet">To monitor availability of these resources from American IP, follow the link: <a href="http://runet-status-usa.v6.army">http://runet-status-usa.v6.army</a>.</p>'
+    }
+    if (serverLocation == 'us' || serverLocation == '') {
+        str += '<h2 class="violet">Monitor availability of Russian and Belarusian websites from American IP-address.</h2>'
+        str += '<p class="violet">To monitor availability of these resources from Russian IP, follow the link: <a href="http://runet-status-rus.v6.army">http://runet-status-rus.v6.army</a>.</p>'
+    }
+    str += '<h4 class="violet">Glory to Ukraine!!! 🇺🇦</h4>'
+    
     str += '<table><tbody>'
     str += '<tr>'
     str += '<td>'
-    if (serverLocation == 'ru' || serverLocation == '') {
-        str += '<h2>Відслідковуйте доступність російських та білоруських сайтів з російської IP-адреси.</h2>'
-        str += '<p>Щоб подивитись доступність цих ресурсів з американського IP, перейдіть за посиланням: <a href="http://runet-status-usa.v6.army">http://runet-status-usa.v6.army</a>.</p>'
-    }
-    if (serverLocation == 'us' || serverLocation == '') {
-        str += '<h2>Відслідковуйте доступність російських та білоруських сайтів з американської IP-адреси.</h2>'
-        str += '<p>Щоб подивитись доступність цих ресурсів з російського IP, перейдіть за посиланням: <a href="http://runet-status-rus.v6.army">http://runet-status-rus.v6.army</a>.</p>'
-    }
-    str += '<h4>Слава Україні!!! 🇺🇦</h4>'
-    str += '</td>'
-    str += '<td>'
-    if (serverLocation == 'ru' || serverLocation == '') {
-        str += '<h2>Отслеживайте доступность русских и белорусских сайтов с российского IP-адреса.</h2>'
-        str += '<p>Чтобы посмотреть доступность этих ресурсов с американского IP, перейдите по ссылке: <a href="http://runet-status-usa.v6.army">http://runet-status-usa.v6.army</a>.</p>'
-    }
-    if (serverLocation == 'us' || serverLocation == '') {
-        str += '<h2>Отслеживайте доступность русских и белорусских сайтов с американского IP-адреса.</h2>'
-        str += '<p>Чтобы посмотреть доступность этих ресурсов с российского IP, перейдите по ссылке: <a href="http://runet-status-rus.v6.army">http://runet-status-rus.v6.army</a>.</p>'
-    }
-    str += '<h4>Слава Украине!!! 🇺🇦</h4>'
-    str += '</td>'
-    str += '<td>'
-    if (serverLocation == 'ru' || serverLocation == '') {
-        str += '<h2>Monitor availability of Russian and Belarusian websites from Russian IP-address.</h2>'
-        str += '<p>To monitor availability of these resources from American IP, follow the link: <a href="http://runet-status-usa.v6.army">http://runet-status-usa.v6.army</a>.</p>'
-    }
-    if (serverLocation == 'us' || serverLocation == '') {
-        str += '<h2>Monitor availability of Russian and Belarusian websites from American IP-address.</h2>'
-        str += '<p>To monitor availability of these resources from Russian IP, follow the link: <a href="http://runet-status-rus.v6.army">http://runet-status-rus.v6.army</a>.</p>'
-    }
-    str += '<h4>Glory to Ukraine!!! 🇺🇦</h4>'
-    str += '</td>'
-    str += '</tr>'
-    str += '<tr>'
-    str += '<td>'
-    str += '<h4>Категорії:</h4>'
-    str += '<ul>'
+    str += '<h4 class="violet">Категорії:</h4>'
+    str += '<ul class="violet">'
     sitesInfo.categories.forEach((value, index, array) => {
         let categoryInfo = value
         let categoryName = categoryInfo.categoryName
-        str += '<li><a href="#' + categoryName + '">' + categoryName + '</a></li>'
+        str += '<li><a href="#' + categoryName + '" class="violet">' + categoryName + '</a></li>'
     })
     str += '</ul>'
     str += '</td>'
     str += '<td>'
-    str += '<h4>Категории:</h4>'
+    str += '<h4 class="violet">Категории:</h4>'
+    str += '<ul class="violet">'
     sitesInfo.categories.forEach((value, index, array) => {
         let categoryInfo = value
         let categoryName = categoryInfo.categoryName
         let translation = categoryTranslations.ru.get(categoryName)
-        str += '<li><a href="#' + categoryName + '">' + translation + '</a></li>'
+        str += '<li><a href="#' + categoryName + '" class="violet">' + translation + '</a></li>'
     })
+    str += '</ul>'
     str += '</td>'
     str += '<td>'
-    str += '<h4>Categories:</h4>'
+    str += '<h4 class="violet">Categories:</h4>'
+    str += '<ul class="violet">'
     sitesInfo.categories.forEach((value, index, array) => {
         let categoryInfo = value
         let categoryName = categoryInfo.categoryName
         let translation = categoryTranslations.en.get(categoryName)
-        str += '<li><a href="#' + categoryName + '">' + translation + '</a></li>'
+        str += '<li><a href="#' + categoryName + '" class="violet">' + translation + '</a></li>'
     })
+    str += '</ul>'
     str += '</td>'
     str += '</tr>'
     str += '</tbody></table>'
+
+    str += '</div>'
 
     sitesInfo.categories.forEach((value, index, array) => {
         let categoryInfo = value
         str += generateCategoryHtml(categoryInfo)
     })
 
-    str += '<p>Source code: <a href="https://github.com/sofa-cyber-forces/russian-resources-monitor">https://github.com/sofa-cyber-forces/russian-resources-monitor</a></p>'
-    str += '<p>E-mail all your questions and proposals to sofa.cyber.forces@gmail.com</p>'
+    str += '<div class="centeredBlock">'
+    str += '<p class="violet">Source code: <a href="https://github.com/sofa-cyber-forces/russian-resources-monitor" class="violet">https://github.com/sofa-cyber-forces/russian-resources-monitor</a></p>'
+    str += '<p class="violet">E-mail all your questions and proposals to sofa.cyber.forces@gmail.com</p>'
+    str += '</div>'
 
     str += '</body></html>'
 
@@ -221,13 +224,17 @@ function generateCategoryHtml(categoryInfo) {
         return 0
     })
 
+    let str = '<div class="infoPanel centeredBlock">'
+
     let categoryName = categoryInfo.categoryName
     let categoryNameRu = categoryTranslations.ru.get(categoryName)
     let categoryNameEn = categoryTranslations.en.get(categoryName)
     let categoryNameStr = categoryName + ' / ' + categoryNameRu + ' / ' + categoryNameEn
-    let str = '<h2 id="' + categoryName + '">' + categoryNameStr + '</h2>'
+    str += '<h2 id="' + categoryName + '" class="tableHeader violet">' + categoryNameStr + '</h2>'
 
     str += generateTable(sortedSitesInfo)
+    
+    str += '</div>'
 
     return str
 }
@@ -235,21 +242,21 @@ function generateTable(sitesInfoArr) {
     let str = '<table class="tableMain"><tbody>'
 
     str += '<tr>'
-    str += '<th class="headerCellStyle">'
+    str += '<th class="headerCellStyle violet">'
     str += '</th>'
-    str += '<th class="urlCellStyle headerCellStyle">'
+    str += '<th class="urlCellStyle headerCellStyle violet">'
     str += 'URL'
     str += '</th>'
-    str += '<th class="statusCellStyle headerCellStyle">'
+    str += '<th class="statusCellStyle headerCellStyle violet">'
     str += 'Status code/Error'
     str += '</th>'
-    str += '<th class="headerCellStyle">'
+    str += '<th class="headerCellStyle violet">'
     str += 'Duration (ms)'
     str += '</th>'
-    str += '<th class="headerCellStyle">'
+    str += '<th class="headerCellStyle violet">'
     str += 'Server response'
     str += '</th>'
-    str += '<th class="headerCellStyle">'
+    str += '<th class="headerCellStyle violet">'
     str += 'Last update'
     str += '</th>'
     str += '</tr>'
@@ -279,21 +286,21 @@ function generateTable(sitesInfoArr) {
             str += '<tr class="rowStyle">'
         }
         if (info.success == null) {
-            str += '<td class="leadingCellStyle">'
+            str += '<td class="cellStyle violet">'
             str += '</td>'
 
-            str += '<td class="urlCellStyle cellStyle">'
-            str += '<a href="' + info.url + '">' + info.url + '</a>'
+            str += '<td class="urlCellStyle cellStyle violet">'
+            str += '<a href="' + info.url + '" class="violet">' + info.url + '</a>'
             if (notes.has(info.url)) {
                 str += ' (' + notes.get(info.url) + ')'
             }
             str += '</td">'
 
-            str += '<td colspan="4">'
+            str += '<td colspan="4" class="violet">'
             str += 'Please refresh the page later to get info about this URL'
             str += '</td>'
         } else if (info.success) {
-            str += '<td class="leadingCellStyle">'
+            str += '<td class="cellStyle violet">'
             if (info.statusCode >= 200 && info.statusCode <= 299) {
                 str += '<img src="success.png" width="20" heigth="20">'
             } else {
@@ -301,60 +308,60 @@ function generateTable(sitesInfoArr) {
             }
             str += '</td>'
 
-            str += '<td class="urlCellStyle cellStyle">'
-            str += '<a href="' + info.url + '">' + info.url + '</a>'
+            str += '<td class="urlCellStyle cellStyle violet">'
+            str += '<a href="' + info.url + '" class="violet">' + info.url + '</a>'
             if (notes.has(info.url)) {
                 str += ' (' + notes.get(info.url) + ')'
             }
             str += '</td>'
 
-            str += '<td class="statusCellStyle cellStyle">'
+            str += '<td class="statusCellStyle cellStyle violet">'
             str += info.statusCode
             str += '</td>'
 
-            str += '<td class="cellStyle">'
+            str += '<td class="cellStyle violet">'
             if (info.duration != null) {
                 str += numberWithSpacesGrouping(info.duration)
             }
             str += '</td>'
 
-            str += '<td class="cellStyle">'
-            str += '<a href="downloaded_pages/' + convertUrlToFileName(info.url) + '">Show'
+            str += '<td class="cellStyle violet">'
+            str += '<a href="downloaded_pages/' + convertUrlToFileName(info.url) + '" class="violet">Show'
             if (info.size != null) {
                 str += ' (' + formatFileSize(info.size) + ')'
             }
             str +='</a>'
             str += '</td>'
 
-            str += '<td class="trailingCellStyle">'
+            str += '<td class="cellStyle violet">'
             str += info.updateTime.toGMTString()
             str += '</td>'
         } else {
-            str += '<td class="leadingCellStyle">'
+            str += '<td class="cellStyle violet">'
             str += '<img src="failure.png" width="20" heigth="20">'
             str += '</td>'
 
-            str += '<td class="urlCellStyle cellStyle">'
-            str += '<a href="' + info.url + '">' + info.url + '</a>'
+            str += '<td class="urlCellStyle cellStyle violet">'
+            str += '<a href="' + info.url + '" class="violet">' + info.url + '</a>'
             if (notes.has(info.url)) {
                 str += ' (' + notes.get(info.url) + ')'
             }
             str += '</td>'
 
-            str += '<td class="statusCellStyle cellStyle">'
+            str += '<td class="statusCellStyle cellStyle violet">'
             str += info.error
             str += '</td>'
 
-            str += '<td class="cellStyle">'
+            str += '<td class="cellStyle violet">'
             if (info.duration != null) {
                 str += numberWithSpacesGrouping(info.duration)
             }
             str += '</td>'
 
-            str += '<td class="cellStyle">'
+            str += '<td class="cellStyle violet">'
             str += '</td>'
 
-            str += '<td class="trailingCellStyle">'
+            str += '<td class="cellStyle violet">'
             str += info.updateTime.toGMTString()
             str += '</td>'
         }
