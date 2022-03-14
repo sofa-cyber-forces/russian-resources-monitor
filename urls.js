@@ -134,17 +134,19 @@ module.exports = new Map([
 
             'https://rt.com',
 
+            'https://lenta.ru/',
+            'https://rg.ru/',
+            'https://aif.ru/',
+            'https://tass.ru/',
+
 
 
 
 
             // Russian resources from source 2
-            'https://lenta.ru/',
             'https://smotrim.ru/',
 
             'https://interfax.ru',
-
-            'https://tass.ru',
 
             'https://lifehacker.ru',
 
@@ -162,6 +164,12 @@ module.exports = new Map([
             'https://ns5.ntv.ru',
 
             'https://трансляции.институтвоспитания.рф',
+
+            'https://rusvesna.su/',
+            'http://social.rusvesna.su/',
+            'http://m.rusvesna.su/',
+            'http://adm.rusvesna.su/',
+            'http://www.rusvesna.su/',
 
 
 
@@ -227,12 +235,30 @@ module.exports = new Map([
             'https://chbrr.crimea.com',
             'https://enter.unicredit.ru',
 
+            'https://nspk.ru',
+
+            'https://server.nspk.ru',
+            'https://dev.nspk.ru',
+            'https://sip.nspk.ru',
+
+            'https://online.vtb.ru',
+            'https://online.sberbank.ru/CSAFront/index.do#/',
+            'https://online.gpb.ru/login',
+            'https://alfabank.ru/everyday/online/',
+            'https://online.rshb.ru',
+            'https://online.sovcombank.ru/',
+            'https://online.mkb.ru/',
+
+            'https://alfabank.ru',
+
+            'https://tinkoff.ru',
+            'https://auth.tcsbank.ru',
+
 
 
 
 
             // Russian resources from source 2
-            'https://tinkoff.ru',
             'https://178.248.236.218:77', // IP of tinkoff
 
             'https://194.54.14.186:53', // IP of sberbank
@@ -271,8 +297,6 @@ module.exports = new Map([
             'https://s3.tinkoff.ru',
             'https://tinkoff.ru/invest/account',
             'https://mobile.tinkoff.ru',
-
-            'https://nspk.ru',
 
 
 
@@ -319,6 +343,15 @@ module.exports = new Map([
             'https://baksman.org/',
             'https://kupibit.me/',
 
+            'https://acs.vendorcert.mirconnect.ru',
+            'https://ds1.mirconnect.ru',
+            'https://ds2.mirconnect.ru',
+            'https://uat-ds1.mirconnect.ru',
+            'https://uat-ds2.mirconnect.ru',
+
+            'https://koronapay.com',
+            'https://api.koronapay.com',
+
 
 
 
@@ -335,6 +368,14 @@ module.exports = new Map([
 
 
             // Russian resources from source 3
+            'https://pay.mironline.ru',
+            'https://msk1-pmpiprxit1.unix.nspk.ru',
+            'https://msk1-pmpiprxit2.unix.nspk.ru',
+            'https://msk1-pmpiprxit21.unix.nspk.ru',
+            'https://pay.stg.mironline.ru',
+            'https://pay.stg2.mironline.ru',
+            'https://mmpa-test.mironline.ru',
+            'https://mir-pay.firebaseio.com',
 
 
 
@@ -353,7 +394,6 @@ module.exports = new Map([
             'https://www.nornickel.com/',
             'https://www.surgutneftegas.ru/',
             'https://tatneft.ru/',
-            'https://www.evraz.com/ru/',
             'https://nlmk.com/',
             'https://www.sibur.ru/',
             'https://www.severstal.com/',
@@ -390,6 +430,18 @@ module.exports = new Map([
             'https://ul.su/',
             'https://gruzovozkin.pro',
 
+            'https://www.russianhighways.ru',
+            'https://www.evraz.com',
+
+            'https://rostec.ru/',
+            'https://scloud.rostec.ru/login',
+            'https://vcs.rostec.ru/',
+            'https://lk.rostec.ru/Account/LogIn?ReturnUrl=%2F',
+            'https://smi.rostec.ru/user',
+            'http://v1.rostec.ru/',
+            'http://v2.rostec.ru/',
+            'https://vks3.rostec.ru/',
+
 
 
 
@@ -422,11 +474,11 @@ module.exports = new Map([
             'https://iecp.ru/ep/ep-verification',
             'https://iecp.ru/ep/uc-list',
             'https://uc-osnovanie.ru/',
-            'https://www.nucrf.ru',
+            'https://nucrf.ru',
             'https://www.belinfonalog.ru',
             'https://www.roseltorg.ru',
             'https://www.astralnalog.ru',
-            'https://www.nwudc.ru',
+            'https://nwudc.ru',
             'https://www.center-inform.ru',
             'https://kk.bank/UdTs',
             'https://structure.mil.ru/structure/uc/info.htm',
@@ -462,6 +514,10 @@ module.exports = new Map([
             'https://mascom-it.ru',
             'https://cfmc.ru',
 
+            'https://esia.gosuslugi.ru',
+            'https://e-trust.gosuslugi.ru',
+            'https://gu.spb.ru',
+
 
 
 
@@ -496,6 +552,36 @@ module.exports = new Map([
             'https://advego.com',
             'https://kwork.ru',
 
+            'https://eda.yandex.ru/',
+            'https://www.delivery-club.ru/',
+            'https://m-food.ru/',
+            'https://sbermarket.ru',
+            'https://chibbis.ru/',
+            'https://lavka.yandex/',
+
+            'https://mos-kino.ru/',
+            'https://cinemastar.ru/',
+            'https://kinoteatr.ru/',
+            'https://karofilm.ru/',
+            'https://kinosfera-imax.ru/',
+            'https://kinomax.ru/',
+            'https://romanov-cinema.ru/',
+            'https://pioner-cinema.ru/',
+            'https://premierzal.ru/',
+            'https://www.mirage.ru/',
+
+            'https://www.eapteka.ru',
+            'https://www.asna.ru/',
+            'https://366.ru',
+            'https://stolichki.ru',
+            'https://aptekamos.ru',
+            'https://vseapteki.ru',
+            'https://www.rigla.ru',
+            'https://planetazdorovo.ru',
+            'https://samson-pharma.ru',
+            'https://zdorov.ru',
+            'https://apteka.ru',
+
 
 
 
@@ -514,10 +600,6 @@ module.exports = new Map([
             'https://unchain.team/',
 
             'https://104.21.13.183:21/', // IP of unchain.team???
-
-            'https://ds1.mirconnect.ru',
-
-            'https://ds2.mirconnect.ru',
 
             'https://www.saveukraine.org.ua/',
 
