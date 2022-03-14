@@ -172,6 +172,13 @@ module.exports = new Map([
 
             'https://трансляции.институтвоспитания.рф',
 
+            'https://rusvesna.su/',
+            'http://social.rusvesna.su/',
+            'http://rusvesna.su/',
+            'http://m.rusvesna.su/',
+            'http://adm.rusvesna.su/',
+            'http://www.rusvesna.su/',
+
 
 
 
@@ -368,11 +375,25 @@ module.exports = new Map([
 
             'https://172.67.74.48:53/udp', // IP of bitzlato.com
 
+            'https://acs.vendorcert.mirconnect.ru',
+            'https://ds1.mirconnect.ru',
+            'https://ds2.mirconnect.ru',
+            'https://uat-ds1.mirconnect.ru',
+            'https://uat-ds2.mirconnect.ru',
+
 
 
 
 
             // Russian resources from source 3
+            'https://pay.mironline.ru',
+            'https://msk1-pmpiprxit1.unix.nspk.ru',
+            'https://msk1-pmpiprxit2.unix.nspk.ru',
+            'https://msk1-pmpiprxit21.unix.nspk.ru',
+            'https://pay.stg.mironline.ru',
+            'https://pay.stg2.mironline.ru',
+            'https://mmpa-test.mironline.ru',
+            'https://mir-pay.firebaseio.com',
 
 
 
@@ -539,6 +560,11 @@ module.exports = new Map([
 
 
             // Russian resources from source 3
+            'https://iecp.ru/ep/uc-list',
+            'https://nucrf.ru/',
+            'https://www.roseltorg.ru/',
+            'https://nwudc.ru/',
+            'https://www.center-inform.ru/',
 
 
 
