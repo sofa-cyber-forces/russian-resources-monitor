@@ -134,12 +134,8 @@ module.exports = new Map([
 
             'https://rt.com',
 
-            'https://www.kp.ru/',
-            'https://ria.ru/',
             'https://lenta.ru/',
-            'https://www.mk.ru/',
             'https://rg.ru/',
-            'https://www.gazeta.ru/',
             'https://aif.ru/',
             'https://tass.ru/',
 
@@ -148,12 +144,9 @@ module.exports = new Map([
 
 
             // Russian resources from source 2
-            'https://lenta.ru/',
             'https://smotrim.ru/',
 
             'https://interfax.ru',
-
-            'https://tass.ru',
 
             'https://lifehacker.ru',
 
@@ -174,7 +167,6 @@ module.exports = new Map([
 
             'https://rusvesna.su/',
             'http://social.rusvesna.su/',
-            'http://rusvesna.su/',
             'http://m.rusvesna.su/',
             'http://adm.rusvesna.su/',
             'http://www.rusvesna.su/',
@@ -243,12 +235,11 @@ module.exports = new Map([
             'https://chbrr.crimea.com',
             'https://enter.unicredit.ru',
 
-            'https://www.nspk.ru',
+            'https://nspk.ru',
 
             'https://server.nspk.ru',
             'https://dev.nspk.ru',
             'https://sip.nspk.ru',
-            'https://www.nspk.ru',
 
             'https://online.vtb.ru',
             'https://online.sberbank.ru/CSAFront/index.do#/',
@@ -260,7 +251,7 @@ module.exports = new Map([
 
             'https://alfabank.ru',
 
-            'https://www.tinkoff.ru',
+            'https://tinkoff.ru',
             'https://auth.tcsbank.ru',
 
 
@@ -268,7 +259,6 @@ module.exports = new Map([
 
 
             // Russian resources from source 2
-            'https://tinkoff.ru',
             'https://178.248.236.218:77', // IP of tinkoff
 
             'https://194.54.14.186:53', // IP of sberbank
@@ -307,8 +297,6 @@ module.exports = new Map([
             'https://s3.tinkoff.ru',
             'https://tinkoff.ru/invest/account',
             'https://mobile.tinkoff.ru',
-
-            'https://nspk.ru',
 
 
 
@@ -375,12 +363,6 @@ module.exports = new Map([
 
             'https://172.67.74.48:53/udp', // IP of bitzlato.com
 
-            'https://acs.vendorcert.mirconnect.ru',
-            'https://ds1.mirconnect.ru',
-            'https://ds2.mirconnect.ru',
-            'https://uat-ds1.mirconnect.ru',
-            'https://uat-ds2.mirconnect.ru',
-
 
 
 
@@ -412,7 +394,6 @@ module.exports = new Map([
             'https://www.nornickel.com/',
             'https://www.surgutneftegas.ru/',
             'https://tatneft.ru/',
-            'https://www.evraz.com/ru/',
             'https://nlmk.com/',
             'https://www.sibur.ru/',
             'https://www.severstal.com/',
@@ -450,11 +431,7 @@ module.exports = new Map([
             'https://gruzovozkin.pro',
 
             'https://www.russianhighways.ru',
-            'https://www.nornickel.com',
-            'https://www.surgutneftegas.ru',
             'https://www.evraz.com',
-            'https://www.nlmk.com',
-            'https://www.metalloinvest.com',
 
             'https://rostec.ru/',
             'https://scloud.rostec.ru/login',
@@ -497,11 +474,11 @@ module.exports = new Map([
             'https://iecp.ru/ep/ep-verification',
             'https://iecp.ru/ep/uc-list',
             'https://uc-osnovanie.ru/',
-            'https://www.nucrf.ru',
+            'https://nucrf.ru',
             'https://www.belinfonalog.ru',
             'https://www.roseltorg.ru',
             'https://www.astralnalog.ru',
-            'https://www.nwudc.ru',
+            'https://nwudc.ru',
             'https://www.center-inform.ru',
             'https://kk.bank/UdTs',
             'https://structure.mil.ru/structure/uc/info.htm',
@@ -538,16 +515,8 @@ module.exports = new Map([
             'https://cfmc.ru',
 
             'https://esia.gosuslugi.ru',
-            'https://iecp.ru/ep/ep-verification',
             'https://e-trust.gosuslugi.ru',
             'https://gu.spb.ru',
-            'https://uc-osnovanie.ru/',
-
-            'https://iecp.ru/ep/uc-list',
-            'https://nucrf.ru/',
-            'https://www.roseltorg.ru/',
-            'https://nwudc.ru/',
-            'https://www.center-inform.ru/',
 
 
 
@@ -560,11 +529,6 @@ module.exports = new Map([
 
 
             // Russian resources from source 3
-            'https://iecp.ru/ep/uc-list',
-            'https://nucrf.ru/',
-            'https://www.roseltorg.ru/',
-            'https://nwudc.ru/',
-            'https://www.center-inform.ru/',
 
 
 
