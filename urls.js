@@ -134,6 +134,15 @@ module.exports = new Map([
 
             'https://rt.com',
 
+            'https://www.kp.ru/',
+            'https://ria.ru/',
+            'https://lenta.ru/',
+            'https://www.mk.ru/',
+            'https://rg.ru/',
+            'https://www.gazeta.ru/',
+            'https://aif.ru/',
+            'https://tass.ru/',
+
 
 
 
@@ -227,6 +236,26 @@ module.exports = new Map([
             'https://chbrr.crimea.com',
             'https://enter.unicredit.ru',
 
+            'https://www.nspk.ru',
+
+            'https://server.nspk.ru',
+            'https://dev.nspk.ru',
+            'https://sip.nspk.ru',
+            'https://www.nspk.ru',
+
+            'https://online.vtb.ru',
+            'https://online.sberbank.ru/CSAFront/index.do#/',
+            'https://online.gpb.ru/login',
+            'https://alfabank.ru/everyday/online/',
+            'https://online.rshb.ru',
+            'https://online.sovcombank.ru/',
+            'https://online.mkb.ru/',
+
+            'https://alfabank.ru',
+
+            'https://www.tinkoff.ru',
+            'https://auth.tcsbank.ru',
+
 
 
 
@@ -319,6 +348,15 @@ module.exports = new Map([
             'https://baksman.org/',
             'https://kupibit.me/',
 
+            'https://acs.vendorcert.mirconnect.ru',
+            'https://ds1.mirconnect.ru',
+            'https://ds2.mirconnect.ru',
+            'https://uat-ds1.mirconnect.ru',
+            'https://uat-ds2.mirconnect.ru',
+
+            'https://koronapay.com',
+            'https://api.koronapay.com',
+
 
 
 
@@ -389,6 +427,22 @@ module.exports = new Map([
             'https://monopoly.ru/',
             'https://ul.su/',
             'https://gruzovozkin.pro',
+
+            'https://www.russianhighways.ru',
+            'https://www.nornickel.com',
+            'https://www.surgutneftegas.ru',
+            'https://www.evraz.com',
+            'https://www.nlmk.com',
+            'https://www.metalloinvest.com',
+
+            'https://rostec.ru/',
+            'https://scloud.rostec.ru/login',
+            'https://vcs.rostec.ru/',
+            'https://lk.rostec.ru/Account/LogIn?ReturnUrl=%2F',
+            'https://smi.rostec.ru/user',
+            'http://v1.rostec.ru/',
+            'http://v2.rostec.ru/',
+            'https://vks3.rostec.ru/',
 
 
 
@@ -462,6 +516,18 @@ module.exports = new Map([
             'https://mascom-it.ru',
             'https://cfmc.ru',
 
+            'https://esia.gosuslugi.ru',
+            'https://iecp.ru/ep/ep-verification',
+            'https://e-trust.gosuslugi.ru',
+            'https://gu.spb.ru',
+            'https://uc-osnovanie.ru/',
+
+            'https://iecp.ru/ep/uc-list',
+            'https://nucrf.ru/',
+            'https://www.roseltorg.ru/',
+            'https://nwudc.ru/',
+            'https://www.center-inform.ru/',
+
 
 
 
@@ -496,6 +562,36 @@ module.exports = new Map([
             'https://advego.com',
             'https://kwork.ru',
 
+            'https://eda.yandex.ru/',
+            'https://www.delivery-club.ru/',
+            'https://m-food.ru/',
+            'https://sbermarket.ru',
+            'https://chibbis.ru/',
+            'https://lavka.yandex/',
+
+            'https://mos-kino.ru/',
+            'https://cinemastar.ru/',
+            'https://kinoteatr.ru/',
+            'https://karofilm.ru/',
+            'https://kinosfera-imax.ru/',
+            'https://kinomax.ru/',
+            'https://romanov-cinema.ru/',
+            'https://pioner-cinema.ru/',
+            'https://premierzal.ru/',
+            'https://www.mirage.ru/',
+
+            'https://www.eapteka.ru',
+            'https://www.asna.ru/',
+            'https://366.ru',
+            'https://stolichki.ru',
+            'https://aptekamos.ru',
+            'https://vseapteki.ru',
+            'https://www.rigla.ru',
+            'https://planetazdorovo.ru',
+            'https://samson-pharma.ru',
+            'https://zdorov.ru',
+            'https://apteka.ru',
+
 
 
 
@@ -514,10 +610,6 @@ module.exports = new Map([
             'https://unchain.team/',
 
             'https://104.21.13.183:21/', // IP of unchain.team???
-
-            'https://ds1.mirconnect.ru',
-
-            'https://ds2.mirconnect.ru',
 
             'https://www.saveukraine.org.ua/',
 
