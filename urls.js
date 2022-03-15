@@ -352,6 +352,12 @@ module.exports = new Map([
             'https://koronapay.com',
             'https://api.koronapay.com',
 
+            'https://bki-okb.ru/',
+            'https://www.nbki.ru/',
+
+            'https://www.equifax.ru/',
+            'https://www.banki.ru/',
+
 
 
 
@@ -375,6 +381,9 @@ module.exports = new Map([
             'https://pay.stg.mironline.ru',
             'https://pay.stg2.mironline.ru',
             'https://mmpa-test.mironline.ru',
+            'https://mir-pay.firebaseio.com',
+
+            'https://pay.stg.mironline.ru',
             'https://mir-pay.firebaseio.com',
 
 
@@ -581,6 +590,18 @@ module.exports = new Map([
             'https://samson-pharma.ru',
             'https://zdorov.ru',
             'https://apteka.ru',
+
+            'https://etpgpb.ru',
+            'https://api.etpgpb.ru',
+            'https://etp.gpb.ru/',
+            'https://passport.etpgpb.ru',
+            'https://gos.etpgpb.ru',
+            'https://inter-rao.etpgpb.ru',
+            'https://rosnedra.etpgpb.ru',
+            'https://gpn.etpgpb.ru',
+            'https://geh.etpgpb.ru',
+            'https://trade.etpgpb.ru',
+            'https://gb.etpgpb.ru',
 
 
 
