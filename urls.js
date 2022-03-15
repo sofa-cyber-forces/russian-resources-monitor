@@ -383,9 +383,6 @@ module.exports = new Map([
             'https://mmpa-test.mironline.ru',
             'https://mir-pay.firebaseio.com',
 
-            'https://pay.stg.mironline.ru',
-            'https://mir-pay.firebaseio.com',
-
 
 
 
