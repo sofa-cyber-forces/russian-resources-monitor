@@ -1,5 +1,6 @@
 const express = require('express')
 const https = require('https');
+const cors = require('cors');
 const fs = require('fs')
 const { networkInterfaces } = require('os')
 const request = require('request')
@@ -15,6 +16,7 @@ const PORT = 80
 
 app.disable('x-powered-by')
 app.use(express.json())
+app.use(cors())
 
 let sitesInfo = new AccessibilityInfo(urls)
 

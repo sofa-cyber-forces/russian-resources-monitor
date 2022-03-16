@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/sofa-cyber-forces/russian-resources-monitor#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.3",
     "request": "^2.88.2"
   }
