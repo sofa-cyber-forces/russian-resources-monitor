@@ -12,7 +12,7 @@ export class StatusLayoutComponent implements OnInit {
   @Input() categoryName: String = 'Category';
   @Input() siteStatuses: SiteStatus[] = [];
 
-  displayedColumns = ['url', 'success', 'statusCode'];
+  displayedColumns = ['url', 'success', 'statusCode', 'error', 'duration', 'size', 'updateTime'];
   dataSource: SiteStatus[] = [];
   constructor() { }
 
