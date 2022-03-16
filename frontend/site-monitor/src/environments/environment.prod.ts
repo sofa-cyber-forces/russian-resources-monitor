@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  ruEndpoint:'/rudata',
-  usEndpont:'/usdata'
+  usEndpoint:'http://runet-status-usa.v6.army/data',
+  ruEndpoint:'http://runet-status-rus.v6.army/data'
 };

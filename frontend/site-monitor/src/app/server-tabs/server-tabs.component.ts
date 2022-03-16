@@ -15,10 +15,10 @@ export class ServerTabsComponent implements OnInit {
   constructor(private statusService:StatusReceiverService) { }
 
   ngOnInit(): void {
-    this.ruCats=this.statusService.getData();
-    this.usCats=this.statusService.getData();
-    //this.statusService.getRuData().subscribe((data: any) => this.ruCats=data["categories"]);
-    //this.statusService.getUSData().subscribe((data: any) => this.usCats=data["categories"]);
+    //this.ruCats=this.statusService.getData();
+    //this.usCats=this.statusService.getData();
+    this.statusService.getRuData().subscribe((data: any) => this.ruCats = data["categories"]);
+    this.statusService.getUSData().subscribe((data: any) => this.usCats = data["categories"]);
   }
 
 }

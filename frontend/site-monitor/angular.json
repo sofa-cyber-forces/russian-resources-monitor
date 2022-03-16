@@ -68,17 +68,14 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "site-monitor:build",
-            "proxyConfig": "src/proxy.conf.json"
+            "browserTarget": "site-monitor:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "site-monitor:build:production",
-              "proxyConfig": "src/proxy.conf.json"
+              "browserTarget": "site-monitor:build:production"
             },
             "development": {
-              "browserTarget": "site-monitor:build:development",
-              "proxyConfig": "src/proxy.conf.json"
+              "browserTarget": "site-monitor:build:development"
             }
           },
           "defaultConfiguration": "development"

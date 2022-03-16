@@ -1,6 +1,6 @@
 import { SiteStatus } from "./siteStatus";
 
 export class Category{
-    name: String = '';
+    categoryName: String = '';
     sites: SiteStatus[] = [];     
 }

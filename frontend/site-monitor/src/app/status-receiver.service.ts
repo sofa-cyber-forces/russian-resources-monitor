@@ -13,7 +13,7 @@ export class StatusReceiverService {
 
   private data: Category[]=[
     {
-      name:'Media',
+      categoryName:'Media',
       sites: [
         {
           url:'url1.com',
@@ -45,7 +45,7 @@ export class StatusReceiverService {
       ]
     },
     {
-      name:'Financial',
+      categoryName:'Financial',
       sites: [
         {
           url:'url1.com',
@@ -83,12 +83,13 @@ export class StatusReceiverService {
   }
 
   getRuData(){
-    return this.data;
+    //return this.data;
     return this.http.get(environment.ruEndpoint);
   }
 
   getUSData(){
-    return this.data;
-    return this.http.get(environment.usEndpont)
+    //return this.data;
+    return this.http.get(environment.usEndpoint);
+
   }
 }

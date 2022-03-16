@@ -12,8 +12,6 @@ export class AppComponent {
   title = 'site-monitor';
 
   constructor(private dataService:StatusReceiverService){
-    this.stats = this.dataService.getData()
   }
 
-  stats: Category[];
 }
