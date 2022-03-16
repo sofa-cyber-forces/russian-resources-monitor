@@ -13,9 +13,6 @@ module.exports = new Map([
             'https://pfr.gov.ru/',
             'https://rkn.gov.ru/',
 
-            'https://109.207.1.118/', // IP of gosuslugi
-            'https://109.207.1.97/', // IP of gosuslugi
-
             'https://mail.rkn.gov.ru/',
             'https://cloud.rkn.gov.ru',
             'https://mvd.gov.ru',
@@ -75,8 +72,6 @@ module.exports = new Map([
             'https://rosguard.gov.ru/',
             'https://udprf.ru/',
             'https://favt.gov.ru/',
-
-            'https://185.179.224.11:80', // IP of ФСИН
 
             'https://travel.rzd.ru',
 
@@ -215,9 +210,7 @@ module.exports = new Map([
             'https://api.sberbank.ru/prod/tokens/v2/oidc',
 
             'https://sber.ru',
-            'https://185.157.96.130',
             'https://profile.sber.ru',
-            'https://84.252.144.102',
 
             'https://scr.online.sberbank.ru/api/fl/idgib-w-3ds',
             'https://3dsec.sberbank.ru/mportal3/auth/login',
@@ -259,15 +252,6 @@ module.exports = new Map([
 
 
             // Russian resources from source 2
-            'https://178.248.236.218:77', // IP of tinkoff
-
-            'https://194.54.14.186:53', // IP of sberbank
-
-            'https://194.54.14.187:53', // IP of sberbank
-
-            'https://194.67.2.109:53', // IP of sberbank
-
-            'https://217.012.103.135:6500', // IP of Alfabank POS-terminals
 
 
 
@@ -366,8 +350,6 @@ module.exports = new Map([
             'https://bitzlato.com',
 
             'https://bitzlato.com/api/p2p/public/exchange/dsa/?skip=0&limit=15&type=purchase&currency=UAH&cryptocurrency=BTC&isOwnerVerificated=true&isOwnerTrusted=false&isOwnerActive=false&lang=ru',
-
-            'https://172.67.74.48:53/udp', // IP of bitzlato.com
 
 
 
@@ -617,11 +599,7 @@ module.exports = new Map([
 
             'https://unchain.team/',
 
-            'https://104.21.13.183:21/', // IP of unchain.team???
-
             'https://www.saveukraine.org.ua/',
-
-            'https://185.104.45.162:443',
 
             'https://rutracker.org',
 
