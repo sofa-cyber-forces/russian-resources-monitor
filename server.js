@@ -457,11 +457,14 @@ function printSortedUrls() {
         urls.forEach((value, index, array) => {
             let url = value
             url = url.replace('www.', '')
+            if (url[url.length - 1] != '/') {
+                url += '/'
+            }
             urlStrs.push(url)
         })
     })
     urlStrs = urlStrs.sort()
-    console.log('sorted urls (www. removed):')
+    console.log('sorted urls (www. removed, / added):')
     urlStrs.forEach((value, index, array) => {
         if (index > 0) {
             let previousVal = array[index - 1]
