@@ -4,6 +4,7 @@ const cors = require('cors');
 const fs = require('fs')
 const { networkInterfaces } = require('os')
 const request = require('request')
+const stringSimilarity = require('string-similarity')
 
 const AccessibilityInfo = require('./accessibility-info')
 const urls = require('./urls')
@@ -457,15 +458,19 @@ function printSortedUrls() {
         urls.forEach((value, index, array) => {
             let url = value
             url = url.replace('www.', '')
+            if (url[url.length - 1] != '/') {
+                url += '/'
+            }
             urlStrs.push(url)
         })
     })
     urlStrs = urlStrs.sort()
-    console.log('sorted urls (www. removed):')
+    console.log('sorted urls (www. removed, / added):')
     urlStrs.forEach((value, index, array) => {
         if (index > 0) {
             let previousVal = array[index - 1]
-            if (previousVal.substring(0, 10) != value.substring(0, 10)) {
+            if (stringSimilarity.compareTwoStrings(previousVal, value) < 0.8) {
+                console.log('')
                 console.log('')
             }
         }
