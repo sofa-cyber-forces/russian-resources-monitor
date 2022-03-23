@@ -141,13 +141,7 @@ module.exports = new Map([
             'https://tass.ru/',
 
             'https://topcor.ru',
-            'https://ria.ru/',
-            'https://lenta.ru/',
-            'https://kp.ru/',
             'https://iz.ru/',
-            'https://www.gazeta.ru/',
-            'https://tass.ru/',
-            'https://rg.ru/',
 
             'https://www.chechnya.online/ru/',
             'http://vesti95.ru',
@@ -363,9 +357,6 @@ module.exports = new Map([
             'https://www.equifax.ru/',
             'https://www.banki.ru/',
 
-            'https://koronapay.com',
-            'https://api.koronapay.com',
-
             'https://belqi.net/',
             'https://50cents.pro/',
             'https://www.pay.24online.cc/',
@@ -527,7 +518,6 @@ module.exports = new Map([
             'https://www.astralnalog.ru',
             'https://nwudc.ru',
             'https://www.center-inform.ru',
-            'https://kk.bank/UdTs',
             'https://structure.mil.ru/structure/uc/info.htm',
             'https://www.ucpir.ru',
             'https://dreamkas.ru',
@@ -535,7 +525,6 @@ module.exports = new Map([
             'https://izhtender.ru',
             'https://imctax.parus-s.ru',
             'https://www.icentr.ru',
-            'https://www.kartoteka.ru',
             'https://rsbis.ru/elektronnaya-podpis',
             'https://www.stv-it.ru',
             'https://www.crypset.ru',
@@ -565,11 +554,8 @@ module.exports = new Map([
             'https://e-trust.gosuslugi.ru',
             'https://gu.spb.ru',
 
-            'https://esia.gosuslugi.ru',
             'https://rostelecom.ru',
-            'https://e-trust.gosuslugi.ru',
             'https://www.company.rt.ru/',
-            'https://uc-osnovanie.ru/',
             'http://www.belinfonalog.ru',
             'http://www.astralnalog.ru',
             'https://kk.bank/UdTs',
