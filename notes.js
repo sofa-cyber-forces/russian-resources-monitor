@@ -5,4 +5,7 @@ module.exports = new Map([
 
     ['https://ukraine-war.pw', 'Russian fake'],
     ['https://saveli.fe.pw', 'Russian fake'],
+
+    ['https://comebackalive.info/', 'Russian fake'],
+    ['https://www.ukcomebackalive.com', 'Russian fake'],
 ])

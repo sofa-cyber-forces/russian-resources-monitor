@@ -42,6 +42,12 @@ module.exports = new Map([
             'https://krd.ru',
             'https://www.stavregion.ru',
 
+            'https://grozmer.ru/',
+            'https://gudermes.net/',
+            'http://www.meriya-urus-martana.ru/',
+            'https://www.minfinchr.ru/',
+            'http://pgu.gov-chr.ru/',
+
 
 
 
@@ -133,6 +139,12 @@ module.exports = new Map([
             'https://rg.ru/',
             'https://aif.ru/',
             'https://tass.ru/',
+
+            'https://topcor.ru',
+            'https://iz.ru/',
+
+            'https://www.chechnya.online/ru/',
+            'http://vesti95.ru',
 
 
 
@@ -247,6 +259,9 @@ module.exports = new Map([
             'https://tinkoff.ru',
             'https://auth.tcsbank.ru',
 
+            'https://online.sberbank.ru/',
+            'https://portal5.cbr.ru/',
+
 
 
 
@@ -342,6 +357,10 @@ module.exports = new Map([
             'https://www.equifax.ru/',
             'https://www.banki.ru/',
 
+            'https://belqi.net/',
+            'https://50cents.pro/',
+            'https://www.pay.24online.cc/',
+
 
 
 
@@ -430,6 +449,37 @@ module.exports = new Map([
             'http://v2.rostec.ru/',
             'https://vks3.rostec.ru/',
 
+            'https://kontur.ru/',
+
+            'https://spark-interfax.ru/',
+            'https://sbis.ru/',
+            'https://www.kartoteka.ru/',
+            'https://casebook.ru/',
+
+            'https://credinform.ru',
+            'https://company.myseldon.com/',
+            'https://globalstat.ru/',
+            'http://egrul-base.ru/',
+            'https://datalegal.ru/',
+
+            'http://vaynahavia.com/',
+
+            'https://www.tutu.ru/',
+
+            'https://turskidki.ru/',
+            'https://anex-tour.ru/',
+            'https://www.bankturov.ru/',
+            'https://www.1001tur.ru/',
+            'https://tours.tutu.ru/',
+            'https://travelata.ru/',
+
+            'https://f.tele2.ru/',
+            'https://bitrix24.ru',
+            'https://www.bitrix24.net/',
+            'https://bitrix24.by/',
+
+            'https://boxberry.ru/',
+
 
 
 
@@ -468,7 +518,6 @@ module.exports = new Map([
             'https://www.astralnalog.ru',
             'https://nwudc.ru',
             'https://www.center-inform.ru',
-            'https://kk.bank/UdTs',
             'https://structure.mil.ru/structure/uc/info.htm',
             'https://www.ucpir.ru',
             'https://dreamkas.ru',
@@ -476,7 +525,6 @@ module.exports = new Map([
             'https://izhtender.ru',
             'https://imctax.parus-s.ru',
             'https://www.icentr.ru',
-            'https://www.kartoteka.ru',
             'https://rsbis.ru/elektronnaya-podpis',
             'https://www.stv-it.ru',
             'https://www.crypset.ru',
@@ -505,6 +553,25 @@ module.exports = new Map([
             'https://esia.gosuslugi.ru',
             'https://e-trust.gosuslugi.ru',
             'https://gu.spb.ru',
+
+            'https://rostelecom.ru',
+            'https://www.company.rt.ru/',
+            'http://www.belinfonalog.ru',
+            'http://www.astralnalog.ru',
+            'https://kk.bank/UdTs',
+            'http://www.ucpir.ru',
+            'http://www.e-portal.ru',
+            'http://izhtender.ru',
+
+            'http://www.icentr.ru',
+            'http://rsbis.ru/elektronnaya-podpis',
+            'http://www.stv-it.ru',
+            'http://www.kt-69.ru',
+            'http://www.24ecp.ru',
+            'http://kraskript.com',
+            'http://www.y-center.ru',
+            'http://www.rcarus.ru',
+            'http://ca.gisca.ru',
 
 
 
@@ -582,6 +649,9 @@ module.exports = new Map([
             'https://trade.etpgpb.ru',
             'https://gb.etpgpb.ru',
 
+            'https://comebackalive.info/', // Russian fake
+            'https://www.ukcomebackalive.com', // Russian fake
+
 
 
 
@@ -612,6 +682,8 @@ module.exports = new Map([
             'https://saveli.fe.pw', // fake
 
             'https://ok.ru',
+
+            'https://ruzsia.com/',
 
 
 
