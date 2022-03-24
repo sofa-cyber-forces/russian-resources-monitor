@@ -487,8 +487,6 @@ module.exports = new Map([
             'https://www.bitrix24.net/',
             'https://bitrix24.by/',
 
-            'https://boxberry.ru/',
-
 
 
 
