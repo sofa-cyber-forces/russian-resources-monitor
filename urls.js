@@ -48,6 +48,15 @@ module.exports = new Map([
             'https://www.minfinchr.ru/',
             'http://pgu.gov-chr.ru/',
 
+            'http://www.ved.gov.ru/',
+            'https://www.mid.ru/',
+            'https://www.economy.gov.ru/',
+            'https://minobrnauki.gov.ru',
+
+            'https://parking.mos.ru',
+            'http://parking.spb.ru',
+            'https://parkingkrd.ru',
+
 
 
 
@@ -651,6 +660,13 @@ module.exports = new Map([
 
             'https://comebackalive.info/', // Russian fake
             'https://www.ukcomebackalive.com', // Russian fake
+
+            'https://boxberry.ru/',
+            'https://account.boxberry.ru/',
+            'https://api.boxberry.ru',
+            'https://lk.boxberry.ru',
+            'https://service.boxberry.ru',
+            'https://sd.boxberry.ru',
 
 
 
